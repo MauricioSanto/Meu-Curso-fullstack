@@ -1,0 +1,15 @@
+1 - Para usar os arquivos .alg você precisa instalar o programa Visual Studio Code. Acesse o Google e digite Visual Studio Code ou apenas VsCode.
+
+2 - Após isso abra o VsCode e no botão lateral a esquerda clique em extensões, na caixa de busca que aparecer digite: "portugol". No resultado que aparecer selecione e instale a extensão "Design Líquido - Linguagens em Português".
+
+3 - Após isso já pode abrir e criar arquivos .alg. Para executar um código clique na tecla F5, ou clique no botão lateral esquerdo do VsCode "Executar e Depurar", depois clique em "Executar".
+
+
+
+LINKS ÚTEIS:
+
+- Documentação Oficial do Visual Alg:
+	https://visualg3.com.br/tabelas/
+
+- Exemplos de códigos com o Visual Alg:
+	https://github.com/DesignLiquido/vscode/tree/principal/exemplos/visualg
