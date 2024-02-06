@@ -12,6 +12,7 @@ async function buscarProdutos() {           // Cria uma função assíncrona(pau
 
 function exibirProdutos(produtos) {
     console.log(produtos)
+    
     for (let x in produtos){
         inserirProduto.innerHTML += `
         <li class="produtos__item">

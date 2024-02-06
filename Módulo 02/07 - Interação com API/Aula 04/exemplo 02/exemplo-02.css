@@ -1,0 +1,11 @@
+h1{
+    color:blue
+}
+.titulo{
+    color: cadetblue;
+}
+.secador{
+    border: 2px solid #000;
+    width: fit-content;
+    
+}
