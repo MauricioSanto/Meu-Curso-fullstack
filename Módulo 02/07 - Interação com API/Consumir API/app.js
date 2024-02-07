@@ -1,4 +1,4 @@
-let endpoint = 'https://raw.githubusercontent.com/RamonMartins/Curso-Tec.-Inform.-Internet/master/M%C3%B3dulo%2002/06%20-%20Codifica%C3%A7%C3%A3o%20para%20Front-End/3%20-%20JavaScript/Consumir%20API/produtos.json'
+let endpoint = 'https://raw.githubusercontent.com/MauricioSanto/Meu-Curso-fullstack/master/M%C3%B3dulo%2002/07%20-%20Intera%C3%A7%C3%A3o%20com%20API/Consumir%20API/produtos.json'
 
 let produtos = []
 let inserirProduto = document.getElementById('produtos__lista')
