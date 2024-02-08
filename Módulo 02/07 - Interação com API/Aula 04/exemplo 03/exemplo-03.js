@@ -27,7 +27,7 @@ async function procurar(){
               heigth= "280"
               >
               <p> ${humano[vida].nome} </p>
-              <p>${humano[vida].idade}</p>
+              <p>${humano[vida].idade} anos</p>
               <p> ${humano[vida].profissão}</p>
           </div>
       </div>
