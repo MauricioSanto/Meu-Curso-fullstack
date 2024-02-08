@@ -18,7 +18,7 @@ async function procurar(){
                 <p>${produtos[produto].descricao}</p>
                 <div class="valores">
                     <span>R$ ${produtos[produto].valorComDesconto}</span>
-                    <span>R$ ${produtos[produto].valorSemDesconto}</span>
+                    <span class="menor">R$ ${produtos[produto].valorSemDesconto}</span>
                 </div>
                 <p>${produtos[produto].tipoEntrega}</p>
                 

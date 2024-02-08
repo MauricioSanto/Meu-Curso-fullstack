@@ -1,12 +1,14 @@
 body{
     display: flex;
     flex-wrap: wrap;
+    
 }
+/*
 .valor{
     display: flex;
     font-weight: bold; 
 }
-
+*/
 .secador{
     border: 2px solid #000 ;
     width: fit-content;
@@ -14,7 +16,8 @@ body{
     margin: 10px;
     
 }
-s{
+
+.menor{
     color: red;
     text-decoration:line-through
     
