@@ -6,7 +6,6 @@ body{
 .secador{
     border: 2px solid #000 ;
     width: fit-content;
-    float: left;
     margin: 10px;
     text-align: center;
     
