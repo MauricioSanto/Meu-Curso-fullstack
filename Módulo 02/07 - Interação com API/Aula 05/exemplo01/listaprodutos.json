@@ -1,5 +1,6 @@
 [
     {
+        "id" : 1,
         "img":"https://a-static.mlcdn.com.br/280x210/geladeira-refrigerador-esmaltec-degelo-manual-1-porta-branco-245l-roc31/magazineluiza/013019401/49718d1f8af0701ae08b22ea6a3b32cf.jpg",
         "nome":"Geladeira",
         "descrição":"Refrigerador Esmaltec Degelo Manual",
@@ -8,6 +9,7 @@
 
     },
     {
+        "id" : 2,
         "img":"https://a-static.mlcdn.com.br/280x210/cooktop-4-bocas-mondial-a-gas-glp-preto-ctg-01/magazineluiza/227131600/3d814a4116950de1313749741d81b95f.jpg",
         "nome":"Cooktop 4 Bocas",
         "descrição":"Cooktop 4 Bocas Mondial a Gás GLP Preto",
@@ -16,6 +18,7 @@
   
     },
     {
+        "id": 3,
         "img":"https://a-static.mlcdn.com.br/280x210/lavadora-de-roupas-electrolux-lac12-12kg-cesto-inox-12-programas-de-lavagem/magazineluiza/010557100/06a573c6264c67fd51ad6cf618a7e744.jpg",
         "nome":"Lavadora de Roupas",
         "descrição":"Lavadora de Roupas Electrolux LAC12",
@@ -24,22 +27,25 @@
 
     },
     {
+        "id": 4,
         "img":"https://a-static.mlcdn.com.br/280x210/fogao-4-bocas-esmaltec-branco-bali-4111/magazineluiza/236594000/3a0951df487cddcce368d55ad8438464.jpg",
         "nome":"Fogão 4 Bocas",
-        "descrição":"Fogão 4 Bocas Esmaltec Branco Bali 4111",
+        "descrição":"Fogão 4 Bocas Esmaltec Branco",
         "valorComDesconto": 588.05,
         "valorSemDesconto": 899.00
 
     },
     {
+        "id": 5,
         "img":"https://a-static.mlcdn.com.br/280x210/maquina-de-lavar-frontal-electrolux-11kg-inverter-premium-care-com-agua-quente-vapor-lfe11/electrolux/2004332/9ca943f6b429684742bfb8b874e2c88a.jpeg",
         "nome":"Máquina de Lavar",
-        "descrição":"Máquina de Lavar Frontal Electrolux 11kg Inverter Premium Care com Água Quente/Vapor (LFE11)",
+        "descrição":"Máquina de Lavar Frontal Electrolux 11kg Inverter",
         "valorComDesconto": 3299.00,
         "valorSemDesconto": 3721.00
 
     },
     {
+        "id": 6,
         "img":"https://a-static.mlcdn.com.br/280x210/forno-eletrico-de-bancada-mondial-com-timer-52l-preto-e-prata-grand-family-ii-fr-52/magazineluiza/236566500/b1c695743dfbbb672b907a8158b85083.jpg",
         "nome":"Forno Elétrico",
         "descrição":"Forno Elétrico de Bancada Mondial com Timer",
