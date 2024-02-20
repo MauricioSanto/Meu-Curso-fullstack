@@ -1,4 +1,21 @@
+
 .maior{
     color: red;
     text-decoration: line-through;
 }
+.card{
+    border: 2px solid #000;
+    width: 250px;
+    
+
+    
+    
+    
+     
+}
+.lista-card{
+    display: flex
+
+    
+}
+

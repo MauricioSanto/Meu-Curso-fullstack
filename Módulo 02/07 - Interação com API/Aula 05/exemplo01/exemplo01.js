@@ -1,4 +1,4 @@
-
+/*
 let urlprodutos = "https://raw.githubusercontent.com/MauricioSanto/Meu-Curso-fullstack/master/M%C3%B3dulo%2002/07%20-%20Intera%C3%A7%C3%A3o%20com%20API/Aula%2005/exemplo01/listaprodutos.json"
 
 async function busca(){
@@ -24,17 +24,28 @@ async function busca(){
     }
   }
   busca()
+*/
 
-/*
 async function busca(){
     let procura = await fetch("listaprodutos.json")
     let produtos = await procura.json()
     //console.log(produtos)
     let listdiv = document.getElementById("lista-card")
-    for(let item in produtos){
-        listdiv.innerHTML += `<h1>${produtos[item].nome}</h1>`
+    for(let item of produtos){
+        listdiv.innerHTML += `
+            <div class="card">
+                <img src="${item.img}" width="250" height="auto">
+                <h3>${item.nome}</h3>
+                <p>${item.descrição}</p>
+                <div>
+                    <span> R$ ${(item.valorComDesconto).toFixed(2).replace(".",",")}</span>
+                    <span class="maior"> R$ ${(item.valorSemDesconto).toFixed(2).replace(".",",")}</span>
+                   
+                </div>
+                
+            </div>
+        `
     }
 
 }
 busca()
-*/
