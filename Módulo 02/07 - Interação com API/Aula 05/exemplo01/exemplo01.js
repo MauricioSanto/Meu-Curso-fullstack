@@ -34,7 +34,7 @@ async function busca(){
     for(let item of produtos){
         listdiv.innerHTML += `
             <div class="card">
-                <img src="${item.img}" width="250" height="auto">
+                <img src="${item.img}" width="250" height="250">
                 <h3>${item.nome}</h3>
                 <p>${item.descrição}</p>
                 <div>
