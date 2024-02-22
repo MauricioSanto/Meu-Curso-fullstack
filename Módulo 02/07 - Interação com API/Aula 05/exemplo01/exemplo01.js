@@ -34,15 +34,17 @@ async function busca(){
     for(let item of produtos){
         listdiv.innerHTML += `
             <div class="card">
-                <img src="${item.img}" width="250" height="250">
-                <h3>${item.nome}</h3>
-                <p>${item.descrição}</p>
-                <div>
-                    <span> R$ ${(item.valorComDesconto).toFixed(2).replace(".",",")}</span>
-                    <span class="maior"> R$ ${(item.valorSemDesconto).toFixed(2).replace(".",",")}</span>
-                   
+                <div class="grupo-img">
+                    <img src="${item.img}" width="auto" height="auto">
                 </div>
-                
+                <div class="textos>
+                    <h3>${item.nome}</h3>
+                    <p>${item.descrição}</p>
+                    <div>
+                        <span class="comDesconto"> R$ ${(item.valorComDesconto).toFixed(2).replace(".",",")}</span>
+                        <span class="maior"> R$ ${(item.valorSemDesconto).toFixed(2).replace(".",",")}</span>
+                    </div>
+                </div>
             </div>
         `
     }

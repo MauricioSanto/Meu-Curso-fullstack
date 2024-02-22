@@ -1,0 +1,75 @@
+[
+    {
+        "id": 0,
+        "img":"https://img.lojadomecanico.com.br/256/21/223/387698/parafusadeira-furadeira-38-pol-20v-com-bateria-e-carregador-bivolt-1685387566805.JPG",
+        "nome":"parafusadeira",
+        "descrição":"parafusadeira eletrica 20v com bateria",
+        "preçoComDesconto":899.90,
+        "preçoSemDesconto":999.90
+    },
+    {
+        "id": 1,
+        "img":"https://img.lojadomecanico.com.br/256/21/227/127610/1671106469433.JPG",
+        "nome":"politriz",
+        "descrição":"politriz angular com velocidade variável",
+        "preçoComDesconto":299.99,
+        "preçoSemDesconto":459.60
+    },
+    {
+        "id": 2,
+        "img":"https://img.lojadomecanico.com.br/256/21/224/140421/1664384183644.JPG",
+        "nome":"serra tico-tico",
+        "descrição":"serra tico-tico 400w 220v com lamina de corte",
+        "preçoComDesconto":150.49,
+        "preçoSemDesconto":219.49
+    },
+    {
+        "id": 3,
+        "img":"https://img.lojadomecanico.com.br/256/21/225/120856/Moto-Esmeril-de-Bancada-6-Pol-360W-12CV--fortgpro-fg0501.JPG",
+        "nome":"moto-esmeril",
+        "descrição":"moto-esmeril de bancada 360w 12cv",
+        "preçoComDesconto":179.99,
+        "preçoSemDesconto":219.99
+    },
+    {
+        "id": 4,
+        "img":"https://img.lojadomecanico.com.br/256/21/224/127613/1675769706466.JPG",
+        "nome":"serra marmore",
+        "descrição":"serra marmore 1050w 220v",
+        "preçoComDesconto":958.50,
+        "preçoSemDesconto":1158.50
+    },
+    {
+        "id": 5,
+        "img":"https://img.lojadomecanico.com.br/256/21/159/346300/1699984397014.JPG",
+        "nome":"compressor de ar ",
+        "descrição":"compressor de ar 20L 2hp 220v chiaperini",
+        "preçoComDesconto":1850.49,
+        "preçoSemDesconto":2050.49
+    },
+    {
+        "id": 6,
+        "img":"https://img.lojadomecanico.com.br/imagens-home/laterais/1708450451161.jpeg",
+        "nome":"carrinho para ferramentas",
+        "descrição":"carrinho para ferramentas fortGpro com 7 gavetas",
+        "preçoComDesconto":1852.50,
+        "preçoSemDesconto":2000.00
+    },
+    {
+        "id": 7,
+        "img":"https://img.lojadomecanico.com.br/imagens-home/rotativos/vitrine_01_210224.jpg",
+        "nome":"Betoneira",
+        "descrição":"Betoneira max pro 2cv 400L",
+        "preçoComDesconto":1852.50,
+        "preçoSemDesconto":2000.00
+    },
+    {
+        "id": 8,
+        "img":"https://img.lojadomecanico.com.br/imagens-home/rotativos/vitrine_02_200224.jpg",
+        "nome":"máquina de solda",
+        "descrição":"máquina de solda multiprocessos MIG / TIG 220v",
+        "preçoComDesconto":649.99,
+        "preçoSemDesconto":849.99
+    } 
+       
+]
