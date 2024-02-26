@@ -33,21 +33,33 @@ async function busca(){
     let listdiv = document.getElementById("lista-card")
     for(let item of produtos){
         listdiv.innerHTML += `
-            <div class="card">
+            <div class="card" data-id="${item.id}">
                 <div class="grupo-img">
-                    <img src="${item.img}" width="auto" height="auto">
+                    <img src="${item.img}" width="200" height="auto">
                 </div>
-                <div class="textos>
+                <div class="textos">
                     <h3>${item.nome}</h3>
                     <p>${item.descrição}</p>
                     <div>
-                        <span class="comDesconto"> R$ ${(item.valorComDesconto).toFixed(2).replace(".",",")}</span>
-                        <span class="maior"> R$ ${(item.valorSemDesconto).toFixed(2).replace(".",",")}</span>
+                        <span>De</span> <span class="maior">R$ ${(item.valorSemDesconto).toFixed(2).replace(".",",")}</span>
+                        <span class="comDesconto">Por R$ ${(item.valorComDesconto).toFixed(2).replace(".",",")}</span>
                     </div>
                 </div>
             </div>
         `
     }
+    let elementoscard = document.querySelectorAll(".card")
+    for(let cards of elementoscard){
+        cards.addEventListener("click",clicou)
+
+    }
 
 }
 busca()
+
+function clicou(){
+    let itemId = this.getAttribute("data-id")
+    //alert("card"+ itemId)
+    window.location.href = "detalhes.html?ID=" + itemId
+}
+

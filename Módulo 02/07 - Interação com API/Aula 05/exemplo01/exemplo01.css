@@ -2,9 +2,10 @@
 .maior{
     color: red;
     text-decoration: line-through;
-    font-size: 17px;
+    
 }
 .card{
+
     border: 2px solid #000;
     width: 250px;
     border-radius: 10px;
@@ -14,6 +15,8 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    margin: 20px;
+    cursor: pointer;
 
      
 }
@@ -21,14 +24,14 @@
     
     display: flex;
     flex-wrap: wrap;
-    row-gap: 20px;
-    column-gap: 15px;
+    
+    
 }
 .card:hover{
     background-color: aquamarine !important;
 }
 .grupo-img{
-    width: 250px;
+    width: 200px;
     height: 150px;
     display: flex;
     flex-direction: row;
@@ -41,6 +44,7 @@
     display: flex;
     flex-direction:column;
     align-items: center;
+     
 
 }
 

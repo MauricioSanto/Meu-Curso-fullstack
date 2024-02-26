@@ -7,7 +7,7 @@ async function vai(){
         listdiv.innerHTML += `
             <div class="card">
                 
-                <img src="${item.img}" width="auto" height="auto">
+                <img src="${item.img}" width="200" height="auto">
                 
                 
                 <h3>${item.nome}</h3>
