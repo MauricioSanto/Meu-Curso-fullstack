@@ -1,6 +1,6 @@
 async function buscar(){
     let buscaparametro = new URLSearchParams(window.location.search)
-    let parametroid = buscaparametro.get("id")
+    let parametroid = buscaparametro.get("ID")
     //alert(parametroid)
     let procura = await fetch("listaprodutos.json")
     let produtos = await procura.json()
@@ -12,6 +12,7 @@ async function buscar(){
         }
     }
     alert(indice)
+
     document.body.innerHTML = `<h1>${produtos[indice].nome}</h1>
     `
 }

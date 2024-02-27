@@ -1,0 +1,51 @@
+
+.maior{
+    color: red;
+    text-decoration: line-through;
+    
+}
+.card{
+
+    border: 2px solid #000;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 8px rgba(146,146,146, 146);
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+
+     
+}
+.lista-card{
+    
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+.card:hover{
+    background-color: aquamarine !important;
+}
+.grupo-img{
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.textos{
+    justify-content: space-between;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+     
+
+}
+
+
