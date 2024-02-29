@@ -27,7 +27,7 @@ async function busca(){
 */
 
 async function busca(){
-    let procura = await fetch("listaprodutos.json")
+    let procura = await fetch("carrosImpor.json")
     let produtos = await procura.json()
     //console.log(produtos)
     let listdiv = document.getElementById("lista-card")
@@ -35,15 +35,18 @@ async function busca(){
         listdiv.innerHTML += `
             <div class="card" data-id = "${item.id}">
                 <div class="grupo-img">
-                    <img src="${item.img}" width="200" height="auto">
+                    <img src="${item.img}" width="250" height="auto">
                 </div>
                 <div class="textos">
                     <h3>${item.nome}</h3>
-                    <p>${item.descrição}</p>
+                    <p> Descrição: ${item.Descrição}</p>
                     <div>
-                        <span>De</span> <span class="maior">R$ ${(item.valorSemDesconto).toFixed(2).replace(".",",")}</span>
-                        <span class="comDesconto">Por R$ ${(item.valorComDesconto).toFixed(2).replace(".",",")}</span>
+                       <p> R$ ${item.Preço}</p>
+                       <p> Ano ${item.Ano}</P>
+                       <p> KM ${item.Quilometragem}</p>
+                        
                     </div>
+
                 </div>
             </div>
         `
@@ -61,6 +64,17 @@ function cliquei(){
     let elementoId = this.getAttribute("data-id")
     window.location.href = "detalhes.html?id=" + elementoId
 }
+//inserir uma imagem como pano de fundo 
+const meuElemento = document.getElementById("meu-elemento");
+meuElemento.style.backgroundImage = "url('https://i.pinimg.com/originals/cb/8a/56/cb8a56874b79f36066b8cf28e1393c5e.jpg')"
+/*inserir uma imagem no corpo da pagina ou body
+function inserirImagem(url){
+    const img = document.createElement("img");
+    img.src = url;
+    document.body.appendChild(img);
+}
+inserirImagem("https://i.pinimg.com/originals/cb/8a/56/cb8a56874b79f36066b8cf28e1393c5e.jpg")
+*/
 
 
 

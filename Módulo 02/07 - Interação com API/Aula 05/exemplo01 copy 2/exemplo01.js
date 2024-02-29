@@ -33,7 +33,7 @@ async function busca(){
     let listdiv = document.getElementById("lista-card")
     for(let item of produtos){
         listdiv.innerHTML += `
-            <div class="card">
+            <div class="card" data-id="${item.id}>
                 <div class="grupo-img">
                     <img src="${item.img}" width="200" height="auto">
                 </div>
@@ -48,9 +48,19 @@ async function busca(){
             </div>
         `
     }
+
+    let elementosCards = document.querySelectorAll(".card")
+    for (let card of elementosCards){
+        card.addEventListener("click",clicou)
+    }
    
 }
 busca()
+
+function clicou(){
+    elementoID =  this.getAttributte("data-id")
+    window.location.href = "detalhes.html?pro-id=" + elementoID
+}
 
 
 

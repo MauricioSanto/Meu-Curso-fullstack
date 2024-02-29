@@ -16,10 +16,12 @@
     display: flex;
     justify-content: center;
     margin: 20px;
+    cursor: pointer;
 
 
      
 }
+/*
 .lista-card{
     
     display: flex;
@@ -27,6 +29,7 @@
     
     
 }
+*/
 .card:hover{
     background-color: aquamarine !important;
 }
@@ -38,6 +41,7 @@
     justify-content: center;
 
 }
+/*
 .textos{
     justify-content: space-between;
     height: 100%;
@@ -47,5 +51,6 @@
      
 
 }
+*/
 
 
