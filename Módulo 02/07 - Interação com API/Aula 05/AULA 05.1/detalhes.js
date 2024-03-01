@@ -16,6 +16,7 @@ async function buscar(){
     <h3>${produtos[inprod].nome}</h3>
     <p> condições especiais de parcelamento pra você entre em contato 
     conosco através dos nossos canais: instagram, facebook e whatsApp</p>
+    <img src="${produtos[inprod].img}">
     
     `
 
