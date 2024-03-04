@@ -27,7 +27,7 @@ async function busca(){
 */
 
 async function busca(){
-    let procura = await fetch("listaprodutos.json")
+    let procura = await fetch("carrosImpor.json")
     let produtos = await procura.json()
     //console.log(produtos)
     let listdiv = document.getElementById("lista-card")
@@ -35,14 +35,16 @@ async function busca(){
         listdiv.innerHTML += `
             <div class="card">
                 <div class="grupo-img">
-                    <img src="${item.img}" width="200" height="auto">
+                    <img src="${item.img}" width="250" height="auto">
                 </div>
                 <div class="textos">
                     <h3>${item.nome}</h3>
-                    <p>${item.descrição}</p>
+                    <p>${item.Descrição}</p>
                     <div>
-                        <span>De</span> <span class="maior">R$ ${(item.valorSemDesconto).toFixed(2).replace(".",",")}</span>
-                        <span class="comDesconto">Por R$ ${(item.valorComDesconto).toFixed(2).replace(".",",")}</span>
+                        <p> Valor R$: ${item.Preço}</p>
+                        <p> Ano: ${item.Ano}</p>
+                        <p> Km : ${item.Quilometragem}</p>
+
                     </div>
                 </div>
             </div>

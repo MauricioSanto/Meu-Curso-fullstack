@@ -23,6 +23,9 @@ async function buscar(){
 }
 
 buscar()
+const meuElemento = document.getElementById("corpo");
+meuElemento.style.backgroundImage = "url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg')"
+
 /*function inserirImagem(url){
     const img = document.createElement("img");
     img.src = url;

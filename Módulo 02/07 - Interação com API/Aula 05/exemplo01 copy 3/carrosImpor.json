@@ -4,7 +4,7 @@
         "img": "https://www.choosethemoon.com/images/anuncios50/-ferrari-california-sm.jpg",
         "nome": "FERRARI CALIFORNIA",
         "Descrição": "gasolina, 2 portas, 490cv de potência",
-        "Preço": 1300000.00,
+        "Preço": 1300000,
         "Ano": 2016,
         "Quilometragem": 12512
 
@@ -14,7 +14,7 @@
         "img": "https://www.choosethemoon.com/images/anuncios50/porsche-911-gt-3-sm.jpg",
         "nome": "PORSCHE 911 GT3",
         "Descrição": "gasolina, 2 portas, 390cv de potência",
-        "Preço":899000.00,
+        "Preço":899000,
         "Ano": 2017,
         "Quilometragem":17540
     },
@@ -23,7 +23,7 @@
         "img": "https://www.choosethemoon.com/images/anuncios50/mercedes-benz-amg-gt-s-sm.jpg",
         "nome": "MERCEDES-BENZ AMG GT",
         "Descrição": "gasolina, 2 portas, 470cv de potência",
-        "Preço": 958000.00,
+        "Preço": 958000,
         "Ano": 2019,
         "Quilometragem": 18500
     },
@@ -32,7 +32,7 @@
         "img":"https://www.choosethemoon.com/images/anuncios50/porsche-boxster-27-pdk-sm.jpg",
         "nome":"PORSCHE BOXSTER",
         "Descrição":"gasolina, 2 portas, 300cv de potência",
-        "Preço": 550000.00,
+        "Preço": 550000,
         "Ano": 2016,
         "Quilometragem": 6800
     },
@@ -41,7 +41,7 @@
         "img": "https://www.choosethemoon.com/images/anuncios50/mercedes-sls-63-amg-sm.jpg",
         "nome":"MERCEDES SLS AMG",
         "Descrição":"gasolina, 2 portas, 380cv de potência",
-        "Preço": 850000.00,
+        "Preço": 850000,
         "Ano": 2015,
         "Quilometragem":10500
     },
@@ -50,7 +50,7 @@
         "img":"https://www.choosethemoon.com/images/anuncios50/porsche-cayman-gt4-sm.jpg",
         "nome":"PORSCHE CAYMAN GT4",
         "Descrição":"gasolina, 2 portas, 350cv de potência",
-        "Preço": 960000.00,
+        "Preço": 960000,
         "Ano":2012,
         "Quilometragem": 12540
     },
@@ -59,7 +59,7 @@
         "img":"https://www.choosethemoon.com/images/anuncios50/bentley-continental-sm.jpg",
         "nome":"BENTLEY CONTINENTAL",
         "Descrição":"gasolina, 4 portas, 420cv de potência",
-        "Preço": 1120000.00,
+        "Preço": 1120000,
         "Ano": 2019,
         "Quilometragem": 16450
     },
@@ -68,7 +68,7 @@
         "img":"https://www.choosethemoon.com/images/anuncios50/lamborghini-gallardo-50-v10-sm.jpg",
         "nome":"LAMBORGHINI GALLARDO",
         "Descrição":"gasolina, 2 portas, 460cv de potência",
-        "Preço": 2540000.00,
+        "Preço": 2540000,
         "Ano": 2018,
         "Quilometragem": 14580
     }

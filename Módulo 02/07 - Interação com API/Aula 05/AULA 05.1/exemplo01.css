@@ -18,6 +18,7 @@
     justify-content: center;
     margin: 20px;
     background-color: cadetblue;  
+    cursor: pointer;
 }
 .lista-card{
     
@@ -28,6 +29,8 @@
     width: auto;
     height: auto;
     justify-content: center;
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-size: cover; 
 }
 .card:hover{
     background-color: aquamarine !important;
@@ -51,14 +54,34 @@
 footer{
     border: 2px solid rgb(71, 151, 231);
     font-size: larger ;
-    color: rgb(27, 211, 67);
+    color: blue;
+    background-color:aquamarine;
 }
 .navbar{
     display: flex;
     font-weight: bolder;
-    color:rgb(240, 39, 83);
+    color:rgb(238, 55, 95);
     font-size: 25px;
+    background-color:black;
+    
+
 }
+.nav-list{
+    list-style: none; /* Remova os marcadores de lista */
+    display: flex; /* Use flexbox para alinhar os itens horizontalmente */
+    justify-content: center; /* Centralize os itens horizontalmente */
+    
+}
+.nav-list li{
+    margin-right: 20px;/*espaçamento entre os items*/
+}
+.nav-list li a {
+    text-decoration: none; /* Remova a decoração de link */
+    color: #fff; /* Cor do texto */
+    font-weight: bold; /* Texto em negrito */
+}
+
+
 
 
 
