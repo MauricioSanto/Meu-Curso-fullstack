@@ -3,7 +3,6 @@ async function buscar(){
     let produtos = await procura.json()
 
     let buscaparametros = new URLSearchParams(window.location.search)
-    
     let idproduto = buscaparametros.get("id")
 
     let inprod = null
@@ -12,11 +11,18 @@ async function buscar(){
             inprod = x
         }
     }
+    document.title = produtos[inprod].nome //para mudar o nome do titulo de acordo com o produto clicado.
+
     document.body.innerHTML = `
     <h3>${produtos[inprod].nome}</h3>
     <p> condições especiais de parcelamento pra você entre em contato 
     conosco através dos nossos canais: instagram, facebook e whatsApp</p>
-    <img src="${produtos[inprod].img}">
+    <img src="${produtos[inprod].img}" height=280 widht=auto style= "border:1px solid #000; border-radius:10px">
+    <p> Descrição: ${produtos[inprod].Descrição}</p>
+    <p>R$ ${produtos[inprod].Preço.toFixed(2).replace(".",",")}</p>
+    <p>Ano: ${produtos[inprod].Ano}</p>
+    <p>Km: ${produtos[inprod].Quilometragem}</p>
+        
     
     `
 
