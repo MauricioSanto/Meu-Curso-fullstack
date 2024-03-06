@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "img":"https://www.isabelaflores.com/media/catalog/product/a/l/alta-335-2.webp",
+        "nome": "Flores do campo",
+        "descricao":"Arranjo mediano de flores do campo colorida e chocolate" ,
+        "valor": 229.9
+    },
+    {
+        "id": 2,
+        "img":"https://www.isabelaflores.com/media/catalog/product/a/l/alta-333-0.webp",
+        "nome": "Flores mistas vermelhas",
+        "descricao":"Arranjo mediano de flores mistas vermelhas" ,
+        "valor": 129.9 
+    },
+    {
+        "id": 3,
+        "img":"https://www.isabelaflores.com/media/catalog/product/a/l/alta-297-3.webp",
+        "nome": "Flores do campo em tons suave",
+        "descricao":"Arranjo mediano de flores do campo em tons suave" ,
+        "valor": 119.9 
+    },
+    {
+        "id": 4,
+        "img":"https://barraflores.com.br/wp-content/uploads/2020/05/20190509_153002-1-scaled.jpg",
+        "nome": "Arranjo premium de Rosas",
+        "descricao":"Arranjo mediano de Rosas premium" ,
+        "valor": 211.97 
+    },
+    {
+        "id": 5,
+        "img":"https://www.ikebanaflores.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/r/arrnjos_estrelitizia.jpg",
+        "nome": "Orquidéas",
+        "descricao":"Arranjo de Orquidéas  premium" ,
+        "valor": 256.8
+    },
+    {
+        "id": 6,
+        "img":"https://www.uniflores.com.br/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/e/u/euro_alstroemerias0.jpg",
+        "nome": "Flores Astromélia",
+        "descricao":"Arranjo mediano de flores Astromélias" ,
+        "valor": 157.8 
+    }
+]

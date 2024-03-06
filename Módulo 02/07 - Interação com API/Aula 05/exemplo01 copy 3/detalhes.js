@@ -20,14 +20,5 @@ async function buscar(){
     style="border: 1px solid #000; border-radius: 10px">
 
     `
-    
-    }
-    let elementosCards = document.querySelectorAll(".card")
-    for(let card of elementosCards){
-        card.addEventListener("click",cliquei)
 }
 buscar()
-function cliquei(){
-    let elementoId = this.getAttribute("data-id")
-    window.location.href = "detalhes.html?id=" + elementoId
-}

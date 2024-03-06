@@ -23,10 +23,18 @@ async function busca(){
             </div>
         `
     }
+    let elementosCards = document.querySelectorAll(".card")
+    for(let card of elementosCards){
+        card.addEventListener("click",cliquei)
+    }
     
    
 }
 busca()
+function cliquei(){
+    let elementoId = this.getAttribute("data-id")
+    window.location.href = "detalhes.html?id=" + elementoId
+}
 
 
 

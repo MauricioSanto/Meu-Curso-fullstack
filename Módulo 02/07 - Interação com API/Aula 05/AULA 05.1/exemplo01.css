@@ -1,10 +1,4 @@
-/*
-.maior{
-    color: red;
-    text-decoration: line-through;
-    
-}
-*/
+
 .card{
 
     border: 2px solid #000;
@@ -64,6 +58,7 @@ footer{
     font-size: 25px;
     background-color:black;
     
+    
 
 }
 .nav-list{
@@ -73,7 +68,7 @@ footer{
     
 }
 .nav-list li{
-    margin-right: 20px;/*espaçamento entre os items*/
+    margin-right: 40px;/*espaçamento entre os items*/
 }
 .nav-list li a {
     text-decoration: none; /* Remova a decoração de link */

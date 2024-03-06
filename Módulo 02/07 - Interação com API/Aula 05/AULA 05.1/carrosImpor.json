@@ -71,5 +71,41 @@
         "Preço": 2540000.00,
         "Ano": 2018,
         "Quilometragem": 14580
+    },
+    {
+        "id": 9,
+        "img":"https://directimports.com.br/wp-content/uploads/2023/04/chevrolet-corvette-z06-11-1-2023.webp",
+        "nome":"Corvette z06",
+        "Descrição":"gasolina, 2 portas, 560cv de potência",
+        "Preço": 3540000.00,
+        "Ano": 2023,
+        "Quilometragem": 4580
+    },
+    {
+        "id": 10,
+        "img":"https://directimports.com.br/wp-content/uploads/2023/04/ram-1500-trx-havoc-2023.webp",
+        "nome":"Ram 1500 TRX havoc",
+        "Descrição":"diesel, 4 portas, 250cv de potência",
+        "Preço": 500000.00,
+        "Ano": 2023,
+        "Quilometragem": 12580
+    },
+    {
+        "id": 11,
+        "img":"https://directimports.com.br/wp-content/uploads/2023/04/cadillac-escalade-2023-home.webp",
+        "nome":"Cadillac escalade ",
+        "Descrição":"gasolina, 5 portas, 360cv de potência",
+        "Preço": 2840000.00,
+        "Ano": 2023,
+        "Quilometragem": 14080 
+    },
+    {
+        "id": 12,
+        "img":"https://directimports.com.br/wp-content/uploads/2023/03/ford-f-150-raptor-r-12.webp",
+        "nome":"Ford f150 Raptor",
+        "Descrição":"diesel, 4 portas, 260cv de potência",
+        "Preço": 540000.00,
+        "Ano": 2023,
+        "Quilometragem": 10580
     }
 ]

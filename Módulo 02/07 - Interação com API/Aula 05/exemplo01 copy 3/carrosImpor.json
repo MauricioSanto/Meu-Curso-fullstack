@@ -71,5 +71,23 @@
         "Preço": 2540000,
         "Ano": 2018,
         "Quilometragem": 14580
+    },
+    {
+        "id": 9,
+        "img":"https://image.webmotors.com.br/_fotos/anuncionovos/gigante/2023/202307/20230719/yamaha-xtz-150-crosser-z-wmimagem15220769037.jpg",
+        "nome": "Yamaha xtz 150",
+        "Descrição":"motor refrigerado a ar, 14cv de potência tanque 14L",
+        "Preço": 21500,
+        "Ano": 2023,
+        "Quilometragem": 1200
+    },  
+    {
+        "id": 10,
+        "img":"https://image.webmotors.com.br/_fotos/anunciousados/gigante/2023/202306/20230625/bmw-g-310-gs-wmimagem08414928387.jpg",
+        "nome": "BMW g310",
+        "Descrição":"motor refrigerado a agua, 18cv de potência tanque 15L",
+        "Preço": 32500,
+        "Ano": 2023,
+        "Quilometragem": 510
     }
 ]
