@@ -54,7 +54,7 @@ footer{
 .navbar{
     display: flex;
     font-weight: bolder;
-    
+    color:rgb(238, 55, 95);
     font-size: 25px;
     background-color:black;
     
@@ -75,12 +75,10 @@ footer{
     color: #fff; /* Cor do texto */
     font-weight: bold; /* Texto em negrito */
 }
+
 .grupo-img:hover {
     transform: scale(1.35); /* Aumenta a imagem em 35% */
     transition: transform 0.3s ease; /* Adiciona uma transição suave */
-}
-.nav-list li a:hover{
-    color:aquamarine;
 }
 
     

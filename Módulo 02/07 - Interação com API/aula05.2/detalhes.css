@@ -1,0 +1,14 @@
+.imagem{
+    width: auto;
+    height: auto;
+    justify-content: center;
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-size: cover; /*preenche todo o corpo do site com a imagem*/
+}
+.botton{
+    border: 2px solid red;
+    background-color: aquamarine;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}

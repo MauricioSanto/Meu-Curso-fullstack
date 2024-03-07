@@ -1,0 +1,111 @@
+[
+    {
+        "id":1,
+        "img": "https://www.choosethemoon.com/images/anuncios50/-ferrari-california-sm.jpg",
+        "nome": "FERRARI CALIFORNIA",
+        "Descrição": "gasolina, 2 portas, 490cv de potência",
+        "Preço": 1300000.00,
+        "Ano": 2016,
+        "Quilometragem": 12512
+
+    },
+    {
+        "id":2,
+        "img": "https://www.choosethemoon.com/images/anuncios50/porsche-911-gt-3-sm.jpg",
+        "nome": "PORSCHE 911 GT3",
+        "Descrição": "gasolina, 2 portas, 390cv de potência",
+        "Preço":899000.00,
+        "Ano": 2017,
+        "Quilometragem":17540
+    },
+    {
+        "id":3,
+        "img": "https://www.choosethemoon.com/images/anuncios50/mercedes-benz-amg-gt-s-sm.jpg",
+        "nome": "MERCEDES-BENZ AMG GT",
+        "Descrição": "gasolina, 2 portas, 470cv de potência",
+        "Preço": 958000.00,
+        "Ano": 2019,
+        "Quilometragem": 18500
+    },
+    {
+        "id":4,
+        "img":"https://www.choosethemoon.com/images/anuncios50/porsche-boxster-27-pdk-sm.jpg",
+        "nome":"PORSCHE BOXSTER",
+        "Descrição":"gasolina, 2 portas, 300cv de potência",
+        "Preço": 550000.00,
+        "Ano": 2016,
+        "Quilometragem": 6800
+    },
+    {
+        "id":5,
+        "img": "https://www.choosethemoon.com/images/anuncios50/mercedes-sls-63-amg-sm.jpg",
+        "nome":"MERCEDES SLS AMG",
+        "Descrição":"gasolina, 2 portas, 380cv de potência",
+        "Preço": 850000.00,
+        "Ano": 2015,
+        "Quilometragem":10500
+    },
+    {
+        "id":6,
+        "img":"https://www.choosethemoon.com/images/anuncios50/porsche-cayman-gt4-sm.jpg",
+        "nome":"PORSCHE CAYMAN GT4",
+        "Descrição":"gasolina, 2 portas, 350cv de potência",
+        "Preço": 960000.00,
+        "Ano":2012,
+        "Quilometragem": 12540
+    },
+    {
+        "id":7,
+        "img":"https://www.choosethemoon.com/images/anuncios50/bentley-continental-sm.jpg",
+        "nome":"BENTLEY CONTINENTAL",
+        "Descrição":"gasolina, 4 portas, 420cv de potência",
+        "Preço": 1120000.00,
+        "Ano": 2019,
+        "Quilometragem": 16450
+    },
+    {
+        "id": 8,
+        "img":"https://www.choosethemoon.com/images/anuncios50/lamborghini-gallardo-50-v10-sm.jpg",
+        "nome":"LAMBORGHINI GALLARDO",
+        "Descrição":"gasolina, 2 portas, 460cv de potência",
+        "Preço": 2540000.00,
+        "Ano": 2018,
+        "Quilometragem": 14580
+    },
+    {
+        "id": 9,
+        "img":"https://directimports.com.br/wp-content/uploads/2023/04/chevrolet-corvette-z06-11-1-2023.webp",
+        "nome":"Corvette z06",
+        "Descrição":"gasolina, 2 portas, 560cv de potência",
+        "Preço": 3540000.00,
+        "Ano": 2023,
+        "Quilometragem": 4580
+    },
+    {
+        "id": 10,
+        "img":"https://directimports.com.br/wp-content/uploads/2023/04/ram-1500-trx-havoc-2023.webp",
+        "nome":"Ram 1500 TRX havoc",
+        "Descrição":"diesel, 4 portas, 250cv de potência",
+        "Preço": 500000.00,
+        "Ano": 2023,
+        "Quilometragem": 12580
+    },
+    {
+        "id": 11,
+        "img":"https://directimports.com.br/wp-content/uploads/2023/04/cadillac-escalade-2023-home.webp",
+        "nome":"Cadillac escalade ",
+        "Descrição":"gasolina, 5 portas, 360cv de potência",
+        "Preço": 2840000.00,
+        "Ano": 2023,
+        "Quilometragem": 14080 
+    },
+    {
+        "id": 12,
+        "img":"https://directimports.com.br/wp-content/uploads/2023/03/ford-f-150-raptor-r-12.webp",
+        "nome":"Ford f150 Raptor",
+        "Descrição":"diesel, 4 portas, 260cv de potência",
+        "Preço": 540000.00,
+        "Ano": 2023,
+        "Quilometragem": 10580
+    }
+]
