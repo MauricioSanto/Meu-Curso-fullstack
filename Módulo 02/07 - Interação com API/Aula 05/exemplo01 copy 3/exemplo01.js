@@ -1,6 +1,6 @@
 
 async function busca(){
-    let procura = await fetch("carrosImpor.json")
+    let procura = await fetch("arranjosOrnamentais.json")
     let produtos = await procura.json()
     //console.log(produtos)
     let listdiv = document.getElementById("lista-card")
@@ -12,11 +12,9 @@ async function busca(){
                 </div>
                 <div class="textos">
                     <h3>${item.nome}</h3>
-                    <p>${item.Descrição}</p>
+                    <p>${item.descricao}</p>
                     <div>
-                        <p> Valor R$: ${item.Preço}</p>
-                        <p> Ano: ${item.Ano}</p>
-                        <p> Km : ${item.Quilometragem}</p>
+                        <p> Valor R$: ${item.valor}</p>
 
                     </div>
                 </div>
@@ -33,7 +31,7 @@ async function busca(){
 busca()
 function cliquei(){
     let elementoId = this.getAttribute("data-id")
-    window.location.href = "detalhes.html?id=" + elementoId
+    window.location.href = "detalhes/copy03.html?id=" + elementoId
 }
 
 

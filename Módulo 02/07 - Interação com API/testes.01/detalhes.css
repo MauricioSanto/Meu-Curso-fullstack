@@ -1,0 +1,22 @@
+h3{
+    color: red;
+}
+.boton{
+    border: 2px solid red;
+    background-color: aquamarine;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+}
+p{
+    color: red;
+}
+.cards{
+    border: 2px solid #000;
+    background-color: azure;
+    height: auto;
+    width: 348px;
+    border-radius: 10px;
+    
+}
