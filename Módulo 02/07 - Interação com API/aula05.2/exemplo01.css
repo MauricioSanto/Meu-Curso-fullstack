@@ -74,11 +74,15 @@ footer{
     text-decoration: none; /* Remova a decoração de link */
     color: #fff; /* Cor do texto */
     font-weight: bold; /* Texto em negrito */
+
 }
 
 .grupo-img:hover {
     transform: scale(1.35); /* Aumenta a imagem em 35% */
     transition: transform 0.3s ease; /* Adiciona uma transição suave */
+}
+.nav-list li a:hover{
+    color:aquamarine;
 }
 
     

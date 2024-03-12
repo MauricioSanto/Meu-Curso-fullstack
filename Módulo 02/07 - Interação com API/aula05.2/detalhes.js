@@ -17,7 +17,7 @@ async function buscar(){
     <h3>${produtos[inprod].nome}</h3>
     <p> condições especiais de parcelamento pra você entre em contato 
     conosco através dos nossos canais: instagram, facebook e whatsApp</p>
-    <img src="${produtos[inprod].img[0]}" id="img-frame" height=280 widht=auto style= "border:1px solid #000; border-radius:10px">
+    <img src="${produtos[inprod].img[0]}" id="img-frame" height= "280" width= "435" style= "border:1px solid #000; border-radius:10px">
     <div class="mini-img" id="mini-img">
     
     </div>
@@ -29,7 +29,7 @@ async function buscar(){
     `
     let divmini = document.getElementById("mini-img")
     for ( let i of produtos[inprod].img){
-        divmini.innerHTML += `<img src= "${i}" class="miniatura" height= 80 widht=auto style= "border:1px solid #000; border-radius:10px" >`
+        divmini.innerHTML += `<img src= "${i}" class="miniatura" height= "80" width= "100" style= "border:1px solid #000; border-radius:10px" >`
     }
     let minicards = document.querySelectorAll(".miniatura")
     for ( let card of minicards){

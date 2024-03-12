@@ -27,7 +27,7 @@ async function busca(){
 */
 
 async function busca(){
-    let procura = await fetch("listaprodutos.json")
+    let procura = await fetch("carrosImpor.json")
     let produtos = await procura.json()
     //console.log(produtos)
     let listdiv = document.getElementById("lista-card")

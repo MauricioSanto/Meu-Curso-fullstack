@@ -1,7 +1,7 @@
 [
     {
         "id":1,
-        "img": ["https://th.bing.com/th/id/R.491bee781af31732e68fc001c9e9a9ff?rik=%2bK0AvGx66zVD0g&riu=http%3a%2f%2fwww.marinoperformancemotors.com%2fimagetag%2f13423%2f8%2fl%2fUsed-2010-Ferrari-California.jpg&ehk=OWvujxjoJcXyHNOAb%2fSlKRT5AH7JPG5HVZOhuIFogB0%3d&risl=&pid=ImgRaw&r=0",
+        "img": ["https://www.choosethemoon.com/images/anuncios50/-ferrari-california-sm.jpg",
                 "https://img.remediosdigitales.com/5495ab/ferrari_california_t_1.jpeg-copia/450_1000.jpg",
                 "https://immagini.alvolante.it/sites/default/files/styles/anteprima_lunghezza_640/public/primo_contatto_galleria/2014/05/ferrari-california-t_1.jpg",
                 "https://storage.googleapis.com/f1-cms/2020/08/4ed10a0a-20200818_092832.png"
@@ -16,9 +16,9 @@
     {
         "id":2,
         "img": ["https://www.choosethemoon.com/images/anuncios50/porsche-911-gt-3-sm.jpg",
-                "https://th.bing.com/th/id/R.211d3d23cc8e1e00ba3486a48329aa52?rik=Lx4Lx0U%2fpws7fA&pid=ImgRaw&r=0",
+                "https://www.hdcarwallpapers.com/walls/porsche_911_carrera_4s_2019_4k_11-HD.jpg",
                 "https://performancedrive.com.au/wp-content/uploads/2016/03/2017-Porsche-911-R-rear.jpg",
-                "https://cdn.carbuzz.com/gallery-images/original/79000/400/79452.jpg"
+                "https://images.bfmtv.com/etPBN--F6RH4gw_9Bczbn5zG8So=/0x0:1256x708/600x0/images/Porsche-911-992-185711.jpg"
             ],
         "nome": "PORSCHE 911 GT3",
         "Descrição": "gasolina, 2 portas, 390cv de potência",
@@ -28,7 +28,7 @@
     },
     {
         "id":3,
-        "img": ["https://quatrorodas.abril.com.br/wp-content/uploads/2020/07/mercedes-amg_gt_black_series_22.jpeg?quality=70&strip=info",
+        "img": ["https://www.choosethemoon.com/images/anuncios50/mercedes-benz-amg-gt-s-sm.jpg",
                 "https://th.bing.com/th/id/OIP.DmFeuOnCJ1iKPXU-fFJcZwAAAA?rs=1&pid=ImgDetMain",
                 "https://th.bing.com/th/id/OIP.I1WN3r76ug5aAGQ2hxrI0wHaEK?w=1200&h=675&rs=1&pid=ImgDetMain",
                 "https://techrato.com/wp-content/uploads/2017/09/mercedes-amg-gtc-2018-6.jpg"
@@ -81,9 +81,9 @@
     {
         "id":7,
         "img":["https://www.choosethemoon.com/images/anuncios50/bentley-continental-sm.jpg",
-                "https://th.bing.com/th/id/OIP.lWaKrSRC9FBV_d4snA4pEgHaFj?rs=1&pid=ImgDetMain",
-                "https://images.autouncle.com/uk/car_images/ad7098e1-7c3e-4244-8e33-cd2097b54aed_bentley-continental-gt-6-0-w12-2dr-auto.jpg",
-                "https://www.supercars.net/blog/wp-content/uploads/2021/06/bentley-yacht-interior-1.jpg"
+                "https://cdn.motor1.com/images/mgl/kvGyM/s1/2021-bentley-continental-gt-speed-exterior.jpg",
+                "https://9gear.club/wp-content/uploads/2021/03/2022-Bentley-Continental-GT-Speed-02-1024x683.jpg",
+                "https://images.pexels.com/photos/2300385/pexels-photo-2300385.jpeg"
             ],
         "nome":"BENTLEY CONTINENTAL",
         "Descrição":"gasolina, 4 portas, 420cv de potência",
@@ -109,7 +109,7 @@
         "img":["https://directimports.com.br/wp-content/uploads/2023/04/chevrolet-corvette-z06-11-1-2023.webp",
                 "https://di-uploads-pod35.dealerinspire.com/ryanchevyofmonroe/uploads/2023/01/Chevrolet-Dealer-in-Monroe-LA-2023-Chevy-Corvette-Z06-Drive.jpg",
                 "https://www.albilegeant.com/articles/wp-content/uploads/2023/07/corvette-z06-2023.jpg",
-                "https://www.9gear.club/wp-content/uploads/2021/11/2023-Chevrolet-Corvette-Z06-Wallpaper02.jpg"
+                "https://floridainsider.com/wp-content/uploads/2022/11/chevy-mlam.jpg"
             ],
         "nome":"Corvette z06",
         "Descrição":"gasolina, 2 portas, 560cv de potência",
@@ -120,9 +120,9 @@
     {
         "id": 10,
         "img":["https://directimports.com.br/wp-content/uploads/2023/04/ram-1500-trx-havoc-2023.webp",
-                "https://autodiscoveries.com/wp-content/uploads/2022/03/6-hennessey-mammoth-1000-trx-in-the-snow-7-800x450.jpg",
-                "https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2023/04/my23-trx-havoc-edition-gallery-desktop-6-jpg-image-2880.jpg",
-                "https://cdn.motor1.com/images/mgl/g4AXe8/s1/ram-1500-trx-havoc-edition-2023.jpg"
+                "https://s3-prod.autonews.com/s3fs-public/TRX.jpg",
+                "https://cdn.hiconsumption.com/wp-content/uploads/2020/09/Ram-1500-TRX.jpg",
+                "https://th.bing.com/th/id/R.3c6248d8f64cea3dc6d240868686d1de?rik=bLS%2fljLEDgGr1w&riu=http%3a%2f%2fwww.ansa.it%2fwebimages%2fimg_620x438%2f2018%2f1%2f16%2f72810d55eac60bedb0bfe0176c844516.jpg"
             ],
         "nome":"Ram 1500 TRX havoc",
         "Descrição":"diesel, 4 portas, 250cv de potência",
@@ -133,7 +133,7 @@
     {
         "id": 11,
         "img":["https://directimports.com.br/wp-content/uploads/2023/04/cadillac-escalade-2023-home.webp",
-                "https://th.bing.com/th/id/OIP.vgKW5ml8oqgVkYMIurlN1wHaEo?rs=1&pid=ImgDetMain",
+                "https://th.bing.com/th/id/R.27626f775baf615307b0d7cb2e577d62?rik=Anfzn1Wzm5gv4w&riu=http%3a%2f%2fwww.marinoperformancemotors.com%2fimagetag%2f13159%2f11%2fl%2fUsed-2019-Cadillac-Escalade-ESV-Platinum.jpg",
                 "https://www.motorcarsofjackson.com/imagetag/202/main/f/Used-2016-Cadillac-Escalade-ESV-Premium-Collection-for-sale-Jackson-MS.jpg",
                 "https://1.bp.blogspot.com/-1jrJsN66Ymk/XUJSHL__T-I/AAAAAAAAIDM/pk_AZi2NX8AsbMFLFIVGhr-qFRgqd6D2wCLcBGAs/s1600/2020%2BCadillac%2BEscalade.png"
             ],
@@ -146,11 +146,11 @@
     {
         "id": 12,
         "img":["https://directimports.com.br/wp-content/uploads/2023/03/ford-f-150-raptor-r-12.webp",
-                "https://th.bing.com/th/id/OIP.MWMCfE0sGlcjF4XHxOJfxwAAAA?rs=1&pid=ImgDetMain",
-                "https://i.pinimg.com/736x/6b/34/84/6b34847ccbc577b15ccc17aa0b60a5a5.jpg",
-                "https://i.pinimg.com/736x/38/98/59/38985991ab963aa7243d28ea5f60d8a1.jpg"
+                "https://s1.cdn.autoevolution.com/images/gallery/FORD-F-150-SVT-Raptor-5373_26.jpg",
+                "https://s1.cdn.autoevolution.com/images/gallery/FORD-F-150-SVT-Raptor-5373_26.jpg",
+                "https://realtruck.com/production/retrax-ix-tonneau-cover-30373-4/r/440x308/c/70/55c104cdb04009b8ef4723d02677cc77.jpg"
             ],
-        "nome":"Ford F150 Raptor",
+        "nome":"Ford f150 Raptor",
         "Descrição":"diesel, 4 portas, 260cv de potência",
         "Preço": 540000.00,
         "Ano": 2023,

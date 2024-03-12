@@ -17,7 +17,7 @@ async function buscar(){
     <h3>${produtos[inprod].nome}</h3>
     <p> condições especiais de parcelamento pra você entre em contato 
     conosco através dos nossos canais: instagram, facebook e whatsApp</p>
-    <img src="${produtos[inprod].img}" height=280 widht=auto style= "border:1px solid #000; border-radius:10px">
+    <img src="${produtos[inprod].img[0]}" id="img-frame" height=280 widht=auto style= "border:1px solid #000; border-radius:10px">
     <p> Descrição: ${produtos[inprod].Descrição}</p>
     <p>R$ ${produtos[inprod].Preço.toFixed(2).replace(".",",")}</p>
     <p>Ano: ${produtos[inprod].Ano}</p>
@@ -25,9 +25,20 @@ async function buscar(){
         
     
     `
+    let divmini = document.getElementById("mini-img")
+    for ( let i of produtos[inprod].img){
+        divmini.innerHTML += `<img src= "${i}" class="miniatura" height= 80 widht=auto style= "border:1px solid #000; border-radius:10px" >`
+    }
+    let minicards = document.querySelectorAll(".miniatura")
+    for ( let card of minicards){
+        card.addEventListener("mouseover",alteraImg)
 
+    }
+function alteraImg(){
+    let frame = document.getElementById("img-frame")
+    frame.src = this.getAttribute("src")
+    }
 }
-
 buscar()
 const meuElemento = document.getElementById("corpo");
 meuElemento.style.backgroundImage = "url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg')"

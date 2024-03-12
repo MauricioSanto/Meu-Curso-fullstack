@@ -1,5 +1,5 @@
 async function verDateBase(){
-    let procurar= await fetch("listaprodutos.json")
+    let procurar= await fetch("carrosImpor.json")
     let produtos = await procurar.json()
 
     let buscar = new URLSearchParams(window.location.search)
@@ -12,8 +12,11 @@ async function verDateBase(){
         }
     }
     document.body.innerHTML = `
+    <img src="${produtos[inprod].img}>
     <h3>${produtos[inprod].nome}</h3>
     `
+    
+
 
 }
 verDateBase()
