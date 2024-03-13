@@ -84,6 +84,19 @@ footer{
 .nav-list li a:hover{
     color:aquamarine;
 }
+.botton{
+    border: 2px solid red;
+    background-color: aquamarine;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.mini-img{
+    column-gap: 10px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
 
     
 
