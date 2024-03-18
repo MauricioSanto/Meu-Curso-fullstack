@@ -29,6 +29,17 @@ async function busca(){
     for(let card of elementosCards){
         card.addEventListener("click",cliquei)
     }
+    
+    let dcm = document.getElementsByClassName("hoverTrigger");
+    dcm.addEventListener("click",function() {
+        if (dcm.classList.contains("open")){
+            dcm.classList.remove("open");
+        } else{
+            dcm.classList.add("open");
+        }
+    });
+    
+
    
 }
 busca()
@@ -40,7 +51,6 @@ function cliquei(){
 //inserir uma imagem como plano de fundo 
 let meuElemento = document.getElementById("meu-elemento");
 meuElemento.style.backgroundImage = "url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg')"
-
 /*inserir uma imagem no corpo da pagina ou body
 function inserirImagem(url){
     const img = document.createElement("img");
