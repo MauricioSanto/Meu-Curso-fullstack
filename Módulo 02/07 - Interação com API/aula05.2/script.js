@@ -29,18 +29,7 @@ async function busca(){
     for(let card of elementosCards){
         card.addEventListener("click",cliquei)
     }
-    
-    let dcm = document.getElementsByClassName("hoverTrigger");
-    dcm.addEventListener("click",function() {
-        if (dcm.classList.contains("open")){
-            dcm.classList.remove("open");
-        } else{
-            dcm.classList.add("open");
-        }
-    });
-    
-
-   
+ 
 }
 busca()
 

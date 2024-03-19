@@ -1,0 +1,21 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu-item {
+    display: flex; /* Alinha os elementos lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    cursor: pointer; /* Altera o cursor ao passar o mouse */
+}
+
+.icon {
+    font-size: 20px; /* Tamanho do ícone */
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.text {
+    font-size: 16px; /* Tamanho do texto */
+}
