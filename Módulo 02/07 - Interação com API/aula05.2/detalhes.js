@@ -16,17 +16,32 @@ async function buscar(){
     document.getElementById("detalhes").innerHTML += `
     <h3>${produtos[inprod].nome}</h3>
     <p> condições especiais de parcelamento pra você entre em contato 
-    conosco através dos nossos canais: instagram, facebook e whatsApp</p>
-    <img src="${produtos[inprod].img[0]}" id="img-frame" height= "280" width= "435" style= "border:1px solid #000; border-radius:10px">
+    conosco através dos nossos canais: instagram, facebook e whatsApp
+    </p>
+    <div class="img-vd">
+     <img src="${produtos[inprod].img[0]}" id="img-frame" height= "280px" width= "435px" style= "border:1px solid #000; border-radius:10px">
+    
+    
+    </div>
     <div class="mini-img" id="mini-img">
     
     </div>
+
     <p> Descrição: ${produtos[inprod].Descrição}</p>
     <p>R$ ${produtos[inprod].Preço.toFixed(2).replace(".",",")}</p>
     <p>Ano: ${produtos[inprod].Ano}</p>
     <p>Km: ${produtos[inprod].Quilometragem}</p>
+    <div id="video-conteiner"></div>
+
         
     `
+   /* let video = document.createElement("video");
+    video.src="https://youtu.be/iIbIBEKl7tc"
+    video.autoplay = true;
+    let videoconteiner = document.querySelector("#video-conteiner");
+    videoconteiner.innerHTML = "";
+    videoconteiner.appendChild(video);
+    */
     let divmini = document.getElementById("mini-img")
     for ( let i of produtos[inprod].img){
         divmini.innerHTML += `<img src= "${i}" class="miniatura" height= "80" width= "100" style= "border:1px solid #000; border-radius:10px" >`
