@@ -19,21 +19,22 @@ async function buscar(){
     conosco através dos nossos canais: instagram, facebook e whatsApp
     </p>
     <div class="img-vd">
-     <img src="${produtos[inprod].img[0]}" id="img-frame" height= "280px" width= "435px" style= "border:1px solid #000; border-radius:10px">
-    
-    
+        <img src="${produtos[inprod].img[0]}" id="img-frame" height= "280px" width= "435px" style= "border:1px solid #000; border-radius:10px">
+        <iframe width="435" height="280" src="${produtos[inprod].video}"
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; 
+            clipboard-write; encrypted-media; 
+            gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
     </div>
     <div class="mini-img" id="mini-img">
-    
     </div>
-
     <p> Descrição: ${produtos[inprod].Descrição}</p>
     <p>R$ ${produtos[inprod].Preço.toFixed(2).replace(".",",")}</p>
     <p>Ano: ${produtos[inprod].Ano}</p>
     <p>Km: ${produtos[inprod].Quilometragem}</p>
-    <div id="video-conteiner"></div>
-
-        
+    
     `
    /* let video = document.createElement("video");
     video.src="https://youtu.be/iIbIBEKl7tc"

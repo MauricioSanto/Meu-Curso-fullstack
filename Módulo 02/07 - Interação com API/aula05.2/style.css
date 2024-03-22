@@ -99,6 +99,9 @@ img{
     flex-direction: row;
     cursor: pointer;
 }
+p{
+    color: blue;
+}
 
     
 
