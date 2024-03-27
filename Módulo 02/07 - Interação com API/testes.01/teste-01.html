@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="testes-01.css">
-    </head>
-    <body id="meu-elemento" class="fundo">
-        <div id="lista-div" class="lista-div">
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Navbar com Menu Suspenso</title>
+    <link rel="stylesheet" href="testes-01.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">Nossos Carros</button>
+            <div class="dropdown-content">
+                <a href="#">Carros Blindados</a>
+                <a href="#">Carros Não-blindados</a>
+            </div>
         </div>
-        
-    </body>
-    <script src="testes-01.js"></script>
+    </nav>
+</body>
 </html>
