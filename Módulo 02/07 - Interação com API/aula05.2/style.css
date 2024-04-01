@@ -16,8 +16,8 @@
 }
 .lista-card{
     
-    display: flex;
-    flex-wrap: wrap; 
+    display: flex;/* organiza os cards um do lado do outro*/
+    flex-wrap: wrap; /* faz a quebra da pagina*/
 }
 .imagem{
     width: auto;
@@ -60,7 +60,16 @@ footer{
     background-color:black;
     height: 100px;
     
+}
 
+.f-nav {
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /*text-transform: uppercase;*/
+    
 }
 img{
     border-radius: 10px;
@@ -130,6 +139,7 @@ body{
      background-color: cadetblue;
      min-width: 160px;
      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     
  }
  
  /* Estilize as opções do menu suspenso */
@@ -146,6 +156,7 @@ body{
  .dropdown:hover .dropdown-content {
      display: block;
      color: red;
+
  }
 
 
