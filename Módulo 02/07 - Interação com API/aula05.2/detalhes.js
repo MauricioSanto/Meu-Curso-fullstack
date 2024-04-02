@@ -34,15 +34,8 @@ async function buscar(){
     <p>R$ ${produtos[inprod].Preço.toFixed(2).replace(".",",")}</p>
     <p>Ano: ${produtos[inprod].Ano}</p>
     <p>Km: ${produtos[inprod].Quilometragem}</p>
-    
     `
-   /* let video = document.createElement("video");
-    video.src="https://youtu.be/iIbIBEKl7tc"
-    video.autoplay = true;
-    let videoconteiner = document.querySelector("#video-conteiner");
-    videoconteiner.innerHTML = "";
-    videoconteiner.appendChild(video);
-    */
+
     let divmini = document.getElementById("mini-img")
     for ( let i of produtos[inprod].img){
         divmini.innerHTML += `<img src= "${i}" class="miniatura" height= "80" width= "100" style= "border:1px solid #000; border-radius:10px" >`
@@ -62,11 +55,3 @@ function alteraImg(){
 buscar()
 let meuElemento = document.getElementById("corpo");
 meuElemento.style.backgroundImage = "url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg')"
-
-/*function inserirImagem(url){
-    const img = document.createElement("img");
-    img.src = url;
-    document.body.appendChild(img);
-}
-inserirImagem("https://i.pinimg.com/originals/cb/8a/56/cb8a56874b79f36066b8cf28e1393c5e.jpg")
-*/

@@ -62,14 +62,13 @@ footer{
     
 }
 
-.f-nav {
-    
+.nav-conteiner{
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     /*text-transform: uppercase;*/
-    
+   /* z-index: 999; certifica que a navbar fica acima de outros elementos*/
 }
 img{
     border-radius: 10px;
@@ -118,28 +117,16 @@ img{
 p{
     color: blue;
 }
+
 body{
     margin: 0;
 }
-
-/* Estilize o botão do menu suspenso 
-.dropbtn {
-    /* background-color: #333;
-     color: rgb(24, 20, 20);
-     border: none;
-     cursor: pointer;
-     padding: 10px 20px;
- }
- */
- 
  /* Estilize o conteúdo do menu suspenso */
  .dropdown-content {
      display: none;
      position: absolute;
      background-color: cadetblue;
-     min-width: 160px;
-     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-     
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/  
  }
  
  /* Estilize as opções do menu suspenso */
@@ -149,14 +136,11 @@ body{
      text-decoration: none;
      display: block;
  }
- 
- 
- 
  /* Exiba o conteúdo do menu suspenso ao passar o mouse sobre o indice */
+ 
  .dropdown:hover .dropdown-content {
-     display: block;
-     color: red;
-
+    display: block ;
+    border-top: 2px solid red;
  }
 
 

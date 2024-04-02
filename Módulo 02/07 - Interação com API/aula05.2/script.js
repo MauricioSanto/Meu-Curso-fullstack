@@ -29,7 +29,7 @@ async function busca(){
     for(let card of elementosCards){
         card.addEventListener("click",cliquei)
     }
- 
+
 }
 busca()
 
@@ -40,6 +40,8 @@ function cliquei(){
 //inserir uma imagem como plano de fundo 
 let meuElemento = document.getElementById("meu-elemento");
 meuElemento.style.backgroundImage = "url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg')"
+
+
 
 
 
