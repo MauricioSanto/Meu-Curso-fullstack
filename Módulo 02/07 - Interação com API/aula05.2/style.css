@@ -55,7 +55,7 @@ footer{
 .navbar{
     display: flex;
     border-radius: 5px;
-    color:rgb(238, 55, 95);
+    
     font-size: 25px;
     background-color:black;
     height: 100px;
@@ -142,6 +142,11 @@ body{
     display: block ;
     border-top: 2px solid red;
  }
+ .rodape{
+    display: flex;
+    justify-content: space-between;/*ajusta o espaço entre os elementos de uma div, ou seja coloca cada um em cada extremidade*/
+ }
+    
 
 
 
