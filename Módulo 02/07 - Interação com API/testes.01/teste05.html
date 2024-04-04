@@ -3,71 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página</title>
-    <style>
-        /* Estilo para a barra de navegação */
-        .nav-container {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #333; /* Cor de fundo da barra de navegação */
-            color: #b32d2d; /* Cor do texto */
-            padding: 10px 0; /* Espaçamento interno */
-            transition: background-color 0.3s; /* Transição suave ao rolar */
-        }
-
-        /* Estilo para tornar a navbar transparente ao rolar */
-        .f-nav {
-            background-color: transparent;
-            box-shadow: none; /* Remova a sombra se desejar */
-        }
-
-        /* Estilo para os itens do menu */
-        .nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .nav li {
-            margin-right: 20px;
-        }
-
-        /* Estilo para o conteúdo da página */
-        .content {
-            padding: 100px 0; /* Espaçamento para evitar sobreposição com a barra de navegação */
-        }
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="teste05.css">
 </head>
 <body>
-    <div class="nav-container">
-        <div class="nav">
-            <ul>
-                <li>Início</li>
-                <li>Sobre</li>
-                <li>Serviços</li>
-                <!-- Adicione mais itens do menu conforme necessário -->
-            </ul>
+    <main class="carousel-container">
+        <div class="carousel">
+          <div class="item active">
+            <img src="https://barraflores.com.br/wp-content/uploads/2020/05/20190509_153002-1-scaled.jpg" alt="Image 1" />
+            <p class="caption">Caption for Image 1</p>
+          </div>
+          <div class="item">
+            <img src="https://imagens-revista.vivadecora.com.br/uploads/2018/05/Tipos-de-Orqu%C3%ADdeas-astronauta.jpg" alt="Image 2" />
+            <p class="caption">Caption for Image 2</p>
+          </div>
+          <div class="item">
+            <img src="https://www.uniflores.com.br/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/e/u/euro_alstroemerias0.jpg" alt="Image 3" />
+            <p class="caption">Caption for Image 3</p>
+          </div>
+          <div class="item">
+            <img src="https://www.isabelaflores.com/media/catalog/product/a/l/alta-333-0.webp" alt="Image 4" />
+            <p class="caption">Caption for Image 4</p>
+          </div>
+          <div class="item">
+            <img src="https://barraflores.com.br/wp-content/uploads/2020/05/20190509_153002-1-scaled.jpg" alt="Image 5" />
+            <p class="caption">Caption for Image 5</p>
+          </div>
         </div>
-    </div>
-
-    <div class="content">
-        <!-- Conteúdo da página aqui -->
-        <h1>Bem-vindo à Minha Página</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-    </div>
-
-    <script>
-        // JavaScript para tornar a navbar transparente ao rolar
-        document.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav-container');
-            if (window.scrollY > 136) {
-                nav.classList.add('f-nav');
-            } else {
-                nav.classList.remove('f-nav');
-            }
-        });
-    </script>
+        <button class="btn prev">antes</button>
+        <button class="btn next">proximo</button>
+        <div class="dots"></div>
+    </main>
 </body>
+<script src="teste05.js"></script>
 </html>

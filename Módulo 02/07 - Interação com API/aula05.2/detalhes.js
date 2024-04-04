@@ -27,6 +27,7 @@ async function buscar(){
             gyroscope; picture-in-picture; web-share" 
             allowfullscreen>
         </iframe>
+        
     </div>
     <div class="mini-img" id="mini-img">
     </div>

@@ -89,7 +89,7 @@ img{
 }
 .nav-list li a {
     text-decoration: none; /* Remova a decoração de link */
-    color:blue; /* Cor do texto */
+    color:white; /* Cor do texto */
     font-weight: bold; /* Texto em negrito */
 
 }
@@ -115,7 +115,7 @@ img{
     cursor: pointer;
 }
 p{
-    color: blue;
+    color:white;
 }
 
 body{
@@ -146,7 +146,7 @@ body{
     display: flex;
     justify-content: space-between;/*ajusta o espaço entre os elementos de uma div, ou seja coloca cada um em cada extremidade*/
  }
-    
+
 
 
 
