@@ -10,7 +10,7 @@ body {
   }
   
   .carousel-container {
-    width: 80%;
+    width: 50%;
     margin: auto;
     position: relative;
     display: flex;
