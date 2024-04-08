@@ -40,16 +40,3 @@ function cliquei(){
 //inserir uma imagem como plano de fundo 
 const meuElemento = document.getElementById("meu-elemento");
 meuElemento.style.backgroundImage = "url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg')"
-
-/*inserir uma imagem no corpo da pagina ou body
-function inserirImagem(url){
-    const img = document.createElement("img");
-    img.src = url;
-    document.body.appendChild(img);
-}
-inserirImagem("https://i.pinimg.com/originals/cb/8a/56/cb8a56874b79f36066b8cf28e1393c5e.jpg")
-*/
-
-
-
-
