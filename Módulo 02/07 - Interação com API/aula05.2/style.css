@@ -19,13 +19,16 @@
     display: flex;/* organiza os cards um do lado do outro*/
     flex-wrap: wrap; /* faz a quebra da pagina*/
 }
+
 .imagem{
     width: auto;
     height: auto;
     justify-content: center;
     background-repeat: no-repeat; /* Evita repetição da imagem */
-    background-size: cover; 
+    background-size: cover;
+    
 }
+
 .card:hover{
     background-color: aquamarine !important;
 }
@@ -117,7 +120,6 @@ img{
 p{
     color:white;
 }
-
 body{
     margin: 0;
 }
