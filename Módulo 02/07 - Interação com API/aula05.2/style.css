@@ -19,14 +19,14 @@
     display: flex;/* organiza os cards um do lado do outro*/
     flex-wrap: wrap; /* faz a quebra da pagina*/
 }
-
-.imagem{
+body{
+    margin: 0;
+    background-image: url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg');
+    background-size: cover;
+    justify-content: center;
     width: auto;
     height: auto;
-    justify-content: center;
-    background-repeat: no-repeat; /* Evita repetição da imagem */
-    background-size: cover;
-    
+    background-repeat: no-repeat;
 }
 
 .card:hover{
@@ -71,7 +71,7 @@ footer{
     top: 0;
     width: 100%;
     /*text-transform: uppercase;*/
-   /* z-index: 999; certifica que a navbar fica acima de outros elementos*/
+    z-index: 999; 
 }
 img{
     border-radius: 10px;
@@ -120,9 +120,6 @@ img{
 p{
     color:white;
 }
-body{
-    margin: 0;
-}
  /* Estilize o conteúdo do menu suspenso */
  .dropdown-content {
      display: none;
@@ -146,8 +143,37 @@ body{
  }
  .rodape{
     display: flex;
-    justify-content: space-between;/*ajusta o espaço entre os elementos de uma div, ou seja coloca cada um em cada extremidade*/
+    justify-content: space-between;/*ajusta o espaço entre os elementos de uma div, ou seja coloca cada um em uma extremidade*/
  }
+ *, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
+/* Estilo dos campos de entrada */
+input {
+    width: 95%;
+    margin-top: 4px;
+    padding: 10px;
+    border: 1px solid #b2b2b2;
+    border-radius: 3px;
+    box-shadow: 0px 2px 4px 0px rgba(168, 168, 168, 0.6) inset;
+    transition: all 0.2s linear;
+}
 
+/* Estilo do botão de envio */
+.ttt {
+    width: 100%;
+    cursor: pointer;
+    background: rgb(61, 157, 179);
+    padding: 8px 5px;
+    color: #fff;
+    font-size: 20px;
+    border: 1px solid #fff;
+    margin-bottom: 10px;
+    text-shadow: 0 1px 1px #333;
+    border-radius: 5px;
+    transition: all 0.2s linear;
+}
 
