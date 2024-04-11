@@ -15,22 +15,23 @@
           left: 0;
           right: 0;
           bottom: 0;
-          width: 100%;
-          height: 100%;
+          width: 80%;
+          height: 80%;
     }
 }
   
   
   
-  section {
+    .mae {
       /*background: #F4F4F4;*/
-      padding: 50px 0;
-  }
+      padding: 100px 0;
+      
+     }
   
   .container {
-      max-width: 1044px;
-      margin: 0 auto;
-      padding: 0 20px;
+    max-width: 1044px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
   
   .carousel {
@@ -173,7 +174,6 @@
     .navbar{
         display: flex;
         border-radius: 5px;
-        
         font-size: 25px;
         background-color:black;
         height: 100px;
@@ -223,3 +223,39 @@
 .nav-list li a:hover{
     color:aquamarine;
 }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: cadetblue;
+   /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/  
+}
+
+/* Estilize as opções do menu suspenso */
+.dropdown-content a {
+    color:red;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+/* Exiba o conteúdo do menu suspenso ao passar o mouse sobre o indice */
+
+.dropdown:hover .dropdown-content {
+   display: block ;
+   border-top: 2px solid red;
+}
+.rodape{
+    display: flex;
+    justify-content: space-between;/*ajusta o espaço entre os elementos de uma div, ou seja coloca cada um em uma extremidade*/
+    
+ }
+ footer{
+    border: 2px solid rgb(71, 151, 231);
+    font-size: larger ;
+    color: blue;
+    background-color:aquamarine;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0; 
+}
+
