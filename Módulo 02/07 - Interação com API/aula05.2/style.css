@@ -59,7 +59,7 @@ footer{
     display: flex;
     border-radius: 5px;
     font-size: 25px;
-    background-color:black;
+    background-color:black; 
     height: 100px;
     
 }

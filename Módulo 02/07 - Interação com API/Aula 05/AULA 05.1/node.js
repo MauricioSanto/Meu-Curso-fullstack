@@ -14,7 +14,7 @@ async function busca(){
                     <h3>${item.nome}</h3>
                     <p> Descrição: ${item.Descrição}</p>
                     <div>
-                       <p> Valor R$ ${(item.Preço).toFixed(2).replace(".",",")}</p>
+                       <p> R$ ${(item.Preço).toFixed(2).replace(".",",")}</p>
                        <p> Ano ${item.Ano}</P>
                        <p> KM ${item.Quilometragem}</p>
                         
