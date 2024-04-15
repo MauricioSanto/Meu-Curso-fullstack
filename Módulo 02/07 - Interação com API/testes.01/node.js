@@ -38,7 +38,5 @@ function cliquei(){
     window.location.href = "detalhes.html?id=" + elementoId
 }
 //inserir uma imagem como plano de fundo 
-/*
 const meuElemento = document.getElementById("meu-elemento");
 meuElemento.style.backgroundImage = "url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg')"
-*/

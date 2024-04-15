@@ -87,6 +87,7 @@ footer{
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 999;
 }
 .botton{
     border: 2px solid red;
@@ -102,7 +103,15 @@ footer{
     cursor: pointer;
 }
 body{
-    margin: 0;
+    
+    background-image: url("https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg");
+    width: auto;
+    height: auto;
+    justify-content: center;
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-size: cover;
+    
+
 }
  /* Estilize o conteúdo do menu suspenso */
  .dropdown-content {

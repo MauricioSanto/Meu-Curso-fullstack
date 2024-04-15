@@ -1,22 +1,14 @@
-h3{
-    color: red;
+body{
+    background-image: url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg');
+    width: auto;
+    height: auto;
+    justify-content: center;
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-size: cover; /*preenche todo o corpo do site com a imagem*/
 }
-.boton{
+.botton{
     border: 2px solid red;
     background-color: aquamarine;
     border-radius: 10px;
     font-weight: bold;
-    cursor: pointer;
-    font-size: 20px;
-}
-p{
-    color: red;
-}
-.cards{
-    border: 2px solid #000;
-    background-color: azure;
-    height: auto;
-    width: 348px;
-    border-radius: 10px;
-    
 }
