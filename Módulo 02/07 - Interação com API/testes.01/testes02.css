@@ -1,103 +1,113 @@
-body {
-    height: 600px;
-    margin: 0;
-    display: grid;
-    grid-template-rows: 500px 100px;
-    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
-    align-items: center;
-    justify-items: center;
-  }
-  
-  main#carousel {
-    grid-row: 1 / 2;
-    grid-column: 1 / 8;
-    width: 100vw;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transform-style: preserve-3d;
-    perspective: 600px;
-    --items: 5;
-    --middle: 3;
-    --position: 1;
-    pointer-events: none;
-  }
-  
-  div.item {
-    position: absolute;
-    width: 450px;
-    height: 300px;
-    background-color: coral;
-    --r: calc(var(--position) - var(--offset));
-    --abs: max(calc(var(--r) * -1), var(--r));
-    transition: all 0.25s linear;
-    transform: rotateY(calc(-10deg * var(--r)))
-      translateX(calc(-300px * var(--r)));
-    z-index: calc((var(--position) - var(--abs)));
-  }
-  
-  div.item:nth-of-type(1) {
-    --offset: 1;
-    background-image:url("https://img.remediosdigitales.com/5495ab/ferrari_california_t_1.jpeg-copia/450_1000.jpg");
-  }
-  div.item:nth-of-type(2) {
-    --offset: 2;
-    background-image: url("https://img.benlevy.com/auto/meet/theglencars20201031/img_2241.jpg");
-  }
-  div.item:nth-of-type(3) {
-    --offset: 3;
-    background-image: url("https://techrato.com/wp-content/uploads/2017/09/mercedes-amg-gtc-2018-6.jpg");
-  }
-  div.item:nth-of-type(4) {
-    --offset: 4;
-    background-image: url("https://www.choosethemoon.com/images/anuncios50/porsche-boxster-27-pdk-sm.jpg");
-  }
-  div.item:nth-of-type(5) {
-    --offset: 5;
-    background-image: url("https://www.choosethemoon.com/images/anuncios50/mercedes-sls-63-amg-sm.jpg");
-  }
-  
-  input:nth-of-type(1) {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-  }
-  input:nth-of-type(1):checked ~ main#carousel {
-    --position: 1;
-  }
-  
-  input:nth-of-type(2) {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-  }
-  input:nth-of-type(2):checked ~ main#carousel {
-    --position: 2;
-  }
-  
-  input:nth-of-type(3) {
-    grid-column: 4 /5;
-    grid-row: 2 / 3;
-  }
-  input:nth-of-type(3):checked ~ main#carousel {
-    --position: 3;
-  }
-  
-  input:nth-of-type(4) {
-    grid-column: 5 / 6;
-    grid-row: 2 / 3;
-  }
-  input:nth-of-type(4):checked ~ main#carousel {
-    --position: 4;
-  }
-  
-  input:nth-of-type(5) {
-    grid-column: 6 / 7;
-    grid-row: 2 / 3;
-  }
-  input:nth-of-type(5):checked ~ main#carousel {
-    --position: 5;
-  }
+.container{
+  width:100vw;
+  height:80vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.slider {
+  height: 750px;
+  width:100vw;
+  display: flex;
+  perspective: 1000px;
+  position: relative;
+  align-items:center;
+}
+.box1{      background:url('https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size:cover;
+  background-position:center center;}
+.box2{
+background:url('https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size:cover;
+  background-position:center center;}
+.box3{
+background:url('https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size:cover;
+  background-position:center center;}
+.box4{
+background:url('https://images.pexels.com/photos/3274903/pexels-photo-3274903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size:cover;
+  background-position:center center;}
+.box5{
+background:url('https://images.pexels.com/photos/3618162/pexels-photo-3618162.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size:cover;
+  background-position:center center;}
+.box6{
+background:url('https://images.pexels.com/photos/4256852/pexels-photo-4256852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size:cover;
+  background-position:center center;}
+.box7{
+background:url('https://images.pexels.com/photos/1891234/pexels-photo-1891234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size:cover;
+  background-position:center center;}
+
+.slider [class*="box"] {
+  float: left; /*estava desativado*/
+  overflow: hidden;
+  border-radius:20px;
+  transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    position:absolute;
+}
+.slider [class*="box"]:nth-child(7),
+.slider [class*="box"]:nth-child(1) {
+  width: 100vh;
+  height: 60vh;
+  transform: scale(0.2) translate(-50%,-50%);
+  top: 10%;
+  z-index:1;
+}
+.slider [class*="box"]:nth-child(2),
+.slider [class*="box"]:nth-child(6) {
+  width: 100vh;
+  height: 60vh;
+  transform: scale(0.4) translate(-50%,-50%);
+  top: 20%;
+  z-index:2;
+}
+.slider [class*="box"]:nth-child(3),
+.slider [class*="box"]:nth-child(5) {
+  width: 100vh;
+  height: 60vh;
+  transform: scale(0.6) translate(-50%,-50%);
+  top: 30%;
+  z-index:3;
+}
+.slider [class*="box"]:nth-child(4) {
+  width: 60vw;
+  height: 60vh;
+  border-color: #c92026;
+  color: #fff;
+  transform: scale(1) translate(-50%,-50%);
+  top: 50%;
+  z-index:4;
+}
+.slider [class*="box"]:nth-child(1){
+  left:-13%;}
+.slider [class*="box"]:nth-child(2){
+  left:-5%;}
+.slider [class*="box"]:nth-child(3){
+  left:10%;}
+.slider [class*="box"]:nth-child(4){
+  left:50%;}
+.slider [class*="box"]:nth-child(5){
+  left:71%;}
+.slider [class*="box"]:nth-child(6){
+  left:85%;}
+.slider [class*="box"]:nth-child(7){
+  left:100%;}
+.slider .firstSlide {
+    -webkit-animation:  firstChild 1s;
+    animation:  firstChild 1s;
+}
+/*Animation for buyers landing page slider*/
+@-webkit-keyframes firstChild {
+    0% {left:100%; transform: scale(0.2) translate(-50%,-50%);}
+    100% {left: -13%; transform: scale(0.2) translate(-50%,-50%);}
+}
+@keyframes firstChild {
+   0% {left:100%; transform: scale(0.2) translate(-50%,-50%);}
+    100% {left: -13%; transform: scale(0.2) translate(-50%,-50%);}
+}
   
  
  

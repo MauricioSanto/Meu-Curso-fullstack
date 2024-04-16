@@ -18,14 +18,20 @@
     
     display: flex;/* organiza os cards um do lado do outro*/
     flex-wrap: wrap; /* faz a quebra da pagina*/
-}
-body{
-    margin: 0;
     background-image: url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg');
     background-size: cover;
+    
+    width:100%;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+.cadastro{
+    margin: 0;
+    background-image: url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg');
+    background-size: 100%;
     justify-content: center;
-    width: auto;
-    height: auto;
+    width:100%;
+    height: 100%;
     background-repeat: no-repeat;
 }
 
@@ -33,8 +39,8 @@ body{
     background-color: aquamarine !important;
 }
 .grupo-img{
-    width: 200px;
-    height: 150px;
+    width: 250px;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -59,9 +65,17 @@ footer{
     display: flex;
     border-radius: 5px;
     font-size: 25px;
-    background-color:black; 
     height: 100px;
-    
+    background: rgba(0, 0, 0, 0.85) none repeat scroll 0 0;
+    background-image: none;
+    background-position-x: 0px;
+    background-position-y: 0px;
+    background-size: initial;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgba(0, 0, 0, 0.85);
     
 }
 
