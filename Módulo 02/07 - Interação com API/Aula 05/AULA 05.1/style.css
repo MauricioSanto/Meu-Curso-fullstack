@@ -40,7 +40,6 @@
 
 .textos{
     justify-content: space-between;
-    height: 100%;
     display: flex;
     flex-direction:column;
     align-items: center; 
@@ -56,7 +55,7 @@ footer{
     font-weight: bolder;
     font-size: 25px;
     background-color:black;
-    
+    z-index: 999;
     
 
 }

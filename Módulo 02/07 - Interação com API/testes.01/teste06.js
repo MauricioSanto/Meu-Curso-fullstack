@@ -1,60 +1,45 @@
-/*const cards = document.querySelectorAll(".card");
-let currentCard = 0;
-
-cards[currentCard].classList.add("active");
-
-document.getElementById("nextBtn").addEventListener("click", function () {
-  cards[currentCard].classList.remove("active");
-  currentCard = (currentCard + 1) % cards.length;
-  cards[currentCard].classList.add("active");
-});
-
-document.getElementById("prevBtn").addEventListener("click", function () {
-  cards[currentCard].classList.remove("active");
-  currentCard = (currentCard - 1 + cards.length) % cards.length;
-  cards[currentCard].classList.add("active");
-});
-*/
-const state = {};
-const carouselList = document.querySelector('.carousel__list');
-const carouselItems = document.querySelectorAll('.carousel__item');
-const elems = Array.from(carouselItems);
-
-carouselList.addEventListener('click', function (event) {
-  var newActive = event.target;
-  var isItem = newActive.closest('.carousel__item');
-
-  if (!isItem || newActive.classList.contains('carousel__item_active')) {
-    return;
-  };
+async function busca() {
+  let procura = await fetch("carrosImpor.json");
+  let produtos = await procura.json();
+  let listdiv = document.getElementById("lista-card");
   
-  update(newActive);
-});
-
-const update = function(newActive) {
-  const newActivePos = newActive.dataset.pos;
-
-  const current = elems.find((elem) => elem.dataset.pos == 0);
-  const prev = elems.find((elem) => elem.dataset.pos == -1);
-  const next = elems.find((elem) => elem.dataset.pos == 1);
-  const first = elems.find((elem) => elem.dataset.pos == -2);
-  const last = elems.find((elem) => elem.dataset.pos == 2);
-  
-  current.classList.remove('carousel__item_active');
-  
-  [current, prev, next, first, last].forEach(item => {
-    var itemPos = item.dataset.pos;
-
-    item.dataset.pos = getPos(itemPos, newActivePos)
-  });
-};
-
-const getPos = function (current, active) {
-  const diff = current - active;
-
-  if (Math.abs(current - active) > 2) {
-    return -current
+  for (let item of produtos) {
+      let card = document.createElement('div');
+      card.classList.add('card');
+      card.dataset.id = item.id;
+      card.innerHTML = `
+          <div class="miniatura">
+              <img src="${item.img[0]}" width="150" height="auto">
+              <h3>${item.nome}</h3>
+          </div>
+          <div class="detalhes">
+              <div class="grupo-img">
+                  <img src="${item.img[0]}" width="250" height="auto">
+              </div>
+              <div class="textos">
+                  <h3>${item.nome}</h3>
+                  <p> Descrição: ${item.Descrição}</p>
+                  <div>
+                     <p> R$ ${(item.Preço).toFixed(2).replace(".",",")}</p>
+                     <p> Ano ${item.Ano}</P>
+                     <p> KM ${item.Quilometragem}</p>
+                  </div>
+              </div>
+          </div>
+      `;
+      listdiv.appendChild(card);
   }
 
-  return diff;
+  // Adiciona evento de clique para expandir
+  let elementosCards = document.querySelectorAll(".card");
+  elementosCards.forEach(card => {
+      card.addEventListener("click", expandirCard);
+  });
 }
+
+function expandirCard() {
+  // Adiciona classe para expandir o card clicado
+  this.classList.toggle("expandido");
+}
+
+busca();

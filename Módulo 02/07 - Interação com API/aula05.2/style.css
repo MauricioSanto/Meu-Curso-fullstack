@@ -1,6 +1,4 @@
-
 .card{
-
     border: 2px solid #000;
     width: 250px;
     border-radius: 10px;
@@ -20,12 +18,11 @@
     flex-wrap: wrap; /* faz a quebra da pagina*/
     background-image: url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg');
     background-size: cover;
-    
     width:100%;
-    height: 100%;
+    height: auto;
     background-repeat: no-repeat;
 }
-.cadastro{
+body{
     margin: 0;
     background-image: url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg');
     background-size: 100%;
@@ -44,16 +41,12 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
-
 }
 
 .textos{
     justify-content: space-between;
-    height: 100%;
     display: flex;
     flex-direction:column;
-    
 }
 footer{
     border: 2px solid rgb(71, 151, 231);
@@ -75,17 +68,13 @@ footer{
     background-attachment: scroll;
     background-origin: initial;
     background-clip: initial;
-    background-color: rgba(0, 0, 0, 0.85);
-    
+    background-color: rgba(0, 0, 0, 0.75);  
 }
-
 .nav-conteiner{
     position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
-    /*text-transform: uppercase;*/
-     
+    width: 100%;  
 }
 img{
     border-radius: 10px;
@@ -93,24 +82,20 @@ img{
 .nav-list{
     list-style: none; /* Remova os marcadores de lista */
     display: flex; /* Use flexbox para alinhar os itens horizontalmente */
-    justify-content: center; /* Centralize os itens horizontalmente */
-    
+    justify-content: center; /* Centralize os itens horizontalmente */ 
 }
 .nav-list li{
     margin-right: 40px;/*espaçamento entre os items*/
 }
 /* Mude a cor das opções ao passar o mouse sobre elas */
-.dropdown-content a:hover {
-    
+.dropdown-content a:hover { 
     color: blue;
 }
 .nav-list li a {
     text-decoration: none; /* Remova a decoração de link */
     color:white; /* Cor do texto */
     font-weight: bold; /* Texto em negrito */
-
 }
-
 .grupo-img:hover {
     transform: scale(1.35); /* Aumenta a imagem em 35% */
     transition: transform 0.3s ease; /* Adiciona uma transição suave */
@@ -141,7 +126,6 @@ p{
      background-color: cadetblue;
     /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/  
  }
- 
  /* Estilize as opções do menu suspenso */
  .dropdown-content a {
      color:red;
@@ -150,7 +134,6 @@ p{
      display: block;
  }
  /* Exiba o conteúdo do menu suspenso ao passar o mouse sobre o indice */
- 
  .dropdown:hover .dropdown-content {
     display: block ;
     border-top: 2px solid red;
@@ -159,13 +142,10 @@ p{
     display: flex;
     justify-content: space-between;/*ajusta o espaço entre os elementos de uma div, ou seja coloca cada um em uma extremidade*/
  }
- 
  *, *:before, *:after {
-   
     padding: 0;
     font-family: Arial, sans-serif;
 }
-
 /* Estilo dos campos de entrada */
 input {
     width: 95%;
@@ -176,7 +156,6 @@ input {
     box-shadow: 0px 2px 4px 0px rgba(168, 168, 168, 0.6) inset;
     transition: all 0.2s linear;
 }
-
 /* Estilo do botão de envio */
 .ttt {
     width: 100%;
@@ -191,4 +170,3 @@ input {
     border-radius: 5px;
     transition: all 0.2s linear;
 }
-

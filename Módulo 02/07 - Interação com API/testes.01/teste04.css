@@ -1,8 +1,26 @@
+.card{
 
+    border: 2px solid #000;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 8px rgba(146,146,146, 146);
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    background-color: cadetblue;  
+    cursor: pointer;
+}
 body{
     background-image:  url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0;
+    display: block;
+    /*place-content: center;*/
+   /* overflow: hidden*/
 
 }
 .navbar{
@@ -96,11 +114,38 @@ footer{
 
 /* ================== VAI FICAR ====================== */
 
-.credit {
-    margin-top: 1rem;
-    color: rgba(5, 7, 97, 0.872);
-    display: block; 
-    font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.gallery {
+    --s: 150px; /* the image size */
     
-}
+    display: grid;
+    transform-style: preserve-3d;
+    animation: r 15s linear infinite;
+    position: relative;
+  }
+  @keyframes r {
+    0% {transform: perspective(450px) rotateX(-100deg) rotate(0deg)}
+    to {transform: perspective(450px) rotateX(-100deg) rotate(-360deg)}
+  }
+  .gallery > img {
+    grid-area: 1/1;
+    width: var(--s);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(var(--_a)) translateY(120%) rotateX(90deg);
+  }
+  .gallery > img:nth-child(1) {--_a: 0deg}
+  .gallery > img:nth-child(2) {--_a: 60deg}
+  .gallery > img:nth-child(3) {--_a: 120deg}
+  .gallery > img:nth-child(4) {--_a: 180deg}
+  .gallery > img:nth-child(5) {--_a: 240deg}
+  .gallery > img:nth-child(6) {--_a: 300deg}
+  
+  .gallery::before {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    clip-path: polygon(50% 0,calc(50% + .866*50%) 25%,calc(50% + .866*50%) 75%,50% 100%,calc(50% - .866*50%) 75%,calc(50% - .866*50%) 25%);
+    background: #99B2B7;
+    transform: translateZ(calc(var(--s)/2)) rotate(90deg);
+  }
