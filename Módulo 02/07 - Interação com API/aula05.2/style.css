@@ -68,7 +68,8 @@ footer{
     background-attachment: scroll;
     background-origin: initial;
     background-clip: initial;
-    background-color: rgba(0, 0, 0, 0.75);  
+    background-color: rgba(0, 0, 0, 0.75);
+    text-transform: uppercase;  
 }
 .nav-conteiner{
     position: fixed;
@@ -87,10 +88,7 @@ img{
 .nav-list li{
     margin-right: 40px;/*espaçamento entre os items*/
 }
-/* Mude a cor das opções ao passar o mouse sobre elas */
-.dropdown-content a:hover { 
-    color: blue;
-}
+
 .nav-list li a {
     text-decoration: none; /* Remova a decoração de link */
     color:white; /* Cor do texto */
@@ -118,6 +116,10 @@ img{
 }
 p{
     color:white;
+}
+/* Mude a cor das opções ao passar o mouse sobre elas */
+.dropdown-content a:hover { 
+    color: blue;
 }
  /* Estilize o conteúdo do menu suspenso */
  .dropdown-content {
@@ -170,3 +172,4 @@ input {
     border-radius: 5px;
     transition: all 0.2s linear;
 }
+

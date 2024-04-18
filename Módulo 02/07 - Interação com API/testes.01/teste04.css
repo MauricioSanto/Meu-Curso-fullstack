@@ -1,5 +1,5 @@
 .card{
-
+    
     border: 2px solid #000;
     width: 250px;
     border-radius: 10px;
@@ -17,11 +17,8 @@ body{
     background-image:  url('https://img.freepik.com/fotos-gratis/armazem-moderno-banhado-pelo-brilho-do-sol-ao-por-do-sol_91128-4583.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
     margin: 0;
-    display: block;
-    /*place-content: center;*/
-   /* overflow: hidden*/
-
 }
 .navbar{
     display: flex;
@@ -36,8 +33,8 @@ body{
     left: 0;
     top: 0;
     width: 100%;
-    text-transform: uppercase;
-    z-index: 999; 
+   text-transform: uppercase;
+    z-index: 999;
 }
 
 .nav-list{
@@ -112,40 +109,5 @@ footer{
     right: 0; 
 }
 
-/* ================== VAI FICAR ====================== */
 
-.gallery {
-    --s: 150px; /* the image size */
-    
-    display: grid;
-    transform-style: preserve-3d;
-    animation: r 15s linear infinite;
-    position: relative;
-  }
-  @keyframes r {
-    0% {transform: perspective(450px) rotateX(-100deg) rotate(0deg)}
-    to {transform: perspective(450px) rotateX(-100deg) rotate(-360deg)}
-  }
-  .gallery > img {
-    grid-area: 1/1;
-    width: var(--s);
-    aspect-ratio: 1;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    transform: rotate(var(--_a)) translateY(120%) rotateX(90deg);
-  }
-  .gallery > img:nth-child(1) {--_a: 0deg}
-  .gallery > img:nth-child(2) {--_a: 60deg}
-  .gallery > img:nth-child(3) {--_a: 120deg}
-  .gallery > img:nth-child(4) {--_a: 180deg}
-  .gallery > img:nth-child(5) {--_a: 240deg}
-  .gallery > img:nth-child(6) {--_a: 300deg}
-  
-  .gallery::before {
-    content: "";
-    position: absolute;
-    inset: -100%;
-    clip-path: polygon(50% 0,calc(50% + .866*50%) 25%,calc(50% + .866*50%) 75%,50% 100%,calc(50% - .866*50%) 75%,calc(50% - .866*50%) 25%);
-    background: #99B2B7;
-    transform: translateZ(calc(var(--s)/2)) rotate(90deg);
-  }
+
