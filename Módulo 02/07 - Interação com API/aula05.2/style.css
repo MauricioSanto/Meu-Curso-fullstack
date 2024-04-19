@@ -78,7 +78,8 @@ footer{
     width: 100%;  
 }
 img{
-    border-radius: 10px;
+    border-radius: 5px;
+    
 }
 .nav-list{
     list-style: none; /* Remova os marcadores de lista */
@@ -104,9 +105,11 @@ img{
 .botton{
     border: 2px solid red;
     background-color: aquamarine;
-    border-radius: 10px;
+    border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    margin: 10px;
+    
 }
 .mini-img{
     column-gap: 10px;
