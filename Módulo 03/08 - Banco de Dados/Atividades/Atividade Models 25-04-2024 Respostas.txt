@@ -1,0 +1,22 @@
+Respostas:
+
+1 - a) CharField
+2 - c) PositiveIntegerField
+3 - d) FloatField
+4 - d) BooleanField
+5 - c) DateField
+6 - c) EmailField
+7 - a) ForeignKey
+8 - b) ManyToManyField
+9 - b) PositiveIntegerField
+10 - c) ImageField
+11 - d) FileField
+12 - c) OneToOneField
+13 - b) DateTimeField
+14 - c) OneToOneField
+15 - c) FloatField
+16 - b) TextField
+17 - d) ManyToManyField
+18 - a) CharField
+19 - c) DateTimeField
+20 - a) ForeignKey
