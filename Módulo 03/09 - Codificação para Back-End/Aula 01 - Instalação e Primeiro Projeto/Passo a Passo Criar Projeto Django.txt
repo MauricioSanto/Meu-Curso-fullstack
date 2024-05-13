@@ -1,0 +1,62 @@
+Passo a Passo Criar Projeto Django - Prof. Ramon Ferreira
+
+1- Crie uma pasta usando o Windows Explorer ou o gerenciador de pastas do seu Sistema Operacional. Abra o Visual Studio, clique em "File", depois clique em "Open Folder", navegue até a pasta que você criou e selecione ela. Após isso o seu projeto será todo dentro desta pasta, agora abra o terminal e digite o comando abaixo para criar um Ambiente Virtual onde o seu projeto vai rodar:
+	==> py -m venv venv
+
+2- Executar o Ambiente Virtual passando o código:
+	==> venv/Scripts/activate
+
+3- Instalar o Django no Ambiente Virtual:
+	==> py -m pip install Django
+
+4- Iniciar um novo projeto:
+	==> django-admin startproject nome_do_projeto .
+	
+	(no final do comando tem um " ." [espaço+ponto], ele serve para nao criar o projeto dentro de uma nova pasta, e sim na raiz da pasta que você está)
+
+5- Criar um app no projeto
+	==> py manage.py startapp nome_do_app
+	
+	OBS: Caso vc queira criar um app dentro de uma pasta chamada "apps" para englobar todos os apps dentro dela, siga estes passos:
+		1- Criar uma pasta chamada "apps":
+			==> mkdir nome_da_pasta
+		2- Navegar para esta pasta:
+			==> cd nome_da_pasta
+		3- Agora passa o comando de criar o app, porém precisa setar o arquivo manage.py que está em uma pasta superior a esta, utilize o "../" antes do nome do arquivo para informar que ele está em uma pasta superior:
+			==> py ../manage.py startapp nome_do_app
+
+6- Para aplicar as migrações geradas e realizar as alterações no BD digite:
+	==> py manage.py migrate
+
+7- Criar um SuperUsuário para acessar o ADM do Django:
+	==> py manage.py createsuperuser
+
+8- Rodar o projeto Django:
+	==> py manage.py runserver
+
+9- Abra o navegador e insira o endereço IP informado no Terminal, que indica a URL onde seu projeto está rodando.
+	==> http://127.0.0.1:8000/
+	
+	OBS: Caso queira acessar o Admin, basta no final da URL encima, após o /, digite a palavra "admin", ficando assim:
+		==> http://127.0.0.1:8000/admin
+
+10- Para alterar o idioma do Admin de inglês para Português-Brasil, volte para o arquivo "settings.py" que está na pasta principal do projeto. Procure pela variável "LANGUAGE_CODE", o valor dela estará 'en-us', altere para 'pt-br'. Atualize a página, se necessário rode o projeto novamente.
+
+11- Para para a execução do servidor do seu projeto, basta clicar no terminal do Visual Studio, e apertar as teclas Ctrl + C
+
+
+
+OBS 1: Para Desativar a venv digite o comando:
+	==> deactivate
+
+OBS 2: Para criar uma pasta:
+	==> mkdir nome-pasta
+
+OBS 3: Para entrar em uma pasta:
+	==> cd nome-pasta
+
+OBS 4: Para voltar uma pasta acima:
+	==> cd..
+
+OBS 5: Para listar os arquivos e subpastas de diretorio:
+	==> dir
