@@ -12,4 +12,6 @@ Antes de iniciar qualquer coisa no Back-end é necessário instalar o Python no 
 
 5º - Para conferir se o python foi instalado, acesse o menu iniciar do windows e procure por "CMD", abra-o e digite "py --version", se retornar o nome Python seguido da versão, isto conclui a instalação dele.
 
-6º - Para concluir, abra o Visual Studio, clique na aba "Extensões" a esquerda da tela, e na caixa de busca procure por "Python", o primeiro resultado clique nele e instale-o
+6º - Agora abra o Visual Studio, clique na aba "Extensões" a esquerda da tela, e na caixa de busca procure por "Python", o primeiro resultado clique nele e instale-o, depois procure a extensão complementar para estilizar as cores do código, busque por "Pylance", instale-o também.
+
+7º - Por fim, ainda na aba de "Extensões" do Visual Studio, procure também por "Django" e instale essa extensão também.

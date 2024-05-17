@@ -19,21 +19,3 @@
 	Navegue até a pasta onde se encontra os arquivos do projeto como um todo, procure pelo arquivo "settings.py" e dentro dele busque a lista "INSTALLED_APPS". Nela você vai incluir o nome do app entre aspas simples e colocar uma vírgula no final, ficando assim >>> 'ListaTarefas', <<<.
 	
 	OBS: Caso você tenha criado o app dentro de uma pasta "apps", antes no mome do app você deve colocar o nome da pasta e um ponto(.) separando o nome da pasta e o nome do app, ficando assim >>> 'apps.ListaTarefas', <<<. Outra alteração que você precisa fazer também é ir até a pasta desse app e abrir o arquivo "apps.py", dentro dele procure pela variável "name", no momento ela estará assim >>> name = 'ListaTarefas' <<<, você deve acrescentar o nome da pasta e o ponto antes do nome do app assim como fez no settings.py, ficando assim >>> name = 'apps.ListaTarefas' <<<.
-
-3- Fazer as alterações no arquivo "models.py" dentro da pasta do app: 
-
-	OBS: SEEEEEEEEEMPRE QUE ALTERAR O ARQUIVOS "MODELS", REALIZAR O "makemigrations" e o "migrate" e posteriormente o "runserver".
-
-4- Navegar ate o arquivo "admin.py" dentro da pasta do app e importar e registrar o model criado:
-	from .models import Tarefa
-
-	admin.site.register(Tarefa)
-
-5- Criar um arquivo de migração que contem as alterações feitas em comandos relacionados ao BD:
-	==> py manage.py makemigrations
-
-6- Para aplicar as migrações geradas e realizar as alterações no BD digite:
-	==> py manage.py migrate
-
-7- Rodar o projeto Django:
-	==> py manage.py runserver

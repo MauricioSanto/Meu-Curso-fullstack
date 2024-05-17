@@ -21,7 +21,7 @@ sexo = models.CharField(max_length=2, choices=TIPO_SEXO)
 
 2- Um campo que aceita números com casas decimais, parecido com o Float, é o DecimalField, é uma ótima opção porque podemos definir certos parametros, segue abaixo:
 
-valor = models.DecimalField(max_digits=4, decimal_places=2)
+valor = models.DecimalField(decimal_places=2, max_digits=4)
 
 >> O primeiro argumento "decimal_places" define a quantidade de digitos depois da vírgula.
 >> O segundo argumento "max_digits" define a quantidade de digitos que esse número pode contar, como foi definido 4 digitos, o valor maximo que pode ser atingido é "99.99". Lembrando que se vc definir 2 digitos como casas decimais e 4 digitos como o maximo, então você so poderá usar 2 casas decimais antes da virgula, pois 2 casas decimais ja foram definidas para serem depois da virgula.
