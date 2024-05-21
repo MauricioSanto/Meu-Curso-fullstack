@@ -32,6 +32,7 @@ class Funcionario (models.Model):
     Matricula = models.IntegerField()
     Cargo = models.CharField(max_length=50)
     foto = models.ImageField(upload_to="foto_perfil/")
+
     
     def __str__(self):
         return self.nome
