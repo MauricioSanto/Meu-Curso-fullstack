@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <p>
+            Minha lista de Clientes:
+        </p>
+        <ul>
+            {% for cliente in clientes %}
+            <li>{{ cliente.nome }} - CPF {{ cliente.cpf }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
