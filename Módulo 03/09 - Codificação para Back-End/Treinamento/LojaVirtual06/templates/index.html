@@ -5,6 +5,7 @@
         <p>
             Minha lista de Produtos:
         </p>
+        <a href="{% url 'pagina_cadastro' %}">Cadastro</a>
         <ul>
             {% for produto in produtos %}
             <li>{{ produto.nome_produto }} - R$ {{ produto.valor_produto }}</li>

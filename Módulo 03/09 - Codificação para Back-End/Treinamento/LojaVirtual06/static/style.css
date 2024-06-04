@@ -1,3 +1,10 @@
 p {
-    color: brown;
+    color: rgb(54, 209, 40);
+    font-size: 25px;
+    
+}
+ul {
+    color:blue;
+    box-shadow: 10px 10px 8px red;
+    list-style: none;
 }

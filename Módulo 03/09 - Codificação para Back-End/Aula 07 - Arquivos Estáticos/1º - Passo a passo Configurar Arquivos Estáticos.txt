@@ -19,7 +19,7 @@
 
 {% load static %}
 <HTML>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <BODY>
         <P>
             Minha lista de Produtos:

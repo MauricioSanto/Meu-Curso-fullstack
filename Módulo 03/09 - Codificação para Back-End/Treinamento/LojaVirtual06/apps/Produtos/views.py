@@ -6,5 +6,10 @@ def VerProdutos(request):
     return render(request, 'index.html', {'produtos': produtos_lista})
 
 
+def LinkInicial(request):
+    return render(request, "index.html")
+
+def LinkCadastro(request):
+    return render(request, "cadastro.html")
 
 
