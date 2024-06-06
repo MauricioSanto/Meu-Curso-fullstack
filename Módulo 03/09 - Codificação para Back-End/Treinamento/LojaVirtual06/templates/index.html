@@ -8,8 +8,10 @@
         <a href="{% url 'pagina_cadastro' %}">Cadastro</a>
         <ul>
             {% for produto in produtos %}
-            <li>{{ produto.nome_produto }} - R$ {{ produto.valor_produto }}</li>
-        {% endfor %}
+            <li>{{ produto.nome_produto }} - R$ {{ produto.valor_produto }}
+                <img src="{{produto.foto_produto.url}}" height=20>
+            </li>
+            {% endfor %}
 
         </ul>
     </body>
