@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <p>
+            Minha lista de Produtos:
+        </p>
+        <ul>
+            {% for carro in carros %}
+            <li>{{ carro.nome }} -  {{ carro.fabricante }} -
+                {{carro.ano}} - {{<img src=carro.foto , width= 20px>}}
+            </li>
+            {% endfor %}
+
+        </ul>
+    </body>
+</html>
