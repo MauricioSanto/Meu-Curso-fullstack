@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <body>
+        <a href="{% url 'pagina_index' %}">Página inicial</a>
+        
+        <p>
+            Minha lista de Pagamentos: 
+        </p>
+        <ul>
+            {% for pagamento in pagamentos %}
+            <li>
+                {{ pagamento.forma_de_pagamento }} -  {{ pagamento.valor }} 
+                
+            </li>
+
+            {% endfor %}
+        </ul>
+	
+    </body>
+</html>

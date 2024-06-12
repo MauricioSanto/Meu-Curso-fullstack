@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import carro
+from .models import *
 
 def automovel(request):
     return HttpResponse("carro do futuro")

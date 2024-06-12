@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <body>
+        <a href="{% url 'pagina_index' %}">Página inicial</a>
+        
+        <p>
+            Minha lista de Clientes: 
+        </p>
+        <ul>
+            {% for Clientes in cliente %}
+            <li>
+                {{ Clientes.nome }} -  {{ Clientes.email }} - {{Clientes.contato}} -
+                
+            </li>
+
+            {% endfor %}
+        </ul>
+	
+    </body>
+</html>

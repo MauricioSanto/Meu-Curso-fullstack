@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <body>
+        <a href="{% url 'pagina_index' %}">Página inicial</a>
+        
+        <p>
+            Minha lista de Carros: 
+        </p>
+        <ul>
+            {% for carros in carro %}
+            <li>
+                {{ carros.modelo}} -  {{ carros.fabricante }} - {{carros.ano}} -
+                <img src="{{carros.foto.url}}" height=20>
+            </li>
+
+            {% endfor %}
+        </ul>
+	
+    </body>
+</html>

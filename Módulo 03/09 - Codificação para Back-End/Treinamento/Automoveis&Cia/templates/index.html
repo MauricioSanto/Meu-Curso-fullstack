@@ -1,4 +1,6 @@
+{% load static %}
 <html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <body>
         <p>
             Minha lista de Produtos:
@@ -6,7 +8,7 @@
         <ul>
             {% for carro in carros %}
             <li>{{ carro.nome }} -  {{ carro.fabricante }} -
-                {{carro.ano}} - {{<img src=carro.foto , width= 20px>}}
+                {{carro.ano}} - <img src='{{carro.foto.url}}' height= 20>
             </li>
             {% endfor %}
 

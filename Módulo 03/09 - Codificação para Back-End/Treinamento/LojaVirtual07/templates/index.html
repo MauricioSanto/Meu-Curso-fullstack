@@ -3,20 +3,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <body>
         <h1>Esta é a página inicial</h1>
-        <a href="{% url 'pagina_cadastro' %}">Cadastro</a>
-        <p>
-            Minha lista de Funcionários:
-           
-        </p>
         <ul>
-            {% for cadastro in colaborador %}
             <li>
-                {{ cadastro.nome }} -  {{ cadastro.email }} -
-                {{cadastro.celular}} -
-                <img src="{{cadastro.foto.url}}" height=20>
-            </li>
+                <a href="{% url 'pagina_Funcionarios' %}">Funcionarios</a>
+                <a href="{% url 'pagina_Clientes' %}">Clientes</a>
+                <a href="{% url 'pagina_Carros' %}">Carros</a>
+                <a href="{% url 'pagina_Pagamento' %}">Pagamento</a>
 
-        {% endfor %}
+            </li>
         </ul>
     </body>
 </html>
