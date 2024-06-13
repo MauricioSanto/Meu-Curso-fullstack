@@ -1,5 +1,6 @@
 {% load static %}
 <html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <body>
         <a href="{% url 'pagina_index' %}">Página inicial</a>
         
@@ -9,7 +10,8 @@
         <ul>
             {% for pagamento in pagamentos %}
             <li>
-                {{ pagamento.forma_de_pagamento }} -  {{ pagamento.valor }} 
+                {{ pagamento.forma_de_pagamento }} -  {{ pagamento.valor }} - 
+                {{pagamento.carro}} - {{pagamento.cliente}}
                 
             </li>
 
