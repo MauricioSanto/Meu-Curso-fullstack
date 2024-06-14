@@ -4,16 +4,18 @@
     <body>
         <a href="{% url 'pagina_index' %}">Página inicial</a>
         
-        <p>
+        <h1>
             Minha lista de Pagamentos: 
-        </p>
+        </h1>
         <ul>
             {% for pagamento in pagamentos %}
-            <li>
-                {{ pagamento.forma_de_pagamento }} -  {{ pagamento.valor }} - 
-                {{pagamento.carro}} - {{pagamento.cliente}}
+            <div>
                 
-            </li>
+                    {{ pagamento.forma_de_pagamento }} -  {{ pagamento.valor }} - 
+                    {{pagamento.carro}} - {{pagamento.cliente}}
+                    
+                
+            </div>
 
             {% endfor %}
         </ul>

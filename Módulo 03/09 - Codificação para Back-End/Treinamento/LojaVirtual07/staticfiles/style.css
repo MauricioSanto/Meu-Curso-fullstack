@@ -6,6 +6,16 @@ body{
     background-size: cover;
     background-image: url("https://www.acelereveiculos.com.br/images/foto-loja-1.jpg");
 }
+button{
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-color: aqua;
+    box-shadow: 6px 6px 8px rgb(167, 184, 175);
+    border: 1px solid #000;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 20px;
+}
 
 h1{
     color: aqua;
@@ -17,14 +27,31 @@ li{
     border: 2px solid #000;
     border-radius: 10px;
     box-shadow: 6px 6px 8px rgb(167, 184, 175);
-    justify-content:center;
+    justify-content:left;
     display:flex;
     color: white;
 }
+
 a{
     padding: 20px;
     cursor: pointer;
     text-decoration: none;
     color: white;
-    
+    box-shadow: 6px 6px 8px rgb(167, 184, 175);
+    border: 1px solid #000;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 20px;
+
+}
+div{
+    border: 2px solid #000;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 8px rgb(167, 184, 175);
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    margin: 20px;
+
 }

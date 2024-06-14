@@ -5,15 +5,17 @@
 
         <a href="{% url 'pagina_index' %}">Página inicial</a>
         
-        <p>
+        <h1>
             Minha lista de Carros: 
-        </p>
+        </h1>
         <ul>
             {% for carros in carro %}
-            <li>
+            <div>
+                
                 {{ carros.modelo}} -  {{ carros.fabricante }} - {{carros.ano}} -
                 <img src="{{carros.foto.url}}" height=20>
-            </li>
+                
+            </div>
 
             {% endfor %}
         </ul>

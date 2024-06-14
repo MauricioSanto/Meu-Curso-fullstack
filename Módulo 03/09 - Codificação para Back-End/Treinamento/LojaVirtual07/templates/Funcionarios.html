@@ -4,15 +4,17 @@
     <body>
         <a href="{% url 'pagina_index' %}">Página inicial</a>
         
-        <p>
+        <h1>
             Minha lista de Funcionários: 
-        </p>
+        </h1>
         <ul>
             {% for cadastro in colaborador %}
-            <li>
+            <div>
+                
                 {{ cadastro.nome }} -  {{ cadastro.email }} - {{cadastro.celular}} -
                 <img src="{{cadastro.foto.url}}" height=20>
-            </li>
+                
+            </div>
 
             {% endfor %}
         </ul>

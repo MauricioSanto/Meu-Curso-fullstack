@@ -4,15 +4,17 @@
     <body>
         <a href="{% url 'pagina_index' %}">Página inicial</a>
         
-        <p>
+        <h1>
             Minha lista de Clientes: 
-        </p>
+        </h1>
         <ul>
             {% for Clientes in cliente %}
-            <li>
-                {{ Clientes.nome }} -  {{ Clientes.email }} - {{Clientes.contato}} -
+            <div>
                 
-            </li>
+                {{ Clientes.nome }} -  {{ Clientes.email }} - {{Clientes.contato}} -
+                    
+                
+            </div>
 
             {% endfor %}
         </ul>
