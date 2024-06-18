@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <a href="{% url 'pagina_lista' %}">Lista</a>
+        <p>
+            Produtos:
+            {% for produto in produtos %}
+                <li>{{ produto.nome_produto }} - <a href="{% url 'detalhes_produto' produto.id %}">Ver produto</a></li>
+            {% endfor %}
+
+        </p>
+        
+    </body>
+</html>

@@ -3,7 +3,7 @@ from .models import *
 
 def VerClientes (request):
     clientes_lista = clientes.objects.all()
-    return render(request,'base.html', {'cliente':clientes_lista})
+    return render(request,'index.html', {'cliente':clientes_lista})
 
 def VerIndex (request):
     return render(request, 'index.html')
@@ -16,3 +16,7 @@ def LinkInicial(request):
 
 def LinkLogin(request):
     return render(request, "login.html")
+
+def DetalhesCliente(request, id_cliente):
+    busca = clientes.objects.get(id=id_cliente)
+    return render(request, "detalhes_Clientes.html", {"Cliente": busca})

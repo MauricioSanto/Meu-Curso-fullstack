@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <a href="{% url "pagina_inicial" %}">Voltar</a>
+
+        <p>
+            Detalhes do Produto:
+        </p>
+
+        <p>
+            {{ produto.nome_produto }} - R$ {{ produto.valor_produto }}
+        </p>
+    </body>
+</html>

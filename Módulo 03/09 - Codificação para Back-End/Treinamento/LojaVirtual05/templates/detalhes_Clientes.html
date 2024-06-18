@@ -1,0 +1,14 @@
+
+<html>
+    <body>
+        <a href="{% url "pagina_Cliente" %}">Voltar</a>
+
+        <p>
+            Detalhes do Cliente:
+        </p>
+
+        <p>
+            {{ clientes.nome }} - {{ clientes.endereco }} - {{clientes.E_mail}}
+        </p>
+    </body>
+</html>

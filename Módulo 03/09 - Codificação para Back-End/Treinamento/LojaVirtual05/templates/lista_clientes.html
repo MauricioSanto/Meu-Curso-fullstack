@@ -1,0 +1,13 @@
+
+<html>
+    <body>
+        <p>
+            Minha lista de Clientes:
+        </p>
+        <ul>
+            {% for cliente in clientes %}
+                <li>{{ cliente.nome }} - <a href="{% url 'detalhes_Clientes' cliente.id %}">Ver Cliente</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
