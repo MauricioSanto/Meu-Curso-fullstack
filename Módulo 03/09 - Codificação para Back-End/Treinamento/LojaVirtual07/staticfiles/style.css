@@ -23,15 +23,15 @@ h1{
 ul{
     list-style: none;
 }
-li{
+/*li{
     border: 2px solid #000;
     border-radius: 10px;
     box-shadow: 6px 6px 8px rgb(167, 184, 175);
     justify-content:left;
     display:flex;
-    color: white;
+    
 }
-
+*/
 a{
     padding: 20px;
     cursor: pointer;
@@ -53,5 +53,10 @@ div{
     padding: 10px;
     align-items: center;
     margin: 20px;
-
+    color: white;
+    display:inline-block
+}
+p{
+    justify-content: center;
+    color: white;
 }

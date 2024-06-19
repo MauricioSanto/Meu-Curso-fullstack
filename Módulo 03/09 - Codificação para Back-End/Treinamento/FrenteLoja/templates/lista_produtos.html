@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <p>
+            Minha lista de Produtos:
+        </p>
+        <ul>
+            {% for produto in produtos %}
+                <li>{{ produto.nome_produto }} - <a href="{% url 'detalhes_produto' produto.id %}">Ver produto</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

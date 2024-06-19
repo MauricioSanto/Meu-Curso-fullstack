@@ -10,13 +10,16 @@
         </h1>
         <ul>
             {% for carros in carro %}
-            <div>
-                
-                {{ carros.modelo}} -  {{ carros.fabricante }} - {{carros.ano}} -
-                <img src="{{carros.foto.url}}" height=100>
-                
-            </div>
-
+                <div>
+                    <p><img src="{{carros.foto.url}}" height=100></p>
+                    <p>{{ carros.modelo}} </p>  
+                    <p>{{ carros.fabricante }}</p>
+                    <p>{{carros.ano}}</p>
+                    <br>
+                    <p><a href= "{% url 'detalhes_carros' carros.id%}">Ver Detalhes</a></p>
+                   
+                </div>
+               
             {% endfor %}
         </ul>
 	

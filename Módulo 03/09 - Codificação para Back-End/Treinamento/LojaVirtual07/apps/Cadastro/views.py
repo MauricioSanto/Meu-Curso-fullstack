@@ -25,3 +25,6 @@ def Linkpagamento(request):
     return render(request, "Pagamentos.html", {'pagamentos': pagamento_lista})
 
 
+def DetalhesCarro(request, id_carro):
+    busca = carros.objects.get(id=id_carro)
+    return render(request, "detalhes_carros.html", {"carros": busca})

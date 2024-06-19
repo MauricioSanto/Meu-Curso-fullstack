@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <a href="{% url 'pagina_Carros' %}">Carros</a>
+
+        <p>
+            Detalhes do Carro:
+        </p>
+
+        <p>{{ carros.modelo }}</p>
+            
+        <p>{{ carros.fabricante }} </p>
+            
+       
+    </body>
+</html>

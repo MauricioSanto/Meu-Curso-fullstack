@@ -54,5 +54,9 @@ div{
     align-items: center;
     margin: 20px;
     color: white;
-
+    display:inline-block
+}
+p{
+    justify-content: center;
+    color: white;
 }
