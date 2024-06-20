@@ -7,17 +7,19 @@
         <h1>
             Minha lista de Clientes: 
         </h1>
-        <ul>
+        <div class="lista-card">
             {% for Clientes in cliente %}
-            <div>
+            <div class="card">
                 
-                {{ Clientes.nome }} -  {{ Clientes.email }} - {{Clientes.contato}} -
+                <p>{{ Clientes.nome }}</p>
+                <p>{{ Clientes.email }}</p>
+                <p>{{Clientes.contato}}</p>
                     
                 
             </div>
 
             {% endfor %}
-        </ul>
+        </div>
 	
     </body>
 </html>

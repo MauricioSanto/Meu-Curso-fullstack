@@ -7,17 +7,16 @@
         <h1>
             Minha lista de Funcionários: 
         </h1>
-        <ul>
-            {% for cadastro in colaborador %}
-            <div>
-                
-                {{ cadastro.nome }} -  {{ cadastro.email }} - {{cadastro.celular}} -
-                <img src="{{cadastro.foto.url}}" height=50>
-                
-            </div>
 
+        <div class="lista-card">
+            {% for cadastro in colaborador %}
+                <div class="card">
+                    <img src="{{cadastro.foto.url}}" height=50>
+                    <p>{{ cadastro.nome }}</p> 
+                    <p>{{ cadastro.email }}</p>
+                    <p>{{cadastro.celular}}</p>
+                </div>
             {% endfor %}
-        </ul>
-	
+        </div>
     </body>
 </html>

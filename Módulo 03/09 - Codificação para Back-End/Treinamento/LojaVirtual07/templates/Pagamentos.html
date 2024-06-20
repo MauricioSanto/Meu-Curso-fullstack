@@ -7,18 +7,20 @@
         <h1>
             Minha lista de Pagamentos: 
         </h1>
-        <ul>
+        <div class="lista-card">
             {% for pagamento in pagamentos %}
-            <div>
+            <div class="card">
                 
-                    {{ pagamento.forma_de_pagamento }} -  {{ pagamento.valor }} - 
-                    {{pagamento.carro}} - {{pagamento.cliente}}
+                <p>{{ pagamento.forma_de_pagamento }}</p>
+                <p>{{ pagamento.valor }}</p> 
+                <p>{{pagamento.carro}}</p>
+                <p>{{pagamento.cliente}}</p>
                     
                 
             </div>
 
             {% endfor %}
-        </ul>
+        </div>
 	
     </body>
 </html>

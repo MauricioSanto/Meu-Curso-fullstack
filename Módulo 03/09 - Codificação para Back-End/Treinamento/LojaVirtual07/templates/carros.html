@@ -8,9 +8,9 @@
         <h1>
             Minha lista de Carros: 
         </h1>
-        <ul>
+        <div class="lista-card">
             {% for carros in carro %}
-                <div>
+                <div class="card">
                     <p><img src="{{carros.foto.url}}" height=100></p>
                     <p>{{ carros.modelo}} </p>  
                     <p>{{ carros.fabricante }}</p>
@@ -21,7 +21,7 @@
                 </div>
                
             {% endfor %}
-        </ul>
+        </div>
 	
     </body>
 </html>
