@@ -69,3 +69,6 @@ p{
     justify-content: center;
     color: white;
 }
+img{
+    border-radius: 10px;
+}

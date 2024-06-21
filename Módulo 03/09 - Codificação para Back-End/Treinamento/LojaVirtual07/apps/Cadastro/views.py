@@ -2,14 +2,14 @@ from django.shortcuts import render
 from .models import *
 
 def VerFuncionario(request):
-    produtos_lista = cadastro.objects.all()
+    produtos_lista = cadastro_funcionarios.objects.all()
     return render(request, 'Funcionarios.html', {'colaborador': produtos_lista})
 
 def LinkInicial(request):
     return render(request, "index.html")
 
-def LinkCadastro(request):
-    produtos_lista = cadastro.objects.all()
+def LinkCadastroFuncionario(request):
+    produtos_lista = cadastro_funcionarios.objects.all()
     return render(request, "Funcionarios.html", {'colaborador': produtos_lista})
 
 def LinkClientes(request):
@@ -28,3 +28,7 @@ def Linkpagamento(request):
 def DetalhesCarro(request, id_carro):
     busca = carros.objects.get(id=id_carro)
     return render(request, "detalhes_carros.html", {"carros": busca})
+
+def PedidosCarros (request):
+    pedidos_lista = Pedido.objects.all()
+    return render(request, "pedido.html", {"pedidos":pedidos_lista} )

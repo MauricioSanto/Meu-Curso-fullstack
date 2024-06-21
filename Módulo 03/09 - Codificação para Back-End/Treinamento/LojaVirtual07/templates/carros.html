@@ -11,12 +11,11 @@
         <div class="lista-card">
             {% for carros in carro %}
                 <div class="card">
-                    <p><img src="{{carros.foto.url}}" height=100></p>
+                    <img src="{{carros.foto.url}}" height=100>
                     <p>{{ carros.modelo}} </p>  
                     <p>{{ carros.fabricante }}</p>
                     <p>{{carros.ano}}</p>
-                    <br>
-                    <p><a href= "{% url 'detalhes_carros' carros.id%}">Ver Detalhes</a></p>
+                    <a href= "{% url 'detalhes_carros' carros.id%}">Ver Detalhes</a>
                    
                 </div>
                

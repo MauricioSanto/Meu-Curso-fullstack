@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <a href="{% url 'pagina_index' %}">Página inicial</a>
+        
+        <h1>
+            Minha lista de Pedidos: 
+        </h1>
+        <div class="lista-card">
+            {% for item in pedidos %}
+            <div class="card">
+                
+                <p>{{ item.numero_pedido }}</p>
+                <p>{{ item.cliente }}</p> 
+                <p>{{item.modelo}}</p>
+                <p>{{item.data_pedido}}</p>
+                <p>{{item.pagamento}}</p>
+                
+            </div>
+
+            {% endfor %}
+        </div>
+	
+    </body>
+</html>
