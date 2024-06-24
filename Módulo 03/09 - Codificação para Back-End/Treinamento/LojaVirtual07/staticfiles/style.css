@@ -5,6 +5,7 @@ body{
     display: flex;
     flex-direction: column;
 }
+/*
 button{
     cursor: pointer;
     text-decoration: none;
@@ -15,7 +16,7 @@ button{
     border-radius: 10px;
     margin: 20px;
 }
-
+*/
 h1{
     color: aqua;
 }
