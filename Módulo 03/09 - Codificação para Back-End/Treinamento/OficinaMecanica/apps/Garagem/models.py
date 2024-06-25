@@ -13,6 +13,7 @@ class Veiculos(models.Model):
     marca = models.CharField(max_length=50)
     modelo = models.CharField(max_length=50)
     placa = models.CharField(max_length=50)
+    foto = models.ImageField(upload_to="foto_perfil/")
 
     def __str__(self):
         return self.placa
@@ -33,6 +34,7 @@ class Pecas (models.Model):
     nome_da_peca = models.CharField(max_length=100)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     fornecedor = models.CharField(max_length=50)
+    foto = models.ImageField(upload_to="foto_perfil/")
 
     def __str__(self):
         return self.nome_da_peca +" | "+ str(self.valor)
@@ -41,6 +43,8 @@ class Mecanicos(models.Model):
     matricula = models.IntegerField()
     nome = models.CharField(max_length=100)
     especialidade = models.CharField(max_length=100)
+    foto = models.ImageField(upload_to="foto_perfil/")
+
 
     def __str__(self):
         return self.nome + " | " + self.especialidade
