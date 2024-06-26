@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
+from .forms import *
 
 def Inicio(request):
     return render(request,'index.html')
@@ -27,6 +28,17 @@ def VerMecanicos(request):
 def VerVendas(request):
     Vendas_lista = Vendas.objects.all()
     return render(request, 'vendas.html', {'venda': Vendas_lista})
+
+def CriarClientes(request):
+    busca_Clientes = Clientes.objects.all()
+    if request.method == "POST":
+        novo_cliente = FormularioClientes(request.POST)
+        novo_cliente.save()
+        novo_cliente = FormularioClientes()
+    else:
+        novo_cliente = FormularioClientes()
+    return render(request, "clientes.html", {"formulario": novo_cliente, "clientes": busca_Clientes})
+
 
 
 

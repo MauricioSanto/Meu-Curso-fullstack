@@ -1,20 +1,42 @@
 {% load static %}
 <html>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  
 
     <body>
         <p>
             Minha lista de Clientes:
         </p>
+        <a href="{% url "pagina_index"%}">Página inicial</a>
         <div class='Lista_Card'>
-            {% for clientes in cliente %}
-                <div class = 'card'>
-                    <p>{{ clientes.nome }} </p>
-                    <p>{{ clientes.email }}</p>
-                    <p>{{ clientes.celular }}</p>
-                    <p>{{ clientes.endereco }}</p>
-                </div>
-            {% endfor %}
+            
+            <div class = 'card'>
+                <h3>Formulário de Clientes</h3>
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{ formulario.as_p }}
+                    <button type="submit">Salvar</button>
+                    <button type="reset" onclick="resetForm()">Cancelar</button>
+                </form>
+                
+                <h3>
+                    Lista de Clientes:
+                </h3>
+                <ul>
+                    {% for cliente in clientes %}
+                        
+                        <li>{{ cliente.nome }} </li>
+                        <li> {{ cliente.email }}</li>
+                        <li>{{ cliente.celular }} </li>
+                        <li>{{ cliente.endereco }} </li>
+
+                        
+                    {% endfor %}
+                </ul>
+        
+                
+            </div>
+            
         </div>
     </body>
 </html>

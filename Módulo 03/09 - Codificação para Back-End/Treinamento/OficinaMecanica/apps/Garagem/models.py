@@ -30,8 +30,7 @@ class OrdemServico(models.Model):
         return str(self.OrdemNumero)
     
 class Pecas (models.Model):
-    id_da_peca = models.IntegerField()
-    nome_da_peca = models.CharField(max_length=100)
+    nome= models.CharField(max_length=100)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     fornecedor = models.CharField(max_length=50)
     foto = models.ImageField(upload_to="foto_perfil/")

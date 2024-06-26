@@ -2,9 +2,16 @@
 <html>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <body>
-        <p>
-            
-        </p>
+        <ul>
+            <li>
+                <a href=" {% url "pagina_clientes" %}">Clientes</a> 
+                <a href="{% url "pagina_veiculos"%}">Veiculos</a>
+                <a href="{%url "pagina_mecanicos"%}">Mecânicos</a> 
+                <a href="{% url "pagina_OrdemServiço"%}">Ordem de Serviço</a> 
+                <a href="{%url "pagina_pecas"%}">Peças</a> 
+                <a href="{% url "pagina_vendas"%}">Vendas</a> 
+            </li>
+        </ul>
         
     </body>
 </html>
