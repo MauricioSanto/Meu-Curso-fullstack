@@ -39,6 +39,62 @@ def CriarClientes(request):
         novo_cliente = FormularioClientes()
     return render(request, "clientes.html", {"formulario": novo_cliente, "clientes": busca_Clientes})
 
+def CriarMecanico(request):
+    busca_mecanico = Mecanicos.objects.all()
+    if request.method == "POST":
+        novo_mecanico = FormularioMecanico(request.POST, request.FILES)
+        novo_mecanico.save()
+        novo_mecanico = FormularioMecanico()
+    else:
+        novo_mecanico = FormularioMecanico()
+    return render(request, "mecanico.html", {"formulario": novo_mecanico, "mecanico": busca_mecanico})
+
+def CriarOrdemServico(request):
+    busca_Os = OrdemServico.objects.all()
+    if request.method == "POST":
+        novo_Os = FormularioOrdemServico(request.POST)
+        novo_Os.save()
+        novo_Os = FormularioOrdemServico()
+    else:
+        novo_Os = FormularioOrdemServico()
+    return render(request, "OrdemServico.html", {"formulario": novo_Os, "Ordem": busca_Os})
+
+
+def CriarVeiculo(request):
+    busca_veiculo = Veiculos.objects.all()
+    if request.method == "POST":
+        novo_veiculo = FormularioVeiculos(request.POST, request.FILES)
+        novo_veiculo.save()
+        novo_veiculo = FormularioVeiculos()
+    else:
+        novo_veiculo = FormularioVeiculos()
+    return render(request, "veiculos.html", {"formulario": novo_veiculo, "veiculo": busca_veiculo})
+
+
+def CriarPecas(request):
+    busca_pecas = Pecas.objects.all()
+    if request.method == "POST":
+        novo_pecas = FormularioPecas(request.POST, request.FILES)
+        novo_pecas.save()
+        novo_pecas = FormularioPecas()
+    else:
+        novo_pecas = FormularioPecas()
+    return render(request, "pecas.html", {"formulario": novo_pecas, "pecas": busca_pecas})
+
+
+def CriarVendas(request):
+    busca_vendas = Vendas.objects.all()
+    if request.method == "POST":
+        novo_vendas = FormularioVendas(request.POST)
+        novo_vendas.save()
+        novo_vendas = FormularioVendas()
+    else:
+        novo_vendas = FormularioVendas()
+    return render(request, "vendas.html", {"formulario": novo_vendas, "vendas": busca_vendas})
+
+
+
+
 
 
 

@@ -1,19 +1,38 @@
 {% load static %}
 <html>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    
     <body>
-        <p>
-            Minha lista de Veiculos:
-        </p>
+        
         <a href="{% url "pagina_index"%}">Página inicial</a>
         <div class=Lista_Card>
-            {% for clientes in cliente %}
-                <div class = card>
-                    <p>{{ clientes.nome }} </p>
-                    <p>{{ clientes.email }}</p>
-                    <p>{{ clientes.celular }}</p>
-                    <p>{{ clientes.endereco }}</p>
-                </div>
-            {% endfor %}
+            <div class = 'card'>
+                <h3>Formulário de Veiculos:</h3>
+
+                <form method="post", enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    {{ formulario.as_p }}
+                    <button type="submit">Salvar</button>
+                    <button type="reset" onclick="resetForm()">Cancelar</button>
+                </form>
+                
+                <h3>
+                    Lista de Veiculos:
+                </h3>
+                <ul>
+                    {% for carro in veiculo %}
+                        
+                        <li>{{ carro.marca }} </li>
+                        <li> {{carro.modelo  }}</li>
+                        <li>{{ carro.placa }} </li>
+                        <li><img src="{{carro.foto.url}}" height=100> </li>
+
+                        
+                    {% endfor %}
+                </ul>
+        
+                
+            </div>
+        </div>
+          
     </body>
 </html>

@@ -1,19 +1,33 @@
 {% load static %}
 <html>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    
     <body>
-        <p>
-            Minha lista de Vendas:
-        </p>
+        
         <a href="{% url "pagina_index"%}">Página inicial</a>
-        <div class=Lista_Card>
-            {% for clientes in cliente %}
-                <div class = card>
-                    <p>{{ clientes.nome }} </p>
-                    <p>{{ clientes.email }}</p>
-                    <p>{{ clientes.celular }}</p>
-                    <p>{{ clientes.endereco }}</p>
-                </div>
-            {% endfor %}
+        <div class='Lista_Card'>
+            <p>
+                Formulário de Vendas:
+            </p>
+            <form method="post">
+                {% csrf_token %}
+                {{ formulario.as_p }}
+                <button type="submit">Salvar</button>
+                <button type="reset" onclick="resetForm()">Cancelar</button>
+            </form>
+            <p>
+                Minha lista de vendas:
+            </p>
+            
+            <ul>
+                {% for ticket in vendas %}
+                    
+                    <li>{{ticket.mecanico }} </li>
+                    <li> {{ticket.valor_do_servico}}</li>
+                    <li>{{ ticket.veiculo }} </li>
+                    <li>{{ ticket.Valor_Total }} </li>
+                    
+                {% endfor %}
+            </ul>
+        </div>  
     </body>
 </html>

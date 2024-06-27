@@ -1,19 +1,31 @@
 {% load static %}
 <html>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    
     <body>
+        
+        <a href="{% url "pagina_index"%}">Página inicial</a>
+        
+        <h3>Formulário de Peças:</h3>
+
+        <form method="post", enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Salvar</button>
+            <button type="reset" onclick="resetForm()">Cancelar</button>
+        </form>
         <p>
             Minha lista de Peças:
         </p>
-        <a href="{% url "pagina_index"%}">Página inicial</a>
-        <div class=Lista_Card>
-            {% for clientes in cliente %}
-                <div class = card>
-                    <p>{{ clientes.nome }} </p>
-                    <p>{{ clientes.email }}</p>
-                    <p>{{ clientes.celular }}</p>
-                    <p>{{ clientes.endereco }}</p>
-                </div>
+        
+        <ul>
+            {% for item in pecas %}
+                
+                <li>{{item.nome }} </li>
+                <li> {{item.fornecedor}}</li>
+                <li>{{ item.valor }} </li>
+                <li><img src = "{{item.foto.url }}" height=100></li>
             {% endfor %}
-    </body>
+        </ul>
+
+        
 </html>

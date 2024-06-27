@@ -3,14 +3,12 @@
   
 
     <body>
-        <p>
-            Minha lista de Clientes:
-        </p>
+    
         <a href="{% url "pagina_index"%}">Página inicial</a>
         <div class='Lista_Card'>
             
             <div class = 'card'>
-                <h3>Formulário de Clientes</h3>
+                <h3>Formulário de Clientes:</h3>
 
                 <form method="post">
                     {% csrf_token %}
