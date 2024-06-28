@@ -1,37 +1,35 @@
 {% load static %}
 <html>
-    
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <body>
         
         <a href="{% url "pagina_index"%}">Página inicial</a>
-        <div class=Lista_Card>
-            <div class = 'card'>
-                <h3>Formulário de Veiculos:</h3>
 
-                <form method="post", enctype='multipart/form-data'>
-                    {% csrf_token %}
-                    {{ formulario.as_p }}
-                    <button type="submit">Salvar</button>
-                    <button type="reset" onclick="resetForm()">Cancelar</button>
-                </form>
-                
-                <h3>
-                    Lista de Veiculos:
-                </h3>
-                <ul>
-                    {% for carro in veiculo %}
-                        
-                        <li>{{ carro.marca }} </li>
-                        <li> {{carro.modelo  }}</li>
-                        <li>{{ carro.placa }} </li>
-                        <li><img src="{{carro.foto.url}}" height=100> </li>
+        <h3>Formulário de Veiculos:</h3>
+        <div class='Lista_Card'>
+            
+            <form method="post", enctype='multipart/form-data'>
+                {% csrf_token %}
+                {{ formulario.as_p }}
+                <button type="submit">Salvar</button>
+                <button type="reset" onclick="resetForm()">Cancelar</button>
+            </form>
+            
+            <h3>
+                Lista de Veiculos:
+            </h3>
+            <ul>
+                {% for carro in veiculo %}
+                    
+                    <li>{{ carro.marca }} </li>
+                    <li> {{carro.modelo  }}</li>
+                    <li>{{ carro.placa }} </li>
+                    <li><img src="{{carro.foto.url}}" height=100> </li>
 
-                        
-                    {% endfor %}
-                </ul>
-        
-                
-            </div>
+                    
+                {% endfor %}
+            </ul>
+    
         </div>
           
     </body>

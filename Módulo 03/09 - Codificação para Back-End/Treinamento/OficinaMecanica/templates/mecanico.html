@@ -1,38 +1,37 @@
 {% load static %}
 <html>
-    
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <body>
         
         <a href="{% url "pagina_index"%}">Página inicial</a>
 
+        <h3>Formulário de Mecânicos:</h3>
+
         <div class='Lista_Card'>
-            <div class = 'card'>
-                <h3>Formulário de Mecânicos:</h3>
+            
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ formulario.as_p }}
+                <button type="submit">Salvar</button>
+                <button type="reset" onclick="resetForm()">Cancelar</button>
+            </form>
+            
+            <h3>
+                Lista de Mecânicos:
+            </h3>
+            <ul>
+                {% for  mecanicos in mecanico %}
+                    
+                    <li>{{mecanicos.matricula }} </li>
+                    <li> {{ mecanicos.nome }}</li>
+                    <li>{{ mecanicos.especialidade }} </li>
+                    <li><img src = "{{mecanicos.foto.url }} " height= 100></li>
 
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ formulario.as_p }}
-                    <button type="submit">Salvar</button>
-                    <button type="reset" onclick="resetForm()">Cancelar</button>
-                </form>
-                
-                <h3>
-                    Lista de Mecânicos:
-                </h3>
-                <ul>
-                    {% for  mecanicos in mecanico %}
-                        
-                        <li>{{mecanicos.matricula }} </li>
-                        <li> {{ mecanicos.nome }}</li>
-                        <li>{{ mecanicos.especialidade }} </li>
-                        <li><img src = "{{mecanicos.foto.url }} " height= 100></li>
-
-                        
-                    {% endfor %}
-                </ul>
-            </div>
+                    
+                {% endfor %}
+            </ul>
+            
         </div>
 
-    
     </body>
 </html>

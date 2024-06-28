@@ -3,19 +3,29 @@
     flex-wrap: wrap;
     column-gap: 15px;
     row-gap:15px ;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 8px 8px 16px rgb(167,184,175);
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
 
 }
-.card{
+.card {
     display: flex;
     width: fit-content;
     height: fit-content;
     border: 2px solid #000;
     border-radius: 10px;
     box-shadow: 6px 6px 8px rgb(167,184,175);
-    flex-direction: column;
+    flex-direction:row;
     padding: 10px;
     align-items: center;
     color: white;
+    
 }
 
 ul{
@@ -30,10 +40,26 @@ a{
     box-shadow: 6px 6px 8px rgb(167, 184, 175);
     border: 1px solid #000;
     border-radius: 10px;
-    width: fit-content;
-    height: fit-content;
+    width: 100px;
+    height: 30px;
+    margin: 10px;
 
 }
+
 li{
     color: #000;
+}
+body{
+    background-color: rgba(233, 209, 187, 0.192);
+    display: flex;
+}
+.dropdown{
+    margin: 0;
+    padding: 0;
+    display: block;
+    float: left;
+    width: 100%;
+    position: relative;
+    transition: backgrond 200 ms ease;
+    z-index: 50;
 }

@@ -1,39 +1,40 @@
 {% load static %}
 <html>
-    
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <body>
         
         <a href="{% url "pagina_index"%}">Página inicial</a>
-        <div class='Lista_Card'>
-            <div class = 'card'>
-                <h3>Formulário de Ordem de Serviço:</h3>
-
-                <form method="post">
-                    {% csrf_token %}
-                    {{ formulario.as_p }}
-                    <button type="submit">Salvar</button>
-                    <button type="reset" onclick="resetForm()">Cancelar</button>
-                </form>
-                
-                <h3>
-                    Lista de Ordem de Serviço:
-                </h3>
-                <ul>
-                    {% for os in Ordem %}
-                        
-                        <li>{{ os.OrdemNumero}} </li>
-                        <li> {{os.data }}</li>
-                        <li>{{os.status  }} </li>
-                        <li>{{ os.valor }} </li>
-                        <li>{{ os.pecas }} </li>
-                        <li>{{ os.veiculo }} </li>
-
-                        
-                    {% endfor %}
-                </ul>
         
+            
+        <h3>Formulário de Ordem de Serviço:</h3>
+        <div class='Lista_Card'>
+
+            <form method="post">
+                {% csrf_token %}
+                {{ formulario.as_p }}
+                <button type="submit">Salvar</button>
+                <button type="reset" onclick="resetForm()">Cancelar</button>
+            </form>
+            
+            <h3>
+                Lista de Ordem de Serviço:
+            </h3>
+            <ul>
+                {% for os in Ordem %}
+                    
+                    <li>{{ os.OrdemNumero}} </li>
+                    <li> {{os.data }}</li>
+                    <li>{{os.status  }} </li>
+                    <li>{{ os.valor }} </li>
+                    <li>{{ os.pecas }} </li>
+                    <li>{{ os.veiculo }} </li>
+
+                    
+                {% endfor %}
+            </ul>
+    
                 
-            </div>
+            
         </div>
     </body>
 </html>
