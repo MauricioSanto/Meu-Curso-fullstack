@@ -13,7 +13,7 @@
 	==> from django.conf import settings
 	    from django.conf.urls.static import static
 
-4- Ainda no urls do projeto, insira o código abaixo para definir a Rota no projeto de onde os arquivos seram salvos. Atente-se que o código abaixo tem apenas 2 linhas, faça uso do copiar e colar:
+4- Ainda no urls do projeto, insira o código abaixo para definir a Rota no projeto de onde os arquivos serão salvos. Atente-se que o código abaixo tem apenas 2 linhas, faça uso do copiar e colar:
 	==> if settings.DEBUG:
     		urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

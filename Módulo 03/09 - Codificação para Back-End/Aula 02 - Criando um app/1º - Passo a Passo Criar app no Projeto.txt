@@ -5,7 +5,7 @@
 1- Cria um app no projeto:
 	==> py manage.py startapp nome_do_app
 	
-	OBS: Caso vc queira criar um app dentro de uma pasta chamada "apps" para englobar todos os apps dentro dela, siga estes passos OBS: Não precisa desativar o Ambiente Virtual(venv):
+	OBS: Caso você queira criar um app dentro de uma pasta chamada "apps" para englobar todos os apps dentro dela, siga estes passos OBS: Não precisa desativar o Ambiente Virtual(venv):
 		1- Criar uma pasta chamada "apps":
 			==> mkdir nome_da_pasta
 		2- Navegar para esta pasta:

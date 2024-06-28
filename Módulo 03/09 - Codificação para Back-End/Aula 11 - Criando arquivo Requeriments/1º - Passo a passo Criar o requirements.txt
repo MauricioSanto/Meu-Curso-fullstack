@@ -6,7 +6,7 @@
 
 1 - Caso a máquina virtual não esteja ativada, ative-a.
 
-2 - Rode o comando abaixo para criar o arquivo requeriments:
+2 - Rode o comando abaixo para criar o arquivo requirements:
 
 	=> pip freeze > requirements.txt
 

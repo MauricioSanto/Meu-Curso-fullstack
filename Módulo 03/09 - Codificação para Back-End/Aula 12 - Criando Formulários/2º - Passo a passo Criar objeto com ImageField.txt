@@ -19,7 +19,3 @@
 	==> novo_estudante = FormularioProduto(request.POST, request.FILES)
 
 3 - Não esqueça de criar esse model "FileField" ou "ImageField" no arquivo "models.py".
-
-4 - Também não esqueça de registrar esse novo campo no arquivo "forms.py":
-
-	fields = ['nome', 'nota_final', 'foto_estudante']

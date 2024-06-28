@@ -46,9 +46,17 @@
 
 {% extends "base.html" %}
 
-{% block titulo %} Página Inicial {% endblock %}
+{% block titulo %}
+        <p>
+            Página Inicial
+        </p>
+{% endblock %}
 
-{% block conteudo %} Bem-vindo a Loja! {% endblock %}
+{% block conteudo %}
+        <p>
+            Bem-vindo a Loja!
+        </p>
+{% endblock %}
 
 
 4 - Agora basta criar outros arquivos HTML como esse do "index.html", chamando o arquivo "base.html" com o comando "extends" e colocando o texto que será colocado no lugar do "block titulo". No exemplo abaixo crie um arquivo e nomei-o como "login.html" e coloque o código abaixo:
@@ -56,9 +64,17 @@
 
 {% extends "base.html" %}
 
-{% block titulo %} Página de login {% endblock %}
+{% block titulo %} 
+        <p>
+            Página de login
+        </p>
+{% endblock %}
 
-{% block conteudo %} Preencha e-mail e senha para realizar seu login. {% endblock %}
+{% block conteudo %} 
+        <p>
+            Preencha e-mail e senha para realizar seu login.
+        </p>
+{% endblock %}
 
 
 5 - Para criar mais um último exemplo, crie um arquivo e nomei-o como "produtos.html" e coloque o código abaixo:
@@ -66,8 +82,16 @@
 
 {% extends "base.html" %}
 
-{% block titulo %} Página de Produtos {% endblock %}
+{% block titulo %}
+        <p>
+            Página de Produtos
+        </p>
+{% endblock %}
 
-{% block conteudo %} Abaixo veja nossa lista de produtos. {% endblock %}
+{% block conteudo %}
+        <p>
+            Abaixo veja nossa lista de produtos.
+        </p>
+{% endblock %}
 
 

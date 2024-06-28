@@ -5,7 +5,7 @@
 
 1 - Crie um aplicativo chamado "vitrine". Crie uma tabela do banco de dados. O nome será "Produto". Terá como propriedades "nome_produto" onde será um campo CharField e "valor_produto" onde será um campo "DecimalField".
 
-2 - Configure o projeto para aceitar templates, criando assim a pasta templates.
+2 - Configure o projeto para aceitar templates, criando assim a pasta templates e registrando-a.
 
 3 - Crie um arquivo HTML na pasta "templates" com o código abaixo, nomei-o como "lista-produtos.html":
 
@@ -29,7 +29,7 @@
 
 def VerProdutos(request):
     produtos_lista = Produto.objects.all()
-    return render(request, "index.html", {"produtos": produtos_lista})
+    return render(request, "lista-produtos.html", {"produtos": produtos_lista})
 
 
 5 - Depois crie o arquivo "urls.py" dentro da pasta do aplicativo. E também como de costume importe o comando "path", importe o arquivo "views.py" todo e crie a tupla do "urlpatterns" criando o caminho dessa pagina e atribuindo já um nome a essa rota:
