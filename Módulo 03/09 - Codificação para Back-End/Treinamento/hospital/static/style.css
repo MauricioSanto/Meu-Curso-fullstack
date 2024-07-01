@@ -1,0 +1,29 @@
+a{
+    border: 1px solid #000;
+    border-radius: 2px;
+    box-shadow:6px 6px 8px rgb(143, 156, 218);
+    text-decoration: none;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+
+    
+}
+li{
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow:8px 8px 16px rgb(147, 152,175);
+    list-style: none;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+}
+body{
+    background-image: url('https://images.adsttc.com/media/images/5f9c/942b/63c0/1783/9500/0179/large_jpg/5MG_2973a.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    
+}

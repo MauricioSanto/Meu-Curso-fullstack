@@ -50,16 +50,8 @@ li{
     color: #000;
 }
 body{
-    background-color: rgba(233, 209, 187, 0.192);
     display: flex;
-}
-.dropdown{
-    margin: 0;
-    padding: 0;
-    display: block;
-    float: left;
-    width: 100%;
-    position: relative;
-    transition: backgrond 200 ms ease;
-    z-index: 50;
+    background-image: url("https://www.hightorque.com.br/wp-content/uploads/2019/02/xhigh_torque_sao_bernanrdo_do_campo_1-1100x577.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
 }

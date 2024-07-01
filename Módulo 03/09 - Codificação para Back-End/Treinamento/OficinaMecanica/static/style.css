@@ -50,6 +50,8 @@ li{
     color: #000;
 }
 body{
-    background-color: rgba(233, 209, 187, 0.192);
     display: flex;
+    background-image: url("https://www.hightorque.com.br/wp-content/uploads/2019/02/xhigh_torque_sao_bernanrdo_do_campo_1-1100x577.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
 }

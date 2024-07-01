@@ -19,15 +19,15 @@ class FormularioOrdemServico(forms.ModelForm):
 class FormularioPecas(forms.ModelForm):
     class Meta:
         model = Pecas
-        fields = ['nome', 'valor','fornecedor','foto']
+        fields = '__all__'
 
 class FormularioVeiculos(forms.ModelForm):
     class Meta:
         model = Veiculos
-        fields = ['marca', 'modelo','placa','foto']
+        fields = '__all__'
 
 class FormularioVendas(forms.ModelForm):
     class Meta:
         model = Vendas
-        fields = ['mecanico', 'valor_do_servico','veiculo','Valor_Total']
+        fields = '__all__'
 

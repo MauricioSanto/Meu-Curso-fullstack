@@ -1,0 +1,18 @@
+{% load static %}
+
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <p>
+            Lista de Pacientes:
+        </p>
+        <ul>
+            {% for paciente in pacientes %}
+                
+                <li>{{ paciente.nome }} - <a href="{% url 'pg_editar_paciente' paciente.id %}">Editar paciente</a></li>
+                
+            {% endfor %}
+        </ul>
+    </body>
+</html>
+ 
