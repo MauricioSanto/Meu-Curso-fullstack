@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <a href="{% url "pagina_inicial" %}">Voltar</a>
+
+        <p>
+            Detalhes do Dvd:
+        </p>
+
+        <p>
+             {{ Dvd.produtora }} - {{Dvd.fabricacao}} -
+            {{Dvd.diretor}} 
+        </p>
+    </body>
+</html>

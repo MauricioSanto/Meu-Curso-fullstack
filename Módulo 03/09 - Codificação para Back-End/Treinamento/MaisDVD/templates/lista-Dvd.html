@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <p>
+            Minha lista de Dvds:
+        </p>
+        <ul>
+            {% for Dvd in Dvds %}
+                <li>{{ Dvd.titulo }} - <a href="{% url 'detalhes_Dvd' Dvd.id %}">Ver Dvd</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
