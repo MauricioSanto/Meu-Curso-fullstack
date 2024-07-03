@@ -8,19 +8,20 @@
         <h1>
             Minha lista de Carros: 
         </h1>
+        
         <div class="lista-card">
             {% for carros in carro %}
-                <div class="card">
-                    <img src="{{carros.foto.url}}" height=100>
-                    <p>{{ carros.modelo}} </p>  
-                    <p>{{ carros.fabricante }}</p>
-                    <p>{{carros.ano}}</p>
-                    <a href= "{% url 'detalhes_carros' carros.id%}">Ver Detalhes</a>
-                   
-                </div>
-               
+                <a href= "{% url 'detalhes_carros' carros.id%}">
+                    <div class="card">
+                        <img src="{{carros.foto.url}}" height=100>
+                        <p>{{ carros.modelo}} </p>  
+                        <p>{{ carros.fabricante }}</p>
+                        <p>{{carros.ano}}</p>
+                    
+                    </div>
+                </a>
             {% endfor %}
         </div>
-	
+       
     </body>
 </html>

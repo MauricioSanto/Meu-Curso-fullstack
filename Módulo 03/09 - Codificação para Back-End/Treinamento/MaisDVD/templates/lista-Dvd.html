@@ -1,11 +1,14 @@
+{% load static %}
 <html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <body>
+        <a href="{% url 'pagina_inicial' %}">Página inicial</a>
         <p>
             Minha lista de Dvds:
         </p>
         <ul>
             {% for Dvd in Dvds %}
-                <li>{{ Dvd.titulo }} - <a href="{% url 'detalhes_Dvd' Dvd.id %}">Ver Dvd</a></li>
+                <li>{{ Dvd.titulo }} 
             {% endfor %}
         </ul>
     </body>

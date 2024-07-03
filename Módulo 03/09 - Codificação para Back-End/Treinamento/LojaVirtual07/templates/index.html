@@ -13,10 +13,25 @@
                     <a href="{% url 'pagina_Carros' %}">Carros</a>
                     <a href="{% url 'pagina_Pagamento' %}">Pagamento</a>
                     <a href="{% url 'pagina_pedidos' %}">Pedidos</a>
+                    <a href="{% url 'pagina_cadastro' %}">Cadastro</a>
                 </li>
 
                 
             </ul>
+            <div class="lista-card">
+                {% for carros in carro %}
+                    <a href= "{% url 'detalhes_carros' carros.id%}">
+                        <div class="card">
+                            <img src="{{carros.foto.url}}" height=100>
+                            <p>{{ carros.modelo}} </p>  
+                            <p>{{ carros.fabricante }}</p>
+                            <p>{{carros.ano}}</p>
+                        
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+                
         </nav>
         
     </body>

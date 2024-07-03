@@ -2,17 +2,20 @@
 <HTML>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <BODY>
-        <div class="lista-card">
-            {% for Dvd in Dvds %}
-                <div class="card">
-                    <img src="{{Dvd.foto.url}}" height=100>
-                    <p>{{ Dvd.titulo}} </p>  
-                    <p>{{ Dvd.genero }}</p>
-                    <a href= "{% url 'detalhes_Dvd' Dvd.id%}">Ver Detalhes</a>
-                   
-                </div>
-               
-            {% endfor %}
-        </div>
+        <a href="{% url 'pagina_cadastro' %}">Cadastro</a>
+
+      
+            <div class="lista-card">
+                {% for Dvd in Dvds %}
+                    <div class="card">
+                        <img src="{{Dvd.foto.url}}" height=100>
+                        <p>{{ Dvd.titulo}} </p>  
+                        <p>{{ Dvd.genero }}</p>
+                    
+                    </div>
+                
+                {% endfor %}
+            </div>
+        
     </BODY>
 </HTML>

@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
+from .forms import *
 
 def VerFuncionario(request):
     produtos_lista = cadastro_funcionarios.objects.all()
@@ -32,3 +33,15 @@ def DetalhesCarro(request, id_carro):
 def PedidosCarros (request):
     pedidos_lista = Pedido.objects.all()
     return render(request, "pedido.html", {"pedidos":pedidos_lista} )
+
+def CriarCarros(request):
+    busca_carro = carros.objects.all()
+    if request.method == "POST":
+        novo_carro = FormularioCarros(request.POST, request.FILES)
+        if novo_carro.is_valid():
+            novo_carro.save()
+            return redirect("pagina_cadastro")
+    else:
+        novo_carro = FormularioCarros()
+    return render(request, "cadastro.html", {"formulario": novo_carro, "carro": busca_carro})
+

@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <a href="{% url 'pagina_index' %}">Página inicial</a>
+        <h1>Formulário de Cadastro de Carros</h1>
+
+        <form method="post" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Salvar</button>
+            <button type="reset" onclick="resetForm()">Cancelar</button>
+        </form>
+    
+    </body>
+</html>

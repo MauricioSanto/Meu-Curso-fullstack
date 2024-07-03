@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <a href="{% url 'pagina_inicial' %}">Página inicial</a>
+    
+        <p>
+            Meu Cadastro de Dvds:
+        </p>
+        <form method="post">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Salvar</button>
+            <a href="{% url 'pagina_inicial' %}"><button>Cancelar</button></a>
+        </form>
+    </body>
+</html>
