@@ -1,6 +1,6 @@
-1º - Passo a passo Criando Formulário - Prof. Ramon Ferreira
+1º - Passo a passo Criar objeto - Prof. Ramon Ferreira
 
-> Neste tutorial você vai aprender como criar formulários no proprio template para que possa evitar o uso do Django Admin para criar/editar/atualizar/deletar um objeto de uma determinada tabela.
+> Neste tutorial você vai aprender como criar formulários no proprio template para que possa evitar o uso do Django Admin para criar/editar/deletar um objeto de uma determinada tabela.
 
 1 - Crie um projeto, no exemplo vou chama-lo de "Escola", crie um aplicativo, no exemplo vou chama-lo de "estudantes". Crie uma tabela do banco de dados, o nome vou usar "Estudante". Ela terá como propriedades, "nome" onde será um campo CharField e "nota_final" onde será um campo "IntegerField".
 

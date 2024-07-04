@@ -17,12 +17,13 @@ a{
     padding: 20px;
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: greenyellow;
     box-shadow: 6px 6px 8px rgb(167, 184, 175);
     border: 1px solid #000;
     border-radius: 10px;
-    width: fit-content;
-    height: fit-content;
+    width: 80px;
+    height: 30px;
+    margin: 10px;
 
 }
 

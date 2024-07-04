@@ -11,5 +11,9 @@ urlpatterns = [
     path("Carros", Linkcarros, name="pagina_Carros" ),
     path("pagamento", Linkpagamento, name="pagina_Pagamento" ),
     path("pedidos",PedidosCarros,name="pagina_pedidos"),
-    path("ver_carro/<int:id_carro>/", DetalhesCarro, name="detalhes_carros")
+    path("ver_carro/<int:id_carro>/", DetalhesCarro, name="detalhes_carros"),
+    path("deleteCarros",VerCarros, name= "delete_carros"),
+    path("excluir-carro/<int:id_carro>", ExcluirCarro, name="conf_excluir_carro"),
 ]
+
+

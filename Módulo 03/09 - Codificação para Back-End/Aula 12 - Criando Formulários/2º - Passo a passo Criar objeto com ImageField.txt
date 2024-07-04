@@ -1,4 +1,4 @@
-1º - Passo a passo Criar objeto com Arquivo - Prof. Ramon Ferreira
+2º - Passo a passo Criar objeto com ImageField - Prof. Ramon Ferreira
 
 > Uma vez que você já aprendeu como criar um objeto simples, agora aprenderá como criar um objeto que possua um campo para fazer upload de alguma imagem(ImageField) ou arquivo(FileField).
 

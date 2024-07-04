@@ -11,16 +11,18 @@
         
         <div class="lista-card">
             {% for carros in carro %}
-                <a href= "{% url 'detalhes_carros' carros.id%}">
-                    <div class="card">
-                        <img src="{{carros.foto.url}}" height=100>
-                        <p>{{ carros.modelo}} </p>  
-                        <p>{{ carros.fabricante }}</p>
-                        <p>{{carros.ano}}</p>
-                    
-                    </div>
-                </a>
+                
+                <div class="card">
+                    <img src="{{carros.foto.url}}" height=100>
+                    <p>{{ carros.modelo}} </p>  
+                    <p>{{ carros.fabricante }}</p>
+                    <p>{{carros.ano}}</p>
+                    <a href= "{% url 'detalhes_carros' carros.id%}">Detalhes do Carro</a>
+                    <a href="{% url 'conf_excluir_carro' carros.id %}">Excluir Carro</a>
+                </div>
+            
             {% endfor %}
+           
         </div>
        
     </body>

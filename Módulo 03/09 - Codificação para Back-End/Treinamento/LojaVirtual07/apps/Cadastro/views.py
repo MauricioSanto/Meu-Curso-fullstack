@@ -45,3 +45,14 @@ def CriarCarros(request):
         novo_carro = FormularioCarros()
     return render(request, "cadastro.html", {"formulario": novo_carro, "carro": busca_carro})
 
+def VerCarros(request):
+    carros_lista = carros.objects.all()
+    return render(request, "carros.html", {"carro": carros_lista})
+
+def ExcluirCarro(request, id_carro):
+    busca_carro = carros.objects.get(id=id_carro)
+    if request.method == "POST":
+        busca_carro.delete()
+        return redirect("pagina_Carros")
+    return render(request, "conf_exclusao_carro.html", {"carro": busca_carro})
+
