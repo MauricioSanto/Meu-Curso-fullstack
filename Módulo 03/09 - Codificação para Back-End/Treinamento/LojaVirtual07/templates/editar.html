@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <h3>Editar Carro</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Salvar</button>
+            <a href="{% url 'pagina_editar' %}"><button type="button">Cancelar</button></a>
+        </form>
+
+    </body>
+</html>

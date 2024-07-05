@@ -56,3 +56,16 @@ def ExcluirCarro(request, id_carro):
         return redirect("pagina_Carros")
     return render(request, "conf_exclusao_carro.html", {"carro": busca_carro})
 
+
+def EditarCarro(request, id_carro):
+    busca_carro = carros.objects.get(id=id_carro)
+    if request.method == "POST":
+        carro_editado = FormularioCarros(request.POST, instance=busca_carro)
+        if carro_editado.is_valid():
+            carro_editado.save()
+            return redirect('pagina_editar')
+    else:
+        carro_editado = FormularioCarros(instance=busca_carro)
+    return render(request, "editar.html", {"formulario": carro_editado})
+
+

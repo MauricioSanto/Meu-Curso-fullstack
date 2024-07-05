@@ -5,6 +5,7 @@
         
         <nav>
             <h1>Esta é a Página inicial</h1>
+            
             <ul>
                 
                 <li>
@@ -16,23 +17,9 @@
                     <a href="{% url 'pagina_cadastro' %}">Cadastro</a>
                 </li>
 
-                
             </ul>
-            <div class="lista-card">
-                {% for carros in carro %}
-                    <a href= "{% url 'detalhes_carros' carros.id%}">
-                        <div class="card">
-                            <img src="{{carros.foto.url}}" height=100>
-                            <p>{{ carros.modelo}} </p>  
-                            <p>{{ carros.fabricante }}</p>
-                            <p>{{carros.ano}}</p>
-                        
-                        </div>
-                    </a>
-                {% endfor %}
-            </div>
-                
+         
         </nav>
-        
+        <script src="{% static 'js/node.js' %}"></script>
     </body>
 </html>
