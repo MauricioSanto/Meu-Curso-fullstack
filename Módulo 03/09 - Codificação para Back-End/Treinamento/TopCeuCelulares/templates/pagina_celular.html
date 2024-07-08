@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <a href="{% url "pagina_inicial" %}">Voltar</a>
+        <h3>Formulário de Celulares</h3>
+
+        <form method="post" enctype= "multipart/form-data">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Salvar</button>
+            <button type="reset">Cancelar</button>
+        </form>
+        
+       
+    </body>
+</html>

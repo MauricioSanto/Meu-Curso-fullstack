@@ -54,3 +54,9 @@ p{
 img{
     border-radius: 10px;
 }
+.mini-card{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    row-gap: 15px;
+}

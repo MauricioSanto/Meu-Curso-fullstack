@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <a href="{% url "pagina_Cadastro" %}">CADASTRAR CELULAR</a>
+        <p>
+            Minha Lista de Celulares:
+        </p>
+        <ul>
+            {%for celular in celulares%}
+                <li>
+                    <img src="{{celular.foto.urls}}" height= 100px> 
+                    <p>{{celular.nome}}</p>
+                    <p>{{celular.descricao}}</p>
+                    <p>{{celular.valor}}</p>
+                    <a href="{% url 'detalhes_celular' celular.id %}">Ver Detalhes</a>
+
+                </li>
+                
+            {% endfor %}
+        </ul>
+    </body>
+</html>

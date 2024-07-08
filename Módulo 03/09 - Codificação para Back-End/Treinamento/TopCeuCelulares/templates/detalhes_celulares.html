@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <a href="{% url "pagina_inicial" %}">Voltar</a>
+
+        <p>
+            Detalhes do Produto:
+        </p>
+
+        <p>
+            {{celular.nome}} - R$ {{ celular.valor }} -
+            {{ celular.descricao }} 
+           
+        </p>
+    </body>
+</html>
