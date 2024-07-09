@@ -5,7 +5,7 @@ from .forms import *
 
 def VerCelular (request):
     celular_lista = celular.objects.all()
-    return render(request, "index.html",{"celulares": celular_lista})
+    return render(request, "index.html", {"celulares": celular_lista})
 
 def DetalhesCelular(request, id_celular):
     busca = celular.objects.get(id=id_celular)
@@ -21,6 +21,18 @@ def CadastrarCelular(request):
     else:
         novo_celular = FormularioCelular()
     return render(request, "pagina_celular.html", {"formulario": novo_celular, "celulares": busca_Celular})
+
+def EditarCelular(request, id_celular):
+    busca_celular = celular.objects.get(id=id_celular)
+    if request.method == "POST":
+        celular_editado = FormularioCelular(request.POST, instance=busca_celular)
+        if celular_editado.is_valid():
+            celular_editado.save()
+            return redirect('pagina_inicial')
+    else:
+        celular_editado = FormularioCelular(instance=busca_celular)
+    return render(request, "editar_celular.html", {"formulario": celular_editado})
+
 
 
 

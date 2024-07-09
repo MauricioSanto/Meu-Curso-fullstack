@@ -5,6 +5,7 @@ class cadastro_funcionarios (models.Model):
     email = models.EmailField(verbose_name="E-Mail")
     foto = models.ImageField(upload_to="foto_perfil/", null=True, blank=True)
     celular = models.IntegerField()
+    data = models.DateTimeField(auto_now_add=True,null=True, blank=True)
 
     def __str__(self):
         return self.nome

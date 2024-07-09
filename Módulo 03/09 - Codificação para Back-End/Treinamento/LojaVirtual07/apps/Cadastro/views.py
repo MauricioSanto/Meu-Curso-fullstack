@@ -68,4 +68,16 @@ def EditarCarro(request, id_carro):
         carro_editado = FormularioCarros(instance=busca_carro)
     return render(request, "editar.html", {"formulario": carro_editado})
 
+def CriarFuncionario(request):
+    busca_funcionario = cadastro_funcionarios.objects.all()
+    if request.method == "POST":
+        novo_funcionario = FormularioFuncionario(request.POST, request.FILES)
+        if novo_funcionario.is_valid():
+            novo_funcionario.save()
+            return redirect("pagina_cadastro_funcionario")
+    else:
+        novo_funcionario = FormularioFuncionario()
+    return render(request, "cadastroFuncionario.html", {"formulario": novo_funcionario, "carro": busca_funcionario})
+
+
 

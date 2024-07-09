@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <h3>Formulário de editar Celular:</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Salvar</button>
+            <a href="{% url 'pagina_inicial' %}"><button type="button">Cancelar</button></a>
+        </form>
+
+    </body>
+</html>

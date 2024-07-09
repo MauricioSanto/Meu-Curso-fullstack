@@ -9,11 +9,12 @@
         <ul>
             {%for celular in celulares%}
                 <li>
-                    <img src="{{celular.foto.urls}}" height= 100px> 
+                    <img src="{{ celular.foto.url }}" height = 100px> 
                     <p>{{celular.nome}}</p>
                     <p>{{celular.descricao}}</p>
                     <p>{{celular.valor}}</p>
                     <a href="{% url 'detalhes_celular' celular.id %}">Ver Detalhes</a>
+                    <a href="{% url 'pg_editar_celular' celular.id %}">Editar Celular</a>
 
                 </li>
                 
