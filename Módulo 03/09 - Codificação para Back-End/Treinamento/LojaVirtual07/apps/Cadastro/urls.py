@@ -4,7 +4,7 @@ from .views import *
 urlpatterns = [
     	
     path("", LinkInicial, name="pagina_index"),
-    path('', VerFuncionario),
+    path('', VerFuncionario,),
     path("cadastro", CriarCarros, name="pagina_cadastro"),
 	path("Funcionarios", LinkCadastroFuncionario, name="pagina_Funcionarios"),
     path("Clientes", LinkClientes, name="pagina_Clientes" ),
@@ -17,6 +17,8 @@ urlpatterns = [
     path("editarCarro", VerCarros, name="pagina_editar"),
     path("editar-carro/<int:id_carro>/", EditarCarro, name="pg_editar_carro"),
     path("cadastroFuncionario",CriarFuncionario,name="pagina_cadastro_funcionario"),
+    path("deleteFuncionario",VerFuncionario, name='delete_funcionario'),
+    path("excluir-funcionario/<int:id_funcionario>",ExcluirFuncionario,name="pagina_delete_funcionario"),
 ]
 
 

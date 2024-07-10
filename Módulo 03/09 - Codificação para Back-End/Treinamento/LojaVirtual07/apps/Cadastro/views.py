@@ -79,5 +79,12 @@ def CriarFuncionario(request):
         novo_funcionario = FormularioFuncionario()
     return render(request, "cadastroFuncionario.html", {"formulario": novo_funcionario, "carro": busca_funcionario})
 
+def ExcluirFuncionario(request, id_funcionario):
+    busca_funcionario = cadastro_funcionarios.objects.get(id=id_funcionario)
+    if request.method == "POST":
+        busca_funcionario.delete()
+        return redirect("pagina_funcionarios")
+    return render(request, "excluirfuncionario.html", {"carro": busca_funcionario})
+
 
 
