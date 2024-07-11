@@ -74,7 +74,7 @@ def CriarFuncionario(request):
         novo_funcionario = FormularioFuncionario(request.POST, request.FILES)
         if novo_funcionario.is_valid():
             novo_funcionario.save()
-            return redirect("pagina_cadastro_funcionario")
+            return redirect("pagina_Funcionarios")
     else:
         novo_funcionario = FormularioFuncionario()
     return render(request, "cadastroFuncionario.html", {"formulario": novo_funcionario, "funcionario": busca_funcionario})
