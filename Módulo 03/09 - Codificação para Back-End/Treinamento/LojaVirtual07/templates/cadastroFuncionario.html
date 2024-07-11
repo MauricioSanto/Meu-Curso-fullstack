@@ -8,7 +8,7 @@
         <form method="post" enctype="multipart/form-data"> 
             {% csrf_token %}
             {{ formulario.as_p }}
-            <button type="submit">Salvar</button>
+            <a href="{% url 'pagina_Funcionarios' %}"><button type="submit">Salvar</button></a>
             <button type="reset">Cancelar</button>
         </form>
     
