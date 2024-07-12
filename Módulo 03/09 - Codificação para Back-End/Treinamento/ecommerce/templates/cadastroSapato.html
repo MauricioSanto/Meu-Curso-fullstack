@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <a href="{% url 'pagina_inicial' %}">Página inicial</a>
+        <h3>Formulário de Sapatos</h3>
+
+        <form method="post" enctype = "multipart/form-data">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Salvar</button>
+            <button type="reset" >Cancelar</button>
+        </form>
+        
+        <h3>
+            Lista de sapato:
+        </h3>
+        <ul>
+            {% for sapato in sapatos %}
+            <img src= {{sapato.foto.url}} width= 150px>
+                <li>{{ sapato.marca }} - R$ {{ sapato.preco }}</li>
+            {% endfor %}
+        </ul>
+
+    </body>
+</html>

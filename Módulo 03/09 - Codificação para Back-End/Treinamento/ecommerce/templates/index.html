@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    </head>
+    <body>
+        <nav>
+            <h1>Esta é a Página inicial</h1>
+            
+            <ul>
+                
+                <li>
+                    
+                    <a href="{% url 'pg_cadastro_cliente' %}"> Cadastro Clientes</a>
+                    <a href="{% url 'pg_cadastro_sapato' %}">Cadastro Sapatos</a>
+                    <a href="{% url 'pg_cadastro_pedido' %}">Cadastro Pedidos</a>
+                </li>
+
+            </ul>
+         
+        </nav>
+        
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <a href="{% url 'pagina_inicial' %}">Página inicial</a>
+        <h3>Formulário de Pedido</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Salvar</button>
+            <button type="reset">Cancelar</button>
+        </form>
+
+        <p>
+            Minha lista de Pedidos:
+        </p>
+        <ul>
+            {% for pedido in pedidos %}
+                <li>{{ pedido.cliente }} - R$ {{ produto.valor_pedido }}-
+                    {{pedido.produtos}} - {{pedido.data_pedido}}
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
