@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
+import requests
 
 def VerIndex(request):
     busca_os = OrdemServico.objects.all()
@@ -154,3 +155,55 @@ def ExcluirOrdemServico(request, id_os):
         return redirect("pg_inicial")
     titulo_objeto = "OS: " + str(busca_os.id) + " | " + busca_os.cliente.nome
     return render(request, "conf-excluir.html", {"valor": titulo_objeto})
+
+def CriarProduto(request):
+    busca_produto = Produto.objects.all()
+    
+    if request.method == "GET":
+        novo_produto = FormularioProduto()
+    else:
+        produto_preenchido = FormularioProduto(request.POST, request.FILES)
+        if produto_preenchido.is_valid():
+            produto_preenchido.save()
+            return redirect("pg_criar_produto")
+    return render(request, "form-produtos.html", {"form_produto": novo_produto, "produtos": busca_produto})
+
+def EditarProduto(request, id_produto):
+    busca_produto = Produto.objects.get(id=id_produto)
+    if request.method == "GET":
+        editar_produto = FormularioProduto(instance=busca_produto)
+    else:
+        produto_editado = FormularioProduto(request.POST, instance=busca_produto)
+        if produto_editado.is_valid():
+            produto_editado.save()
+            return redirect("pg_criar_produto")
+    return render(request, "form-produtos.html", {"form_produto": editar_produto})
+
+def ExcluirProduto(request, id_produto):
+    busca_produto = Produto.objects.get(id=id_produto)
+    if request.method == "POST":
+        busca_produto.delete()
+        return redirect("pg_criar_produto")
+    titulo_objeto = busca_produto.nome
+    return render(request, "conf-excluir.html", {"valor": titulo_objeto})
+
+def ibge (request):
+    api = "https://Servicodados.ibge.gov.br/api/v1/localidades/estados/24/municipios"
+    requisicao = requests.get(api)
+
+    try:
+        municipios= requisicao.json()
+    except ValueError:
+        print("A resposta não chegou com o formato esperado.") 
+
+    dicionario = [] 
+    for municipio in municipios:
+        dicionario.append(municipio)  
+
+    contexto = {
+        "municipios": dicionario
+
+    }
+
+    return render(request, "ibge.html", contexto)
+

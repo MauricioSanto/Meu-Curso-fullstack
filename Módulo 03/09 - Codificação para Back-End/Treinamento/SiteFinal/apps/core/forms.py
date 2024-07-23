@@ -25,3 +25,8 @@ class FormularioOrdemServico(forms.ModelForm):
     class Meta:
         model = OrdemServico
         fields = "__all__"
+
+class FormularioProduto(forms.ModelForm):
+    class Meta:
+        model = Produto
+        fields = "__all__"
