@@ -196,14 +196,26 @@ def ibge (request):
     except ValueError:
         print("A resposta não chegou com o formato esperado.") 
 
-    dicionario = [] 
+    list_municipios = [] 
     for municipio in municipios:
-        dicionario.append(municipio)  
+        list_municipios.append(municipio)  
 
-    contexto = {
-        "municipios": dicionario
+    return render(request, "ibgeRN.html", {"municipios":list_municipios} )
 
-    }
+def ibgePiaui (request):
+    api = "https://Servicodados.ibge.gov.br/api/v1/localidades/estados/22/municipios"
+    requisicao = requests.get(api)
 
-    return render(request, "ibge.html", contexto)
+    try:
+        municipios= requisicao.json()
+    except ValueError:
+        print("A resposta não chegou com o formato esperado.") 
+
+    list_municipios = [] 
+    for municipio in municipios:
+        list_municipios.append(municipio)  
+
+    return render(request, "ibgePI.html", {"municipios":list_municipios} )
+
+
 

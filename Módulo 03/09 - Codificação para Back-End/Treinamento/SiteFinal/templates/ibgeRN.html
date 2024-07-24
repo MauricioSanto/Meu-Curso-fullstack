@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Municipios do RN</title>
+    </head>
+    <body>
+        <a href="{% url "pg_inicial" %}">
+            <button>Voltar</button>
+        </a>
+        <section class="container">
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><h1>Municipios do Rio Grande do Norte - IBGE</h1></li>
+                </ul>
+
+            </nav>
+        </section>
+        <div class="container">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">MUNICIPIO</th>
+                        <th scope="col">MICROREGIÃO</th>
+                        <th scope="col">MESOREGIÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for municipio in municipios %}
+                    <tr>
+                        <th scope="row">{{municipio.id}}</th>
+                        <td>{{municipio.nome}}</td>
+                        <td>{{municipio.microrregiao.nome}}</td>
+                        <td>{{municipio.microrregiao.mesorregiao.nome}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </body>
+</html>

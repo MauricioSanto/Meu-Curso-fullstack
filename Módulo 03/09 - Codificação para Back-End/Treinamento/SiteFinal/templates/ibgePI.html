@@ -4,13 +4,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Municipios do RN</title>
+        <title>Municipios do PI</title>
     </head>
     <body>
+        <a href="{% url "pg_inicial" %}">
+            <button>Voltar</button>
+        </a>
         <section class="container">
             <nav>
                 <ul class="nav">
-                    <li class="nav-item"><h1>Municipios do Rio Grande do Norte IBGE</h1></li>
+                    <li class="nav-item"><h1>Municipios do Piauí - IBGE</h1></li>
                 </ul>
 
             </nav>
@@ -26,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for Municipio in Municipios %}
+                    {% for municipio in municipios %}
                     <tr>
                         <th scope="row">{{municipio.id}}</th>
                         <td>{{municipio.nome}}</td>
