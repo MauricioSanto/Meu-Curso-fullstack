@@ -17,7 +17,7 @@
             {% csrf_token %}
             {{ form_cliente.as_p }}
             <button type="submit">Salvar</button>
-            <a href="{% url "pg_inicial" %}">
+            <a href="{% url "pg_criar_cliente" %}">
                 <button type="button">Cancelar</button>
             </a>
         </form>
