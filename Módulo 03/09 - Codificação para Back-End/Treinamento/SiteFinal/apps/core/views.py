@@ -318,7 +318,8 @@ def CriarEmpresa(request):
         # Dados que você deseja enviar no corpo da solicitação POST
         json = {
             'razao_social': request.POST['razao_social'],
-            'cnpj': request.POST['cnpj']
+            'cnpj': request.POST['cnpj'],
+            
         }
                 
         # Fazendo a solicitação POST
@@ -366,14 +367,20 @@ def CriarCliente(request):
         json = {
             'nome': request.POST['nome'],
             'data_nascimento': request.POST['data_nascimento'],
-            'foto' : request.FILES['foto']
             
+            
+        }
+        files = {
+            'foto':request.FILES['foto']
         }
 
                 
         # Fazendo a solicitação POST
-        response = requests.post(url, json=json, headers=headers)
-
+        try:
+            response = requests.post(url, json=json,files=files, headers=headers)
+            response.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+        except requests.RequestException as e:
+            return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
         # Obtendo o conteúdo da resposta
         
         if response.status_code in [200, 201]:
@@ -381,9 +388,9 @@ def CriarCliente(request):
                 response_data = response.json()
                 return redirect("pg_criar_cliente")
             except requests.JSONDecodeError:
-                print("A resposta não é um JSON válido.")
+                 return HttpResponse("A resposta não é um JSON válido.", status=500)
         else:
-            return HttpResponse(request.FILES['foto'])
+            return HttpResponse(f'Erro na solicitação: {response.status_code}', status=response.status_code)
         
 def CriarProduto(request):
     url = 'http://127.0.0.1:9000/api/produtos' # Substitua pela URL da API real
