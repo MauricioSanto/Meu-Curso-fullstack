@@ -242,50 +242,295 @@ def RetornaToken(request):
 
 
 def CriarCategoria(request):
-        url = 'http://127.0.0.1:9000/api/categorias' # Substitua pela URL da API real
+    url = 'http://127.0.0.1:9000/api/categorias' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
     
-        obter_token = RetornaToken(request)
-        conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
-        token = conteudo_bytes.decode('utf-8') 
+    if request.method == "GET":
+        nova_categoria = FormularioCategoria()
+
+        try:
+            resposta = requests.get(url, headers=headers)
+            resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+            dados = resposta.json() # Obtém os dados JSON da resposta
+        except requests.RequestException as e:
+            return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
     
-        # Cabeçalhos que você deseja enviar com a solicitação
-        headers = {
-            'Authorization': 'Bearer ' + token,
-            'Content-Type': 'application/json'
+        # Extraia a string desejada do JSON
+        categorias = dados['categorias']
+        return render(request, "form-categoria.html", {"form_categoria": nova_categoria, "categorias": categorias})
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'tipo': request.POST['tipo']
         }
+                
+        # Fazendo a solicitação POST
+        response = requests.post(url, json=json, headers=headers)
+
+        # Obtendo o conteúdo da resposta
         
-        if request.method == "GET":
-            nova_categoria = FormularioCategoria()
-    
+        if response.status_code in [200, 201]:
             try:
-                resposta = requests.get(url, headers=headers)
-                resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
-                dados = resposta.json() # Obtém os dados JSON da resposta
-            except requests.RequestException as e:
-                return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
-        
-            # Extraia a string desejada do JSON
-            categorias = dados['categorias']
-            return render(request, "form-categoria.html", {"form_categoria": nova_categoria, "categorias": categorias})
+                response_data = response.json()
+                return redirect("pg_criar_categoria")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
         else:
-           # Dados que você deseja enviar no corpo da solicitação POST
-            json = {
-                'tipo': request.POST['tipo']
-            }
-                   
-            # Fazendo a solicitação POST
-            response = requests.post(url, json=json, headers=headers)
-    
-            # Obtendo o conteúdo da resposta
+            return HttpResponse('Erro ao consumir a API: ', response.status_code)
             
-            if response.status_code in [200, 201]:
-                try:
-                    response_data = response.json()
-                    return redirect("pg_criar_categoria")
-                except requests.JSONDecodeError:
-                    print("A resposta não é um JSON válido.")
-            else:
-                return HttpResponse('Erro ao consumir a API: ', response.status_code)
+
+def CriarEmpresa(request):
+    url = 'http://127.0.0.1:9000/api/empresas' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
     
+    if request.method == "GET":
+        nova_empresa = FormularioEmpresa()
 
+        try:
+            resposta = requests.get(url, headers=headers)
+            resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+            dados = resposta.json() # Obtém os dados JSON da resposta
+        except requests.RequestException as e:
+            return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
+    
+        # Extraia a string desejada do JSON
+        empresas = dados['empresas']
+        return render(request, "form-empresa.html", {"form_empresa": nova_empresa, "empresas": empresas})
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'razao_social': request.POST['razao_social'],
+            'cnpj': request.POST['cnpj']
+        }
+                
+        # Fazendo a solicitação POST
+        response = requests.post(url, json=json, headers=headers)
 
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                response_data = response.json()
+                return redirect("pg_criar_empresa")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return HttpResponse('Erro ao consumir a API: ', response.status_code)
+
+def CriarCliente(request):
+    url = 'http://127.0.0.1:9000/api/clientes' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'multipart/form-data'
+    }
+    
+    if request.method == "GET":
+        novo_cliente = FormularioCliente()
+
+        try:
+            resposta = requests.get(url, headers=headers)
+            resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+            dados = resposta.json() # Obtém os dados JSON da resposta
+        except requests.RequestException as e:
+            return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
+    
+        # Extraia a string desejada do JSON
+        clientes = dados['clientes']
+        return render(request, "form-cliente.html", {"form_cliente": novo_cliente, "clientes":clientes})
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'nome': request.POST['nome'],
+            'data_nascimento': request.POST['data_nascimento'],
+            'foto' : request.FILES['foto']
+            
+        }
+
+                
+        # Fazendo a solicitação POST
+        response = requests.post(url, json=json, headers=headers)
+
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                response_data = response.json()
+                return redirect("pg_criar_cliente")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return HttpResponse(request.FILES['foto'])
+        
+def CriarProduto(request):
+    url = 'http://127.0.0.1:9000/api/produtos' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
+    
+    if request.method == "GET":
+        novo_produto = FormularioProduto()
+
+        try:
+            resposta = requests.get(url, headers=headers)
+            resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+            dados = resposta.json() # Obtém os dados JSON da resposta
+        except requests.RequestException as e:
+            return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
+    
+        # Extraia a string desejada do JSON
+        produtos = dados['produtos']
+        return render(request, "form-produtos.html", {"form_produto": novo_produto, "produtos":produtos})
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'nome': request.POST['nome'],
+            'valor': request.POST['valor'],
+            'descricao': request.POST['descricao'],
+            
+        }
+                
+        # Fazendo a solicitação POST
+        response = requests.post(url, json=json, headers=headers)
+
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                response_data = response.json()
+                return redirect("pg_criar_produto")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return HttpResponse('Erro ao consumir a API: ', response.status_code)
+        
+def CriarServico(request):
+    url = 'http://127.0.0.1:9000/api/servicos' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
+    
+    if request.method == "GET":
+        novo_servico = FormularioServico()
+
+        try:
+            resposta = requests.get(url, headers=headers)
+            resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+            dados = resposta.json() # Obtém os dados JSON da resposta
+        except requests.RequestException as e:
+            return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
+    
+        # Extraia a string desejada do JSON
+        servicos = dados['servicos']
+        return render(request, "form-servico.html", {"form_servico": novo_servico, "servicos":servicos})
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'tipo_servico': request.POST['tipo_servico'],
+            'valor_servico': request.POST['valor_servico'],
+            'empresa': request.POST['empresa'],
+            'categoria': request.POST['categoria']
+            
+        }
+                
+        # Fazendo a solicitação POST
+        response = requests.post(url, json=json, headers=headers)
+
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                response_data = response.json()
+                return redirect("pg_criar_servico")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return HttpResponse('Erro ao consumir a API: ', response.status_code)
+        
+def CriarOrdemServico(request):
+    url = 'http://127.0.0.1:9000/api/OrdemServicos' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
+    
+    if request.method == "GET":
+        nova_OrdemServico = FormularioOrdemServico()
+
+        try:
+            resposta = requests.get(url, headers=headers)
+            resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+            dados = resposta.json() # Obtém os dados JSON da resposta
+        except requests.RequestException as e:
+            return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
+    
+        # Extraia a string desejada do JSON
+        OrdemServico = dados['OrdemServico']
+        return render(request, "form-ordemservico.html", {"form_OrdemServico": nova_OrdemServico, "OrdemServico":OrdemServico})
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'cliente': request.POST['cliente'],
+            'servico': request.POST['servico'],
+            'data_servico': request.POST['data_servico'],
+            
+        }
+                
+        # Fazendo a solicitação POST
+        response = requests.post(url, json=json, headers=headers)
+
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                response_data = response.json()
+                return redirect("pg_criar_ordemservico")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return HttpResponse('Erro ao consumir a API: ', response.status_code)
+        
+    
