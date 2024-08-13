@@ -16,6 +16,7 @@ urlpatterns = [
     path("editar-categoria/<int:id_categoria>", EditarCategoria, name="pg_editar_categoria"),
     path("excluir-categoria/<int:id_categoria>", ExcluirCategoria, name="pg_excluir_categoria"),
     path("criar-ordemservico", CriarOrdemServico, name="pg_criar_ordemservico"),
+    # path("editar-ordemservico/<int:id_ordemservico>", EditarOrdemServico, name="pg_editar_categoria"),
     path("excluir-ordemservico/<int:id_os>", ExcluirOrdemServico, name="pg_excluir_ordemservico"),
     path("criar-produto", CriarProduto, name="pg_criar_produto"),
     path("editar-produto/<int:id_produto>", EditarProduto, name="pg_editar_produto"),

@@ -1,4 +1,4 @@
-{% load static %}
+{% comment %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,6 +20,71 @@
                 <button type="button">Cancelar</button>
             </a>
         </form>
+
+    </body>
+</html> {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static "style-formularios.css" %}">
+        <title>Formulário Serviço</title>
+    </head>
+    <body>
+        <a href="{% url "pg_inicial" %}">
+            <button>Voltar</button>
+        </a>
+
+        <h2>Formulário Ordem de Serviços</h2>
+
+        <form method="post">
+            {% csrf_token %}
+                
+            <p>
+            <label for="id_cliente">Cliente:</label>
+            <select name="cliente_id" required="" id="cliente_id">
+                <option value="" selected=""></option>
+                {% for cliente in clientes %}
+                    <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
+                {% endfor %}
+            </select>
+            </p>
+                 
+            <p>
+            <label for="id_servico">Serviço:</label>
+            <select name="servico_id" required="" id="servico_id">
+                <option value="" selected=""></option>
+                {% for servico in servicos %}
+                    <option value="{{ servico.id }}">{{ servico.tipo }}</option>
+                {% endfor %}
+            </select>
+            </p>
+            <button type="submit">Salvar</button>
+            <a href="{% url "pg_inicial" %}">
+                <button type="button">Cancelar</button>
+            </a>
+
+        </form>    
+
+        <h2>Lista de Ordem de Serviços</h2>
+
+        {% for os in ordemservicos %}
+            <div class="card-formulario">
+                <span>{{ os.cliente.nome }}</span>
+                <span>R$ {{ os.servico.tipo }}</span>
+                <div class="btns_formulario">
+                    {% comment %} <a href="{% url "pg_editar_ordemservico" os.id %}"> {% endcomment %}
+                        <span>Editar Ordem de Serviços:</span>
+                    </a>
+                    <a href="{% url "pg_excluir_ordemservico" os.id %}">
+                        <span>Excluir Ordem de Serviços:</span>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
 
     </body>
 </html>
