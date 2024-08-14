@@ -12,15 +12,26 @@
             <button>Voltar</button>
         </a>
         <h2>Formulário Produtos</h2>
-
-        <form method="post" enctype="multipart/form-data">
+        <form method="post">
             {% csrf_token %}
-            {{ form_produto.as_p }}
+            <p>
+                <label for="id_produto">Nome:</label>
+                <input type="text" name="nome" maxlength="100" required="" id="id_produto" value="{{ produto.nome}}">  
+            </p>
+            <p>
+                <label for="id_produto">Valor R$:</label>
+                <input type="int" name="valor" maxlength="100" required="" id="id_produto" value="{{ produto.valor}}">  
+            </p>
+            <p>
+                <label for="id_produto">Descrição:</label>
+                <input type="text" name="descricao" maxlength="100" required="" id="id_produto" value="{{ produto.descricao}}">  
+            </p>
             <button type="submit">Salvar</button>
-            <a href="{% url "pg_inicial" %}">
+            <a href="{% url "pg_criar_produto" %}">
                 <button type="button">Cancelar</button>
             </a>
         </form>
+        
 
         <h2>Lista de Produtos</h2>
 

@@ -120,7 +120,7 @@
                     <a href="{% url "pg_editar_servico" servico.id %}">
                         <span>Editar Serviço</span>
                     </a>
-                    <a href="{% url "pg_excluir_servico" servico.id %}">
+                    <a href="{% url "pg_excluir_servico" servico.id %}" onclick="confirm('Deseja realmente excluir?')">
                         <span>Excluir Serviço</span>
                     </a>
                 </div>

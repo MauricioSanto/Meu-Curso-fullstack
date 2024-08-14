@@ -39,7 +39,7 @@ def EditarCliente(request, id_cliente):
             return redirect("pg_criar_cliente")
     return render(request, "form-cliente.html", {"form_cliente": editar_cliente})
 
-def ExcluirCliente(request, id_cliente):
+#def ExcluirCliente(request, id_cliente):
     busca_cliente = Cliente.objects.get(id=id_cliente)
     if request.method == "POST":
         busca_cliente.delete()
@@ -59,7 +59,7 @@ def ExcluirCliente(request, id_cliente):
             return redirect("pg_criar_empresa")
     return render(request, "form-empresa.html", {"form_empresa": nova_empresa, "empresas": busca_empresas})
 
-def EditarEmpresa(request, id_empresa):
+#def EditarEmpresa(request, id_empresa):
     busca_empresa = Empresa.objects.get(id=id_empresa)
     if request.method == "GET":
         editar_empresa = FormularioEmpresa(instance=busca_empresa)
@@ -70,7 +70,7 @@ def EditarEmpresa(request, id_empresa):
             return redirect("pg_criar_empresa")
     return render(request, "form-empresa.html", {"form_empresa": editar_empresa})
 
-def ExcluirEmpresa(request, id_empresa):
+#def ExcluirEmpresa(request, id_empresa):
     busca_empresa = Empresa.objects.get(id=id_empresa)
     if request.method == "POST":
         busca_empresa.delete()
@@ -101,7 +101,7 @@ def EditarServico(request, id_servico):
             return redirect("pg_criar_servico")
     return render(request, "form-servico.html", {"form_servico": editar_servico})
 
-def ExcluirServico(request, id_servico):
+#def ExcluirServico(request, id_servico):
     busca_servico = Servico.objects.get(id=id_servico)
     if request.method == "POST":
         busca_servico.delete()
@@ -121,7 +121,7 @@ def ExcluirServico(request, id_servico):
             return redirect("pg_criar_categoria")
     return render(request, "form-categoria.html", {"form_categoria": nova_categoria, "categorias": busca_categorias})
 
-def EditarCategoria(request, id_categoria):
+#def EditarCategoria(request, id_categoria):
     busca_categoria = Categoria.objects.get(id=id_categoria)
     if request.method == "GET":
         editar_categoria = FormularioCategoria(instance=busca_categoria)
@@ -132,7 +132,7 @@ def EditarCategoria(request, id_categoria):
             return redirect("pg_criar_categoria")
     return render(request, "form-categoria.html", {"form_categoria": editar_categoria})
 
-def ExcluirCategoria(request, id_categoria):
+#def ExcluirCategoria(request, id_categoria):
     busca_categoria = Categoria.objects.get(id=id_categoria)
     if request.method == "POST":
         busca_categoria.delete()
@@ -150,7 +150,7 @@ def ExcluirCategoria(request, id_categoria):
             return redirect("pg_inicial")
     return render(request, "form-ordemservico.html", {"form_ordemservico": nova_ordemservico})
 
-def ExcluirOrdemServico(request, id_os):
+#def ExcluirOrdemServico(request, id_os):
     busca_os = OrdemServico.objects.get(id=id_os)
     if request.method == "POST":
         busca_os.delete()
@@ -181,7 +181,7 @@ def EditarProduto(request, id_produto):
             return redirect("pg_criar_produto")
     return render(request, "form-produtos.html", {"form_produto": editar_produto})
 
-def ExcluirProduto(request, id_produto):
+#def ExcluirProduto(request, id_produto):
     busca_produto = Produto.objects.get(id=id_produto)
     if request.method == "POST":
         busca_produto.delete()
@@ -313,6 +313,51 @@ def ExcluirCategoria(request, id_categoria):
                     print("A resposta não é um JSON válido.")
             else:
                 return HttpResponse('Erro ao consumir a API: ', response.status_code)
+            
+def EditarCategoria(request, id_categoria):
+    url_editar_categoria = 'http://127.0.0.1:9000/api/categorias/' + str(id_categoria) # Substitua pela URL da API real
+    url_listar_categorias = 'http://127.0.0.1:9000/api/categorias' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
+
+    resposta = requests.get(url_editar_categoria, headers=headers)
+    resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados = resposta.json()
+    categoria = dados['categoria']
+
+    resposta_categorias = requests.get(url_listar_categorias, headers=headers)
+    resposta_categorias.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados_categorias = resposta_categorias.json() # Obtém os dados JSON da resposta
+    categorias = dados_categorias['categorias']
+
+    if request.method == "GET":
+        return render(request, "form-categoria.html", {"categoria": categoria, 'categorias' : categorias}) 
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'tipo': request.POST['tipo']
+        }
+               
+        # Fazendo a solicitação POST
+        response = requests.put(url_editar_categoria, json=json, headers=headers)
+
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                return redirect("pg_criar_categoria")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return render(request, "form-categoria.html", {"categoria": categoria, 'categorias' : categorias}) 
         
             
 
@@ -363,6 +408,52 @@ def CriarEmpresa(request):
                 print("A resposta não é um JSON válido.")
         else:
             return HttpResponse('Erro ao consumir a API: ', response.status_code)
+        
+def EditarEmpresa(request, id_empresa):
+    url_editar_empresa = 'http://127.0.0.1:9000/api/empresas/' + str(id_empresa) # Substitua pela URL da API real
+    url_listar_empresa = 'http://127.0.0.1:9000/api/empresas' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
+
+    resposta = requests.get(url_editar_empresa, headers=headers)
+    resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados = resposta.json()
+    empresa = dados['empresa']
+
+    resposta_empresa = requests.get(url_listar_empresa, headers=headers)
+    resposta_empresa.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados_empresas = resposta_empresa.json() # Obtém os dados JSON da resposta
+    empresas = dados_empresas['empresas']
+
+    if request.method == "GET":
+        return render(request, "form-empresa.html", {"empresa":empresa, 'empresas' : empresas}) 
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'razao_social': request.POST['razao_social'],
+            'cnpj': request.POST['cnpj']
+        }
+               
+        # Fazendo a solicitação POST
+        response = requests.put(url_editar_empresa, json=json, headers=headers)
+
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                return redirect("pg_criar_empresa")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return render(request, "form-empresa.html", {"empresa": empresa, 'empresas' : empresas}) 
         
 def ExcluirEmpresa(request, id_empresa):
         url = 'http://127.0.0.1:9000/api/empresas/' + str(id_empresa) # Substitua pela URL da API real
@@ -447,6 +538,54 @@ def CriarCliente(request):
         else:
             return HttpResponse(f'Erro na solicitação: {response.status_code}', status=response.status_code)
         
+def EditarCliente(request, id_cliente):
+    url_editar_cliente = 'http://127.0.0.1:9000/api/clientes/' + str(id_cliente) # Substitua pela URL da API real
+    url_listar_cliente = 'http://127.0.0.1:9000/api/clientes' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
+
+    resposta = requests.get(url_editar_cliente, headers=headers)
+    resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados = resposta.json()
+    cliente = dados['cliente']
+
+    resposta_cliente = requests.get(url_listar_cliente, headers=headers)
+    resposta_cliente.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados_clientes = resposta_cliente.json() # Obtém os dados JSON da resposta
+    clientes = dados_clientes['clientes']
+
+    if request.method == "GET":
+        return render(request, "form-cliente.html", {"cliente":cliente, 'cliente' : clientes}) 
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'nome': request.POST['nome'],
+            'data_nascimento': request.POST['data_nascimento'],
+             'foto': request.POST['foto'],
+            
+        }
+               
+        # Fazendo a solicitação POST
+        response = requests.put(url_editar_cliente, json=json, headers=headers)
+
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                return redirect("pg_criar_cliente")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return render(request, "form-cliente.html", {"cliente": cliente, 'clientes' : clientes}) 
+        
 def ExcluirCliente(request, id_cliente):
         url = 'http://127.0.0.1:9000/api/clientes/' + str(id_cliente) # Substitua pela URL da API real
     
@@ -511,6 +650,7 @@ def CriarProduto(request):
                 
         # Fazendo a solicitação POST
         response = requests.post(url, json=json, headers=headers)
+        
 
         # Obtendo o conteúdo da resposta
         
@@ -522,6 +662,55 @@ def CriarProduto(request):
                 print("A resposta não é um JSON válido.")
         else:
             return HttpResponse('Erro ao consumir a API: ', response.status_code)
+        
+def EditarProduto(request, id_produto):
+    url_editar_produto = 'http://127.0.0.1:9000/api/produtos/' + str(id_produto) # Substitua pela URL da API real
+    url_listar_produto = 'http://127.0.0.1:9000/api/produtos' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
+
+    resposta = requests.get(url_editar_produto, headers=headers)
+    resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados = resposta.json()
+    produto = dados['produto']
+
+    resposta_produto = requests.get(url_listar_produto, headers=headers)
+    resposta_produto.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados_produtos = resposta_produto.json() # Obtém os dados JSON da resposta
+    produtos = dados_produtos['clientes']
+
+    if request.method == "GET":
+        return render(request, "form-produtos.html", {"produto":produto, 'produtos' : produtos}) 
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'nome': request.POST['nome'],
+            'valor': request.POST['valor'],
+            'descricao': request.POST['descricao'],
+            
+        }
+               
+        # Fazendo a solicitação POST
+        response = requests.put(url_editar_produto, json=json, headers=headers)
+        
+
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                return redirect("pg_criar_produto")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return render(request, "form-produtos.html", {"produto": produto, 'produtos' : produtos}) 
         
 def ExcluirProduto(request, id_produto):
         url = 'http://127.0.0.1:9000/api/produtos/' + str(id_produto) # Substitua pela URL da API real
@@ -777,8 +966,9 @@ def CriarOrdemServico(request):
     else:
        # Dados que você deseja enviar no corpo da solicitação POST
         json = {
-            'nome': request.POST['nome'],
-            'servicos': request.POST['servicos'],
+            'cliente_id': request.POST['cliente_id'],
+            'servicos_id': request.POST['servicos_id'],
+            'data_servico':request.POST['data_servico'],
         }
                
         # Fazendo a solicitação POST

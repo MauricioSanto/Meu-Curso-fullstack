@@ -62,6 +62,10 @@
                 {% endfor %}
             </select>
             </p>
+            <p>
+                <label for="date">Data servico:</label>
+                <input type="text" name="date" maxlength="100" required="" id="date">
+            </p>
             <button type="submit">Salvar</button>
             <a href="{% url "pg_inicial" %}">
                 <button type="button">Cancelar</button>

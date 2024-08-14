@@ -12,10 +12,12 @@
             <button>Voltar</button>
         </a>
         <h2>Formulário Categoria</h2>
-
         <form method="post">
             {% csrf_token %}
-            {{ form_categoria.as_p }}
+            <p>
+            <label for="id_tipo">Tipo:</label>
+            <input type="text" name="tipo" maxlength="100" required="" id="id_tipo" value="{{ categoria.tipo }}">  
+            </p>
             <button type="submit">Salvar</button>
             <a href="{% url "pg_criar_servico" %}">
                 <button type="button">Cancelar</button>

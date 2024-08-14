@@ -15,9 +15,16 @@
 
         <form method="post">
             {% csrf_token %}
-            {{ form_empresa.as_p }}
+            <p>
+                <label for="id_empresa">Razão Social:</label>
+                <input type="text" name="razao_social" maxlength="100" required="" id="id_empresa" value="{{ empresa.razao_social }}">  
+            </p>
+            <p>
+                <label for="id_empresa">CNPJ:</label>
+                <input type="int" name="cnpj" maxlength="100" required="" id="id_empresa" value="{{ empresa.cnpj }}">  
+            </p>
             <button type="submit">Salvar</button>
-            <a href="{% url "pg_inicial" %}">
+            <a href="{% url "pg_criar_empresa" %}">
                 <button type="button">Cancelar</button>
             </a>
         </form>
