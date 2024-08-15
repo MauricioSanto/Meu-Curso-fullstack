@@ -20,16 +20,22 @@
             </p>
             <p>
                 <label for="id_cliente">Data de Nascimento:</label>
-                <input type="int" name="data_nascimento" maxlength="100" required="" id="id_cliente" value="{{ cliente.data_nascimento}}">  
+                <input type="date" name="data_nascimento" maxlength="100" required="" id="id_cliente" value="{{ cliente.data_nascimento}}">  
             </p>
             <p>
                 <label for="id_cliente">Foto:</label>
-                <input> <img src="{{ cliente.foto.url }}" width="150" height="auto"></input>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="foto">
+                    <!--<button type="submit">Enviar</button>-->
+                    <button type="submit">Salvar</button>
+                    <a href="{% url "pg_criar_cliente" %}">
+                        <button type="button">Cancelar</button>
+                    </a>
+                </form>
             </p>
-            <button type="submit">Salvar</button>
-            <a href="{% url "pg_criar_cliente" %}">
-                <button type="button">Cancelar</button>
-            </a>
+           
+           
         </form>
         
 
@@ -44,7 +50,7 @@
                     <a href="{% url "pg_editar_cliente" cliente.id %}">
                         <span>Editar Cliente</span>
                     </a>
-                    <a href="{% url "pg_excluir_cliente" cliente.id %}" onclick="confirm('Deseja realmente excluir?')">
+                    <a href="{% url "pg_excluir_cliente" cliente.id %}" onclick=" return confirm('Deseja realmente excluir?')">
                         <span>Excluir Cliente</span>
                     </a>
                 </div>

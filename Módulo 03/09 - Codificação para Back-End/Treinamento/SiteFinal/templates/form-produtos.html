@@ -38,15 +38,15 @@
         {% for produto in produtos %}
             <div class="card-formulario">
             
-                <span>{{ produto.nome }}</span>
-                <span>{{ produto.valor }}</span>
-                <span>{{ produto.descricao }}</span>
+                <span>Nome: {{ produto.nome }}</span>
+                <span> R$ {{ produto.valor }}</span>
+                <span>Descrição: {{ produto.descricao }}</span>
 
                 <div class="btns_formulario">
                     <a href="{% url "pg_editar_produto" produto.id %}">
                         <span>Editar Produto</span>
                     </a>
-                    <a href="{% url "pg_excluir_produto" produto.id %}">
+                    <a href="{% url "pg_excluir_produto" produto.id %}" onclick="return confirm('Deseja realmente excluir?')" >
                         <span>Excluir Produto</span>
                     </a>
                 </div>

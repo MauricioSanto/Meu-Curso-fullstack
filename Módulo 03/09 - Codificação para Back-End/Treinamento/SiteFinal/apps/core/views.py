@@ -492,12 +492,11 @@ def CriarCliente(request):
     # Cabeçalhos que você deseja enviar com a solicitação
     headers = {
         'Authorization': 'Bearer ' + token,
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'application/json'
     }
     
     if request.method == "GET":
-        novo_cliente = FormularioCliente()
-
+       
         try:
             resposta = requests.get(url, headers=headers)
             resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
@@ -507,27 +506,21 @@ def CriarCliente(request):
     
         # Extraia a string desejada do JSON
         clientes = dados['clientes']
-        return render(request, "form-cliente.html", {"form_cliente": novo_cliente, "clientes":clientes})
+        return render(request, "form-cliente.html", { "clientes":clientes})
     else:
         # Dados que você deseja enviar no corpo da solicitação POST
+
+        foto = request.FILES.get('foto')        
+
         json = {
             'nome': request.POST['nome'],
             'data_nascimento': request.POST['data_nascimento'],
-            
+            'foto' : 'teste'
             
         }
-        files = {
-            'foto':request.FILES['foto']
-        }
-
-                
-        # Fazendo a solicitação POST
-        try:
-            response = requests.post(url, json=json,files=files, headers=headers)
-            response.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
-        except requests.RequestException as e:
-            return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
-        # Obtendo o conteúdo da resposta
+       
+        response = requests.post(url, json=json, headers=headers)
+        # return HttpResponse(response)
         
         if response.status_code in [200, 201]:
             try:
@@ -685,7 +678,7 @@ def EditarProduto(request, id_produto):
     resposta_produto = requests.get(url_listar_produto, headers=headers)
     resposta_produto.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
     dados_produtos = resposta_produto.json() # Obtém os dados JSON da resposta
-    produtos = dados_produtos['clientes']
+    produtos = dados_produtos['produtos']
 
     if request.method == "GET":
         return render(request, "form-produtos.html", {"produto":produto, 'produtos' : produtos}) 

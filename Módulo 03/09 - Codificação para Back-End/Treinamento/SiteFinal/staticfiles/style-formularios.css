@@ -16,3 +16,6 @@ img{
     flex-direction: row;
     column-gap: 20px;
 }
+spam{
+    text-align: left;
+}

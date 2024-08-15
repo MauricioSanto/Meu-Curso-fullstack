@@ -39,7 +39,7 @@
                     <a href="{% url "pg_editar_empresa" empresa.id %}">
                         <span>Editar Empresa</span>
                     </a>
-                    <a href="{% url "pg_excluir_empresa" empresa.id %}">
+                    <a href="{% url "pg_excluir_empresa" empresa.id %}" onclick="return confirm('Deseja realmente excluir?')">
                         <span>Excluir Empresa</span>
                     </a>
                 </div>

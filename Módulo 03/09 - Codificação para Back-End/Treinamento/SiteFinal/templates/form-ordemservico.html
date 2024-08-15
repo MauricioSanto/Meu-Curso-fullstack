@@ -83,7 +83,7 @@
                     {% comment %} <a href="{% url "pg_editar_ordemservico" os.id %}"> {% endcomment %}
                         <span>Editar Ordem de Serviços:</span>
                     </a>
-                    <a href="{% url "pg_excluir_ordemservico" os.id %}">
+                    <a href="{% url "pg_excluir_ordemservico" os.id %}"onclick=" return confirm('Deseja realmente excluir?')">
                         <span>Excluir Ordem de Serviços:</span>
                     </a>
                 </div>
