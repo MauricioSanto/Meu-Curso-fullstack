@@ -556,13 +556,13 @@ def EditarCliente(request, id_cliente):
     clientes = dados_clientes['clientes']
 
     if request.method == "GET":
-        return render(request, "form-cliente.html", {"cliente":cliente, 'cliente' : clientes}) 
+        return render(request, "form-cliente.html", {"cliente":cliente, "clientes" : clientes}) 
     else:
         # Dados que você deseja enviar no corpo da solicitação POST
         json = {
             'nome': request.POST['nome'],
             'data_nascimento': request.POST['data_nascimento'],
-             'foto': request.POST['foto'],
+            'foto': request.POST['foto'],
             
         }
                

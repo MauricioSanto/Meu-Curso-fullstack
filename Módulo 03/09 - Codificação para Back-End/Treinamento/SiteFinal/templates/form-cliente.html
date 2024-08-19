@@ -12,15 +12,15 @@
             <button>Voltar</button>
         </a>
         <h2>Formulário Cliente</h2>
-        <form method="post">
+        <form method="post" id='form_cliente'>
             {% csrf_token %}
             <p>
                 <label for="id_cliente">Nome:</label>
-                <input type="text" name="nome" maxlength="100" required="" id="id_cliente" value="{{ cliente.nome}}">  
+                <input type="text" name="nome" maxlength="100"  id="id_cliente" value="{{ cliente.nome}}">  
             </p>
             <p>
                 <label for="id_cliente">Data de Nascimento:</label>
-                <input type="date" name="data_nascimento" maxlength="100" required="" id="id_cliente" value="{{ cliente.data_nascimento}}">  
+                <input type="date" name="data_nascimento" maxlength="100"  id="id_cliente" value="{{ cliente.data_nascimento}}">  
             </p>
             <p>
                 <label for="id_cliente">Foto:</label>
@@ -58,4 +58,6 @@
         {% endfor %}
 
     </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/validacoes_cliente.js'%}"></script>
 </html>

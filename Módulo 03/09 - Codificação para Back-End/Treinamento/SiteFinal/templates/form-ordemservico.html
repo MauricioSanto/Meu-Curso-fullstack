@@ -45,7 +45,7 @@
                 
             <p>
             <label for="id_cliente">Cliente:</label>
-            <select name="cliente_id" required="" id="cliente_id">
+            <select name="cliente_id" id="cliente_id">
                 <option value="" selected=""></option>
                 {% for cliente in clientes %}
                     <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
@@ -91,4 +91,6 @@
         {% endfor %}
 
     </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/validacoes.js'%}"></script>
 </html>

@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static "style-formularios.css" %}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{% static 'js/validacoes_empresa.js'%}"></script>
         <title>Formulário Empresa</title>
     </head>
     <body>
@@ -13,15 +15,15 @@
         </a>
         <h2>Formulário Empresa</h2>
 
-        <form method="post">
+        <form method="post" id="form_empresa">
             {% csrf_token %}
             <p>
                 <label for="id_empresa">Razão Social:</label>
-                <input type="text" name="razao_social" maxlength="100" required="" id="id_empresa" value="{{ empresa.razao_social }}">  
+                <input type="text" name="razao_social" maxlength="100"  id="razao_social" value="{{ empresa.razao_social }}">  
             </p>
             <p>
                 <label for="id_empresa">CNPJ:</label>
-                <input type="int" name="cnpj" maxlength="100" required="" id="id_empresa" value="{{ empresa.cnpj }}">  
+                <input type="text" name="cnpj" maxlength="100"  id="cnpj" value="{{ empresa.cnpj }}">  
             </p>
             <button type="submit">Salvar</button>
             <a href="{% url "pg_criar_empresa" %}">
@@ -47,4 +49,5 @@
         {% endfor %}
 
     </body>
+    
 </html>

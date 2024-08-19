@@ -68,23 +68,23 @@
 
         <h2>Formulário Serviço</h2>
 
-        <form method="post">
+        <form method="post" id="form_servico">
             {% csrf_token %}
             <p>
             <label for="tipo">Tipo servico:</label>
-            <input type="text" name="tipo" maxlength="100" required="" id="tipo">
+            <input type="text" name="tipo" maxlength="100"  id="tipo">
             </p>
                 
                 
             <p>
             <label for="valor">Valor servico:</label>
-            <input type="number" name="valor" step="0.01" required="" id="valor">
+            <input type="number" name="valor" step="0.01"  id="valor">
             </p>
                 
                 
             <p>
             <label for="id_empresa">Empresa:</label>
-            <select name="empresa_id" required="" id="empresa_id">
+            <select name="empresa_id"  id="empresa_id">
                 <option value="" selected=""></option>
                 {% for empresa in empresas %}
                     <option value="{{ empresa.id }}">{{ empresa.razao_social }}</option>
@@ -95,7 +95,7 @@
                 
             <p>
             <label for="id_categoria">Categoria:</label>
-            <select name="categoria_id" required="" id="categoria_id">
+            <select name="categoria_id" id="categoria_id">
                 <option value="" selected=""></option>
                 {% for categoria in categorias %}
                     <option value="{{ categoria.id }}">{{ categoria.tipo }}</option>
@@ -128,4 +128,6 @@
         {% endfor %}
 
     </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/validacoes_servico.js'%}"></script>
 </html>

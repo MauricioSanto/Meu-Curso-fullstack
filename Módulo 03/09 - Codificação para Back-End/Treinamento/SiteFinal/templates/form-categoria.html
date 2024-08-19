@@ -1,24 +1,21 @@
+  
+{% extends "base.html" %}
+{% block titulo %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static "style-formularios.css" %}">
-        <title>Formulário Categoria</title>
-    </head>
-    <body>
+    <h2>Formulário Categoria</h2>
+{% endblock %}
+{% block conteudo %}
         <a href="{% url "pg_inicial" %}">
             <button>Voltar</button>
         </a>
-        <h2>Formulário Categoria</h2>
-        <form method="post">
+        
+        <form method="post" id='form_categoria'>
             {% csrf_token %}
             <p>
             <label for="id_tipo">Tipo:</label>
-            <input type="text" name="tipo" maxlength="100" required="" id="id_tipo" value="{{ categoria.tipo }}">  
+            <input type="text" name="tipo" maxlength="100"  id="id_tipo" value="{{ categoria.tipo }}">  
             </p>
-            <button type="submit">Salvar</button>
+            <button type="submit" id='salvar'>Salvar</button>
             <a href="{% url "pg_criar_servico" %}">
                 <button type="button">Cancelar</button>
             </a>
@@ -39,6 +36,5 @@
                 </div>
             </div>
         {% endfor %}
-
-    </body>
-</html>
+    <script src="{% static 'js/validacoes_categoria.js'%}"></script>
+    {% endblock %}
