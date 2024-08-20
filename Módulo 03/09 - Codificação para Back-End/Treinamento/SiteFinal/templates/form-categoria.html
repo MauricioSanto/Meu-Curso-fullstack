@@ -1,31 +1,42 @@
   
 {% extends "base.html" %}
-{% block titulo %}
 {% load static %}
+{% block titulo %}
+
+    <a href="{% url "pg_inicial" %}">
+        <button>Voltar</button>
+    </a>
     <h2>Formulário Categoria</h2>
 {% endblock %}
 {% block conteudo %}
-        <a href="{% url "pg_inicial" %}">
-            <button>Voltar</button>
-        </a>
         
-        <form method="post" id='form_categoria'>
-            {% csrf_token %}
-            <p>
-            <label for="id_tipo">Tipo:</label>
-            <input type="text" name="tipo" maxlength="100"  id="id_tipo" value="{{ categoria.tipo }}">  
-            </p>
-            <button type="submit" id='salvar'>Salvar</button>
-            <a href="{% url "pg_criar_servico" %}">
-                <button type="button">Cancelar</button>
-            </a>
-        </form>
+    <form method="post" id='form_categoria'>
+        {% csrf_token %}
+        <p>
+        <label for="id_tipo">Tipo:</label>
+        <input type="text" name="tipo" maxlength="100"  id="id_tipo" value="{{ categoria.tipo }}">  
+        </p>
+        <button type="submit" id='salvar'>Salvar</button>
+        <a href="{% url "pg_criar_servico" %}">
+            <button type="button">Cancelar</button>
+        </a>
+    </form>
 
-        <h2>Lista de Categorias</h2>
-
-        {% for categoria in categorias %}
-            <div class="card-formulario">
-                <span>{{ categoria.tipo }}</span>
+    <h2>Lista de Categorias</h2>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in categorias %}
+                <tr>
+                <th scope="row">{{categoria.id}}</th>
+                <td>{{ categoria.tipo }}</td>
+                <td>
                 <div class="btns_formulario">
                     <a href="{% url "pg_editar_categoria" categoria.id %}">
                         <span>Editar Categoria</span>
@@ -34,7 +45,9 @@
                         <span>Excluir Categoria</span>
                     </a>
                 </div>
-            </div>
-        {% endfor %}
+                
+            {% endfor %}
+        </tbody>
+    </table>
     <script src="{% static 'js/validacoes_categoria.js'%}"></script>
     {% endblock %}
