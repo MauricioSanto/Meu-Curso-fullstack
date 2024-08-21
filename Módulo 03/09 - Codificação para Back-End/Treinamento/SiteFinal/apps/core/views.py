@@ -6,15 +6,31 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 
 def VerIndex(request):
-    busca_os = OrdemServico.objects.all()
+    url = 'http://127.0.0.1:9000/api/ordemservicos' # Substitua pela URL da API real
 
-    for os in busca_os:
-        valor_os = 0
-        for servico in os.servico.all():
-            valor_os += servico.valor_servico
-        os.valor_total = valor_os
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
 
-    return render(request, "index.html", {'ordemservicos': busca_os})
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
+    
+    if request.method == "GET":
+
+        try:
+            resposta = requests.get(url, headers=headers)
+            resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+            dados = resposta.json() # Obtém os dados JSON da resposta
+        except requests.RequestException as e:
+            return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
+    
+        # Extraia a string desejada do JSON
+        ordemservicos = dados['ordemservicos']
+        return render(request, "index.html", {"ordemservicos": ordemservicos})
+
 
 #def CriarCliente(request):
     busca_clientes = Cliente.objects.all()
@@ -28,7 +44,7 @@ def VerIndex(request):
             return redirect("pg_criar_cliente")
     return render(request, "form-cliente.html", {"form_cliente": novo_cliente, "clientes": busca_clientes})
 
-def EditarCliente(request, id_cliente):
+#def EditarCliente(request, id_cliente):
     busca_cliente = Cliente.objects.get(id=id_cliente)
     if request.method == "GET":
         editar_cliente = FormularioCliente(instance=busca_cliente)
@@ -170,7 +186,7 @@ def EditarServico(request, id_servico):
             return redirect("pg_criar_produto")
     return render(request, "form-produtos.html", {"form_produto": novo_produto, "produtos": busca_produto})
 
-def EditarProduto(request, id_produto):
+#def EditarProduto(request, id_produto):
     busca_produto = Produto.objects.get(id=id_produto)
     if request.method == "GET":
         editar_produto = FormularioProduto(instance=busca_produto)
@@ -922,6 +938,7 @@ def CriarOrdemServico(request):
     url = 'http://127.0.0.1:9000/api/ordemservicos' # Substitua pela URL da API real
     url_clientes = 'http://127.0.0.1:9000/api/clientes'
     url_servicos = 'http://127.0.0.1:9000/api/servicos'
+    url_empresas = 'http://127.0.0.1:9000/api/empresas'
 
     obter_token = RetornaToken(request)
     conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
@@ -942,6 +959,11 @@ def CriarOrdemServico(request):
     resposta_servico.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
     dados_servico = resposta_servico.json() # Obtém os dados JSON da resposta
     servicos = dados_servico['servicos']
+
+    resposta_empresa = requests.get(url_empresas, headers=headers)
+    resposta_empresa.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados_empresa = resposta_empresa.json() # Obtém os dados JSON da resposta
+    empresas = dados_empresa['empresas']
     
     if request.method == "GET":
         nova_ordemservico = FormularioOrdemServico()
@@ -955,13 +977,15 @@ def CriarOrdemServico(request):
     
         # Extraia a string desejada do JSON
         ordemservicos = dados['ordemservicos']
-        return render(request, "form-ordemservico.html", {"clientes": clientes, "servicos": servicos, "ordemservicos" : ordemservicos})
+        return render(request, "form-ordemservico.html", {"clientes": clientes, "servicos": servicos,"empresas":empresas, "ordemservicos" : ordemservicos})
     else:
        # Dados que você deseja enviar no corpo da solicitação POST
         json = {
             'cliente_id': request.POST['cliente_id'],
+            'empresa_id': request.POST['empresa_id'],
             'servicos_id': request.POST['servicos_id'],
-            'data_servico':request.POST['data_servico'],
+            'data':request.POST['data'],
+            'data_finalizacao':request.POST['data_finalizacao'],
         }
                
         # Fazendo a solicitação POST
