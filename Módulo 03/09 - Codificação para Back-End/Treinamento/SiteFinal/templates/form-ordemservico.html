@@ -68,12 +68,16 @@
             </select>
         </p>
         <p>
-            <label for="data">Data servico:</label>
+            <label for="data">Data Inicio do servico:</label>
             <input type="date" name="data" maxlength="100"  id="data">
         </p>
-        <button type="submit">Salvar</button>
+        <p>
+            <label for="data">Data Término do Serviço:</label>
+            <input type="date" name="data" maxlength="100"  id="data">
+        </p>
+        <button type="submit"class='btn btn-primary'>Salvar</button>
         <a href="{% url "pg_inicial" %}">
-            <button type="button">Cancelar</button>
+            <button type="button"class='btn btn-danger'>Cancelar</button>
         </a>
 
     </form>    
@@ -101,15 +105,16 @@
                     <td>{{ os.servico.tipo }}</td>
                     <td>{{ os.data }}</td>
                     <td>{{ os.data_finalizacao}}</td>
-                
-                    <div class="btns_formulario">
-                        {% comment %} <a href="{% url "pg_editar_ordemservico" os.id %}"> {% endcomment %}
-                            <span>Editar Ordem de Serviços:</span>
-                        </a>
-                        <a href="{% url "pg_excluir_ordemservico" os.id %}"onclick=" return confirm('Deseja realmente excluir?')">
-                            <span>Excluir Ordem de Serviços:</span>
-                        </a>
-                    </div>
+                    <td>
+                        <div class="btns_formulario">
+                            {% comment %} <a href="{% url "pg_editar_ordemservico" os.id %}">
+                                <span>Editar Ordem de Serviços:</span>
+                            </a> {% endcomment %}
+                            <a href="{% url "pg_excluir_ordemservico" os.id %}"onclick=" return confirm('Deseja realmente excluir?')">
+                                <span>Excluir Ordem de Serviços:</span>
+                            </a>
+                        </div>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

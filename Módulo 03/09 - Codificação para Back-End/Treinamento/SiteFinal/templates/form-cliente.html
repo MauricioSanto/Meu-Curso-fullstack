@@ -14,7 +14,7 @@
         {% csrf_token %}
         <p>
             <label for="id_cliente">Nome:</label>
-            <input type="text" name="nome_cliente" maxlength="100"  id="nome_cliente" value="{{ cliente.nome}}">  
+            <input type="text" name="nome" maxlength="100"  id="nome" value="{{ cliente.nome}}">  
         </p>
         <p>
             <label for="id_cliente">Data de Nascimento:</label>
@@ -26,9 +26,9 @@
                 {% csrf_token %}
                 <input type="file" name="foto">
                 <!--<button type="submit">Enviar</button>-->
-                <button type="submit">Salvar</button>
+                <button type="submit"class='btn btn-primary'>Salvar</button>
                 <a href="{% url "pg_criar_cliente" %}">
-                    <button type="button">Cancelar</button>
+                    <button type="button"class='btn btn-danger'>Cancelar</button>
                 </a>
             </form>
         </p>
@@ -55,15 +55,16 @@
                     <td>{{ cliente.nome }}</td>
                     <td>{{ cliente.data_nascimento }}</td>
                     <td><img src="{{ cliente.foto.url }}" width="150" height="auto"></td>
-                    
-                    <div class="btns_formulario">
-                        <a href="{% url "pg_editar_cliente" cliente.id %}">
-                            <span>Editar Cliente</span>
-                        </a>
-                        <a href="{% url "pg_excluir_cliente" cliente.id %}" onclick=" return confirm('Deseja realmente excluir?')">
-                            <span>Excluir Cliente</span>
-                        </a>
-                    </div>
+                    <td>
+                        <div class="btns_formulario">
+                            <a href="{% url "pg_editar_cliente" cliente.id %}">
+                                <span>Editar Cliente</span>
+                            </a>
+                            <a href="{% url "pg_excluir_cliente" cliente.id %}" onclick=" return confirm('Deseja realmente excluir?')">
+                                <span>Excluir Cliente</span>
+                            </a>
+                        </div>
+                    </td>
                 </tr>   
             {% endfor %}
         </tbody>

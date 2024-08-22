@@ -7,10 +7,10 @@
     </a>
     
     <h2>Formulário Empresa</h2>
-{% endblock %}      
+{% endblock %}  
+
 {% block conteudo %}    
         
-
     <form method="post" id="form_empresa">
         {% csrf_token %}
         <p>
@@ -21,9 +21,9 @@
             <label for="id_empresa">CNPJ:</label>
             <input type="text" name="cnpj" maxlength="100"  id="cnpj" value="{{ empresa.cnpj }}">  
         </p>
-        <button type="submit">Salvar</button>
+        <button type="submit" class='btn btn-primary'>Salvar</button>
         <a href="{% url "pg_criar_empresa" %}">
-            <button type="button">Cancelar</button>
+            <button type="button" class='btn btn-danger'>Cancelar</button>
         </a>
     </form>
 
@@ -32,10 +32,10 @@
     <table class="table">
         <thead>
             <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Razão Social</th>
-            <th scope="col">CNPJ</th>
-            <th scope="col">Opções</th>
+                <th scope="col">ID</th>
+                <th scope="col">Razão Social</th>
+                <th scope="col">CNPJ</th>
+                <th scope="col">Opções</th>
             </tr>
         </thead>
         <tbody>
@@ -45,15 +45,15 @@
                     <td>{{ empresa.razao_social }}</td>
                     <td>{{ empresa.cnpj }}</td>
                     <td>
-                    <div class="btns_formulario">
-                        <a href="{% url "pg_editar_empresa" empresa.id %}">
-                            <span>Editar Empresa</span>
-                        </a>
-                        <a href="{% url "pg_excluir_empresa" empresa.id %}" onclick="return confirm('Deseja realmente excluir?')">
-                            <span>Excluir Empresa</span>
-                        </a>
-                    </div>
-                    
+                        <div class="btns_formulario">
+                            <a href="{% url "pg_editar_empresa" empresa.id %}">
+                                <span>Editar Empresa</span>
+                            </a>
+                            <a href="{% url "pg_excluir_empresa" empresa.id %}" onclick="return confirm('Deseja realmente excluir?')">
+                                <span>Excluir Empresa</span>
+                            </a>
+                        </div>
+                    </td>
                 </tr>      
                         
             {% endfor %}

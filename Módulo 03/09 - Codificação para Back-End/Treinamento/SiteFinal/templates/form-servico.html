@@ -68,20 +68,20 @@
         {% csrf_token %}
         <p>
         <label for="tipo">Tipo servico:</label>
-        <input type="text" name="tipo" maxlength="100"  id="tipo">
+        <input type="text" name="tipo" maxlength="100"  id="tipo" value="{{servico.tipo}}">
         </p>
             
             
         <p>
         <label for="valor">Valor servico:</label>
-        <input type="number" name="valor" step="0.01"  id="valor">
+        <input type="number" name="valor" step="0.01"  id="valor" >
         </p>
             
             
         <p>
         <label for="id_empresa">Empresa:</label>
         <select name="empresa_id"  id="empresa_id">
-            <option value="" selected=""></option>
+            <option value="{{ servico.empresa.id }}" selected="{{ servico.empresa.razao_social }}"></option>
             {% for empresa in empresas %}
                 <option value="{{ empresa.id }}">{{ empresa.razao_social }}</option>
             {% endfor %}
@@ -98,9 +98,9 @@
             {% endfor %}
         </select>
         </p>
-        <button type="submit">Salvar</button>
+        <button type="submit"class='btn btn-primary'>Salvar</button>
         <a href="{% url "pg_inicial" %}">
-            <button type="button">Cancelar</button>
+            <button type="button"class='btn btn-danger'>Cancelar</button>
         </a>
     </form>    
 
@@ -125,14 +125,15 @@
                     <td>{{ servico.empresa.razao_social }}</td>
                     <td>{{ servico.categoria.tipo }}</td>
                     <td>
-                    <div class="btns_formulario">
-                        <a href="{% url "pg_editar_servico" servico.id %}">
-                            <span>Editar Serviço</span>
-                        </a>
-                        <a href="{% url "pg_excluir_servico" servico.id %}" onclick="return confirm('Deseja realmente excluir?')">
-                            <span>Excluir Serviço</span>
-                        </a>
-                    </div>
+                        <div class="btns_formulario">
+                            <a href="{% url "pg_editar_servico" servico.id %}">
+                                <span>Editar Serviço</span>
+                            </a>
+                            <a href="{% url "pg_excluir_servico" servico.id %}" onclick="return confirm('Deseja realmente excluir?')">
+                                <span>Excluir Serviço</span>
+                            </a>
+                        </div>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

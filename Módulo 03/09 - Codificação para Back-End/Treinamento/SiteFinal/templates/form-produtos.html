@@ -24,9 +24,9 @@
             <label for="id_produto">Descrição:</label>
             <input type="text" name="descricao" maxlength="100"  id="descricao" value="{{ produto.descricao}}">  
         </p>
-        <button type="submit">Salvar</button>
+        <button type="submit" class='btn btn-primary'>Salvar</button>
         <a href="{% url "pg_criar_produto" %}">
-            <button type="button">Cancelar</button>
+            <button type="button" class='btn btn-danger'>Cancelar</button>
         </a>
     </form>
     

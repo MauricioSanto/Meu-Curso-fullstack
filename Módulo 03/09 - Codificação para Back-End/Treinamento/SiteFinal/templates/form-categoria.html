@@ -16,9 +16,9 @@
         <label for="id_tipo">Tipo:</label>
         <input type="text" name="tipo" maxlength="100"  id="id_tipo" value="{{ categoria.tipo }}">  
         </p>
-        <button type="submit" id='salvar'>Salvar</button>
+        <button type="submit"class='btn btn-primary' id='salvar'>Salvar</button>
         <a href="{% url "pg_criar_servico" %}">
-            <button type="button">Cancelar</button>
+            <button type="button"class='btn btn-danger'>Cancelar</button>
         </a>
     </form>
 
