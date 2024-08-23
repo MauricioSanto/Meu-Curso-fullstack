@@ -41,7 +41,7 @@
             
         <p>
         <label for="id_cliente">Cliente:</label>
-        <select name="cliente" id="cliente">
+        <select name="cliente_id" id="cliente_id">
             <option value="" selected=""></option>
             {% for cliente in clientes %}
                 <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
@@ -51,7 +51,7 @@
                 
         <p>
         <label for="id_servico">Serviço:</label>
-        <select name="servico" required="" id="servico">
+        <select name="servico_id" required="" id="servico_id">
             <option value="" selected=""></option>
             {% for servico in servicos %}
                 <option value="{{ servico.id }}">{{ servico.tipo }}</option>
@@ -60,7 +60,7 @@
         </p>
         <p>
             <label for="id_empresa">Empresa:</label>
-            <select name="empresa" required="" id="empresa">
+            <select name="empresa_id" required="" id="empresa_id">
                 <option value="" selected=""></option>
                 {% for empresa in empresas %}
                     <option value="{{ empresa.id }}">{{ empresa.razao_social }}</option>
@@ -73,7 +73,7 @@
         </p>
         <p>
             <label for="data">Data Término do Serviço:</label>
-            <input type="date" name="data" maxlength="100"  id="data">
+            <input type="date" name="data_finalizacao" maxlength="100"  id="data_finalizacao">
         </p>
         <button type="submit"class='btn btn-primary'>Salvar</button>
         <a href="{% url "pg_inicial" %}">
@@ -107,9 +107,9 @@
                     <td>{{ os.data_finalizacao}}</td>
                     <td>
                         <div class="btns_formulario">
-                            {% comment %} <a href="{% url "pg_editar_ordemservico" os.id %}">
+                            <a href="{% url "pg_editar_ordemservico" os.id %}">
                                 <span>Editar Ordem de Serviços:</span>
-                            </a> {% endcomment %}
+                            </a> 
                             <a href="{% url "pg_excluir_ordemservico" os.id %}"onclick=" return confirm('Deseja realmente excluir?')">
                                 <span>Excluir Ordem de Serviços:</span>
                             </a>

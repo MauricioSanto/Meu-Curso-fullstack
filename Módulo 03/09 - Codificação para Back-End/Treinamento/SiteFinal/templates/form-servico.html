@@ -74,14 +74,14 @@
             
         <p>
         <label for="valor">Valor servico:</label>
-        <input type="number" name="valor" step="0.01"  id="valor" >
+        <input type="number" name="valor" step="0.01"  id="valor" value="{{servico.valor}}">
         </p>
             
             
         <p>
         <label for="id_empresa">Empresa:</label>
         <select name="empresa_id"  id="empresa_id">
-            <option value="{{ servico.empresa.id }}" selected="{{ servico.empresa.razao_social }}"></option>
+            <option value="{{servico.empresa_id}}" selected="{{servico.empresa_id}}">{{servico.empresa.razao_social}}</option>
             {% for empresa in empresas %}
                 <option value="{{ empresa.id }}">{{ empresa.razao_social }}</option>
             {% endfor %}
@@ -92,7 +92,7 @@
         <p>
         <label for="id_categoria">Categoria:</label>
         <select name="categoria_id" id="categoria_id">
-            <option value="" selected=""></option>
+            <option value="{{servico.categoria_id}}" selected="{{servico.categoria_id}}">{{servico.categoria.tipo}}</option>
             {% for categoria in categorias %}
                 <option value="{{ categoria.id }}">{{ categoria.tipo }}</option>
             {% endfor %}

@@ -36,7 +36,7 @@ def VerIndex(request):
    # busca_clientes = Cliente.objects.all()
     
     #if request.method == "GET":
-        novo_cliente = FormularioCliente()
+        #novo_cliente = FormularioCliente()
     #else:
         #cliente_preenchido = FormularioCliente(request.POST, request.FILES)
         #if cliente_preenchido.is_valid():
@@ -1030,7 +1030,7 @@ def CriarOrdemServico(request):
     empresas = dados_empresa['empresas']
     
     if request.method == "GET":
-        nova_ordemservico = FormularioOrdemServico()
+       # nova_ordemservico = FormularioOrdemServico()
 
         try:
             resposta = requests.get(url, headers=headers)
@@ -1047,7 +1047,7 @@ def CriarOrdemServico(request):
         json = {
             'cliente_id': request.POST['cliente_id'],
             'empresa_id': request.POST['empresa_id'],
-            'servicos_id': request.POST['servicos_id'],
+            'servico_id': request.POST['servico_id'],
             'data':request.POST['data'],
             'data_finalizacao':request.POST['data_finalizacao'],
         }
@@ -1066,8 +1066,60 @@ def CriarOrdemServico(request):
         else:
             return HttpResponse('Erro ao consumir a API: ', response.status_code)
         
-def ExcluirOrdemServico(request, id_ordemservico):
-        url = 'http://127.0.0.1:9000/api/ordemservicos/' + str(id_ordemservico) # Substitua pela URL da API real
+def EditarOrdemServico(request, id_os):
+    url_editar_ordemservico = 'http://127.0.0.1:9000/api/ordemservicos/' + str(id_os) # Substitua pela URL da API real
+    url_listar_ordemservico = 'http://127.0.0.1:9000/api/ordemservicos' # Substitua pela URL da API real
+
+    obter_token = RetornaToken(request)
+    conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
+    token = conteudo_bytes.decode('utf-8') 
+
+    # Cabeçalhos que você deseja enviar com a solicitação
+    headers = {
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+    }
+
+    resposta = requests.get(url_editar_ordemservico, headers=headers)
+    resposta.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados = resposta.json()
+    ordemservico = dados['ordemservico']
+
+    resposta_ordemservico = requests.get(url_listar_ordemservico, headers=headers)
+    resposta_ordemservico.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados_ordemservicos = resposta_ordemservico.json() # Obtém os dados JSON da resposta
+    ordemservicos = dados_ordemservicos['ordemservicos']
+
+    if request.method == "GET":
+        return render(request, "form-ordemservico.html", {"ordemservico":ordemservico, 'ordemservicos' : ordemservicos}) 
+    else:
+        # Dados que você deseja enviar no corpo da solicitação POST
+        json = {
+            'cliente_id': request.POST['cliente_id'],
+            'servico_id': request.POST['servico_id'],
+            'empresa_id': request.POST['empresa_id'],
+            'data': request.POST['data'],
+            'data_finalizacao': request.POST['data_finalizacao'],
+            
+        }
+               
+        # Fazendo a solicitação POST
+        response = requests.put(url_editar_ordemservico, json=json, headers=headers)
+        
+
+        # Obtendo o conteúdo da resposta
+        
+        if response.status_code in [200, 201]:
+            try:
+                return redirect("pg_criar_ordemservico")
+            except requests.JSONDecodeError:
+                print("A resposta não é um JSON válido.")
+        else:
+            return render(request, "form-ordemservico.html", {"ordemservico": ordemservico, 'ordemservicos' : ordemservicos}) 
+        
+        
+def ExcluirOrdemServico(request, id_os):
+        url = 'http://127.0.0.1:9000/api/ordemservicos/' + str(id_os) # Substitua pela URL da API real
     
         obter_token = RetornaToken(request)
         conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
