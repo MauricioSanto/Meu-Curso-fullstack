@@ -21,6 +21,22 @@
         {% block conteudo %}
            
         {% endblock %}
-
+        <footer> 
+            <ul class="pagination justify-content-right">
+                <li class="page-item disabled">
+               
+                </li>
+                <li class="page-item"><a class="page-link" href="{% url "pg_inicial" %}">1</a></li>
+                <li class="page-item"><a class="page-link" href="{% url "pg_criar_ordemservico" %}">2</a></li>
+                <li class="page-item"><a class="page-link" href="{% url "pg_criar_cliente" %}">3</a></li>
+                <li class="page-item"><a class="page-link" href="{% url "pg_criar_empresa" %}">4</a></li>
+                <li class="page-item"><a class="page-link" href="{% url "pg_criar_servico" %}">5</a></li>
+                <li class="page-item"><a class="page-link" href="{% url "pg_criar_produto" %}">6</a></li>
+                <li class="page-item"><a class="page-link" href="{% url "pg_criar_categoria" %}">7</a></li>
+                <li class="page-item">
+               
+                </li>
+            </ul>
+        </footer>
     </body>
 </html>

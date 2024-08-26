@@ -42,38 +42,41 @@
         <p>
         <label for="id_cliente">Cliente:</label>
         <select name="cliente_id" id="cliente_id">
-            <option value="" selected=""></option>
+            <option value="{{ordemservico.cliente_id}}" selected="{{ordemservico.cliente_id}}">{{ordemservico.cliente.nome}}</option>
             {% for cliente in clientes %}
                 <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
             {% endfor %}
         </select>
         </p>
-                
-        <p>
-        <label for="id_servico">Serviço:</label>
-        <select name="servico_id" required="" id="servico_id">
-            <option value="" selected=""></option>
-            {% for servico in servicos %}
-                <option value="{{ servico.id }}">{{ servico.tipo }}</option>
-            {% endfor %}
-        </select>
-        </p>
+
         <p>
             <label for="id_empresa">Empresa:</label>
             <select name="empresa_id" required="" id="empresa_id">
-                <option value="" selected=""></option>
+                <option value="{{ordemservico.empresa_id}}" selected="{{ordemservico.empresa_id}}">{{ordemservico.empresa.razao_social}}</option>
                 {% for empresa in empresas %}
                     <option value="{{ empresa.id }}">{{ empresa.razao_social }}</option>
                 {% endfor %}
             </select>
         </p>
+                
+        <p>
+        <label for="id_servico">Serviço:</label>
+        <select name="servico_id" required="" id="servico_id">
+            <option value="{{ ordemservico.servico_id}}" selected="{{ ordemservico.servico_id}}">{{ ordemservico.servico.tipo }}</option>
+            {% for servico in servicos %}
+                <option value="{{ servico.id }}">{{ servico.tipo }}</option>
+            {% endfor %}
+        </select>
+        </p>
+        
         <p>
             <label for="data">Data Inicio do servico:</label>
-            <input type="date" name="data" maxlength="100"  id="data">
+            <input type="date" name="data" maxlength="100"  id="data" value="{{ ordemservico.data}}">
+           
         </p>
         <p>
             <label for="data">Data Término do Serviço:</label>
-            <input type="date" name="data_finalizacao" maxlength="100"  id="data_finalizacao">
+            <input type="date" name="data_finalizacao" maxlength="100"  id="data_finalizacao" value="{{ ordemservico.data_finalizacao}}">
         </p>
         <button type="submit"class='btn btn-primary'>Salvar</button>
         <a href="{% url "pg_inicial" %}">
@@ -88,8 +91,8 @@
             <tr>
             <th scope="col">ID</th>
             <th scope="col">Nome Cliente</th>
-            <th scope="col">Tipo Serviço</th>
             <th scope="col">Empresa</th>
+            <th scope="col">Tipo Serviço</th>
             <th scope="col">Data Inicial</th>
             <th scope="col">Data Final</th>
             <th scope="col">Opções</th>

@@ -24,7 +24,8 @@
             <label for="id_cliente">Foto:</label>
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <input type="file" name="foto">
+                <input type="file" name="foto"  value="{{cliente.id}}" >{{cliente.foto}}</input>
+                <!--<option value="{{cliente.id}}" selected="{{cliente.id}}">{{cliente.foto}}</option>-->
                 <!--<button type="submit">Enviar</button>-->
                 <button type="submit"class='btn btn-primary'>Salvar</button>
                 <a href="{% url "pg_criar_cliente" %}">
@@ -54,7 +55,7 @@
                     <th scope="row">{{cliente.id}}</th>
                     <td>{{ cliente.nome }}</td>
                     <td>{{ cliente.data_nascimento }}</td>
-                    <td><img src="{{ cliente.foto.url }}" width="150" height="auto"></td>
+                    <td>"{{ cliente.foto }}" </td>
                     <td>
                         <div class="btns_formulario">
                             <a href="{% url "pg_editar_cliente" cliente.id %}">

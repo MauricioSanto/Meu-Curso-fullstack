@@ -526,14 +526,15 @@ def CriarCliente(request):
     else:
         # Dados que você deseja enviar no corpo da solicitação POST
 
-        foto = request.FILES.get('foto')        
+       # foto = request.FILES.get('foto')        
 
         json = {
             'nome': request.POST['nome'],
             'data_nascimento': request.POST['data_nascimento'],
-            'foto' : 'teste'
+            'foto': request.POST['foto'],
             
         }
+        
        
         response = requests.post(url, json=json, headers=headers)
         # return HttpResponse(response)
@@ -578,8 +579,11 @@ def EditarCliente(request, id_cliente):
         json = {
             'nome': request.POST['nome'],
             'data_nascimento': request.POST['data_nascimento'],
-            'foto': request.POST['foto'],
+           
             
+        }
+        FILES = {
+             'foto': request.POST['foto'],
         }
                
         # Fazendo a solicitação POST
@@ -1069,6 +1073,10 @@ def CriarOrdemServico(request):
 def EditarOrdemServico(request, id_os):
     url_editar_ordemservico = 'http://127.0.0.1:9000/api/ordemservicos/' + str(id_os) # Substitua pela URL da API real
     url_listar_ordemservico = 'http://127.0.0.1:9000/api/ordemservicos' # Substitua pela URL da API real
+    url_clientes = 'http://127.0.0.1:9000/api/clientes'
+    url_servicos = 'http://127.0.0.1:9000/api/servicos'
+    url_empresas = 'http://127.0.0.1:9000/api/empresas'
+
 
     obter_token = RetornaToken(request)
     conteudo_bytes = obter_token.content  # Obtém o conteúdo como bytes
@@ -1085,13 +1093,30 @@ def EditarOrdemServico(request, id_os):
     dados = resposta.json()
     ordemservico = dados['ordemservico']
 
+    
+
     resposta_ordemservico = requests.get(url_listar_ordemservico, headers=headers)
     resposta_ordemservico.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
     dados_ordemservicos = resposta_ordemservico.json() # Obtém os dados JSON da resposta
     ordemservicos = dados_ordemservicos['ordemservicos']
 
+    resposta_clientes = requests.get(url_clientes, headers=headers)
+    resposta_clientes.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados_clientes = resposta_clientes.json() # Obtém os dados JSON da resposta
+    clientes = dados_clientes['clientes']
+
+    resposta_servico = requests.get(url_servicos, headers=headers)
+    resposta_servico.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados_servico = resposta_servico.json() # Obtém os dados JSON da resposta
+    servicos = dados_servico['servicos']
+
+    resposta_empresa = requests.get(url_empresas, headers=headers)
+    resposta_empresa.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
+    dados_empresa = resposta_empresa.json() # Obtém os dados JSON da resposta
+    empresas = dados_empresa['empresas']
+
     if request.method == "GET":
-        return render(request, "form-ordemservico.html", {"ordemservico":ordemservico, 'ordemservicos' : ordemservicos}) 
+        return render(request, "form-ordemservico.html", {"ordemservico" : ordemservico, "clientes": clientes, "servicos": servicos,"empresas":empresas, 'ordemservicos' : ordemservicos}) 
     else:
         # Dados que você deseja enviar no corpo da solicitação POST
         json = {
@@ -1115,7 +1140,7 @@ def EditarOrdemServico(request, id_os):
             except requests.JSONDecodeError:
                 print("A resposta não é um JSON válido.")
         else:
-            return render(request, "form-ordemservico.html", {"ordemservico": ordemservico, 'ordemservicos' : ordemservicos}) 
+            return render(request, "form-ordemservico.html", {"ordemservico": ordemservico,"clientes": clientes, "servicos": servicos,"empresas":empresas, 'ordemservicos' : ordemservicos}) 
         
         
 def ExcluirOrdemServico(request, id_os):
