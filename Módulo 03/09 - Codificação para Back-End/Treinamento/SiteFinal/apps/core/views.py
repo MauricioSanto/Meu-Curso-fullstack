@@ -4,6 +4,8 @@ from .forms import *
 import requests
 from django.http import JsonResponse
 from django.http import HttpResponse
+from rest_framework import viewsets
+from .serializers import ImagemSerializer
 
 def VerIndex(request):
     url = 'http://127.0.0.1:9000/api/ordemservicos' # Substitua pela URL da API real
@@ -30,6 +32,26 @@ def VerIndex(request):
         # Extraia a string desejada do JSON
         ordemservicos = dados['ordemservicos']
         return render(request, "index.html", {"ordemservicos": ordemservicos})
+    
+def Upload_Imagem(request):
+    if request.method =='POST':
+        form = ImagemForm(request.POST, request.FILES)
+        if form.is_valid():
+            descricao = form.cleaned_data ['descricao']
+            foto = form.cleaned_data ['foto']
+            url = 'http://127.0.0.1:9000/api/imagens'
+            files = {'foto':foto.file}
+            data = {'descricao':descricao}
+            response = request.post (url, files=files, data=data)
+            if response.status_code == 201 :
+                return redirect('Sucesso')
+            else:
+                return render(request,'form-cliente.html',{
+                    'form':form, 'error': 'erro ao enviar a imagem para a API.'
+                })
+    else:
+        form = ImagemForm()
+        return render (request, 'form-cliente.html',{'form': form})
 
 
 #def CriarCliente(request):
@@ -751,6 +773,9 @@ def ExcluirProduto(request, id_produto):
                     print("A resposta não é um JSON válido.")
             else:
                 return HttpResponse('Erro ao consumir a API: ', response.status_code)
+            
+
+
         
 '''def CriarServico(request):
     url = 'http://127.0.0.1:9000/api/servicos' # Substitua pela URL da API real

@@ -30,3 +30,8 @@ class FormularioProduto(forms.ModelForm):
     class Meta:
         model = Produto
         fields = "__all__"
+
+class ImagemForm(forms.ModelForm):
+    class Meta:
+        model = Imagem
+        fields = "__all__"

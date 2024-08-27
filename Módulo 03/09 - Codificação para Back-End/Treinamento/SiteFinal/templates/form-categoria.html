@@ -2,26 +2,29 @@
 {% extends "base.html" %}
 {% load static %}
 {% block titulo %}
-
+<div class="container">
     <a href="{% url "pg_inicial" %}">
         <button>Voltar</button>
     </a>
     <h2>Formulário Categoria</h2>
+</div>
 {% endblock %}
 {% block conteudo %}
-        
+<div class="container">
     <form method="post" id='form_categoria'>
         {% csrf_token %}
         <p>
-        <label for="id_tipo">Tipo:</label>
-        <input type="text" name="tipo" maxlength="100"  id="id_tipo" value="{{ categoria.tipo }}">  
+            <label for="id_tipo">Tipo:</label>
+            <input type="text" name="tipo" maxlength="100"  id="id_tipo" value="{{ categoria.tipo }}">  
+        
+            <button type="submit"class='btn btn-primary' id='salvar'>Salvar</button>
+            <a href="{% url "pg_criar_servico" %}">
+                <button type="button"class='btn btn-danger'>Cancelar</button>
+            </a>
         </p>
-        <button type="submit"class='btn btn-primary' id='salvar'>Salvar</button>
-        <a href="{% url "pg_criar_servico" %}">
-            <button type="button"class='btn btn-danger'>Cancelar</button>
-        </a>
     </form>
-
+</div>   
+<div class="container">
     <h2>Lista de Categorias</h2>
     <table class="table">
         <thead>
@@ -49,5 +52,6 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
     <script src="{% static 'js/validacoes_categoria.js'%}"></script>
     {% endblock %}

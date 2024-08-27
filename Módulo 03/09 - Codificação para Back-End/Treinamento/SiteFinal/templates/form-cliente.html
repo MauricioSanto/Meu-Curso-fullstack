@@ -1,42 +1,49 @@
 {% extends "base.html" %}
 {% load static %}
     
-{%block titulo%}     
+{%block titulo%} 
+<div class="container">    
 
     <a href="{% url "pg_inicial" %}">
         <button>Voltar</button>
     </a>
     <h2>Formulário Cliente</h2>
+</div>
 {%endblock%}
 
 {%block conteudo%}
+<div class="container">
     <form method="post" id='form_cliente'>
         {% csrf_token %}
-        <p>
-            <label for="id_cliente">Nome:</label>
-            <input type="text" name="nome" maxlength="100"  id="nome" value="{{ cliente.nome}}">  
-        </p>
-        <p>
-            <label for="id_cliente">Data de Nascimento:</label>
-            <input type="date" name="data_nascimento" maxlength="100"  id="data_nascimento" value="{{ cliente.data_nascimento}}">  
-        </p>
-        <p>
-            <label for="id_cliente">Foto:</label>
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <input type="file" name="foto"  value="{{cliente.id}}" >{{cliente.foto}}</input>
-                <!--<option value="{{cliente.id}}" selected="{{cliente.id}}">{{cliente.foto}}</option>-->
-                <!--<button type="submit">Enviar</button>-->
+    
+        <label for="id_cliente">Nome:</label>
+        <input type="text" name="nome" maxlength="100"  id="nome" value="{{ cliente.nome}}">  
+
+        <label for="id_cliente">Data de Nascimento:</label>
+        <input type="date" name="data_nascimento" maxlength="100"  id="data_nascimento" value="{{ cliente.data_nascimento}}">  
+
+        <label for="id_cliente">Foto:</label>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            
+            <button type='submit'>Enviar</button>
+            <input type="file" name="foto"  value="{{cliente.id}}" >{{cliente.foto}}</input>
+            <!--<option value="{{cliente.id}}" selected="{{cliente.id}}">{{cliente.foto}}</option>-->
+            <!--<button type="submit">Enviar</button>-->
+            <div>
                 <button type="submit"class='btn btn-primary'>Salvar</button>
                 <a href="{% url "pg_criar_cliente" %}">
                     <button type="button"class='btn btn-danger'>Cancelar</button>
                 </a>
-            </form>
-        </p>
+            </div>
+        </form>
+        
         
         
     </form>
-    
+</div>
+<div class="container">   
     <h2>Lista de Clientes</h2>
 
     <table class="table">
@@ -70,5 +77,6 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
     <script src="{% static 'js/validacoes_cliente.js'%}"></script>
 {%endblock%}

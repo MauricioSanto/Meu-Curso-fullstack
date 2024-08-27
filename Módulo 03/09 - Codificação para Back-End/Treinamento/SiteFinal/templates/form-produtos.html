@@ -2,67 +2,76 @@
 {% load static %}
   
 {% block titulo %}
-    <a href="{% url "pg_inicial" %}">
-        <button>Voltar</button>
-    </a>
-    
-    <h2>Formulário Produtos</h2>
+    <div class="container">
+        <a href="{% url "pg_inicial" %}">
+            <button>Voltar</button>
+        </a>
+        
+        <h2>Formulário Produtos</h2>
+    </div>
 {% endblock %}
 {% block conteudo %}
+    <div class="container">
+        <form method="post" id='form_produto'>
+            {% csrf_token %}
+            <div class="row">
+                
+                <div>
+                    <label for="id_produto">Nome:</label>
+                    <input type="text" name="nome" maxlength="100"  id="nome" value="{{ produto.nome}}">  
+                
+                
+                    <label for="id_produto">Valor R$:</label>
+                    <input type="number" name="valor" maxlength="100"  id="valor" value="{{ produto.valor}}">  
+                
+                    <label for="id_produto">Descrição:</label>
+                    <input type="text" name="descricao" maxlength="100"  id="descricao" value="{{ produto.descricao}}">  
+                
+                    <button type="submit" class='btn btn-primary'>Salvar</button>
+                    <a href="{% url "pg_criar_produto" %}">
+                        <button type="button" class='btn btn-danger'>Cancelar</button>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </form>
+    </div>
     
-    <form method="post" id='form_produto'>
-        {% csrf_token %}
-        <p>
-            <label for="id_produto">Nome:</label>
-            <input type="text" name="nome" maxlength="100"  id="nome" value="{{ produto.nome}}">  
-        </p>
-        <p>
-            <label for="id_produto">Valor R$:</label>
-            <input type="number" name="valor" maxlength="100"  id="valor" value="{{ produto.valor}}">  
-        </p>
-        <p>
-            <label for="id_produto">Descrição:</label>
-            <input type="text" name="descricao" maxlength="100"  id="descricao" value="{{ produto.descricao}}">  
-        </p>
-        <button type="submit" class='btn btn-primary'>Salvar</button>
-        <a href="{% url "pg_criar_produto" %}">
-            <button type="button" class='btn btn-danger'>Cancelar</button>
-        </a>
-    </form>
-    
-
-    <h2>Lista de Produtos</h2>
-    <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">ID</th>
-            <th scope="col">NOME</th>
-            <th scope="col">VALOR</th>
-            <th scope="col">DESCRIÇÂO</th>
-            <th scope="col">Opções</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            {% for produto in produtos %}
+    <div class="container">
+        <h2>Lista de Produtos</h2>
+        <table class="table">
+            <thead>
                 <tr>
-                    <th scope="row">{{produto.id}}</th>
-                    <td>{{ produto.nome }}</td>
-                    <td>{{ produto.valor }}</td>
-                    <td>{{ produto.descricao }}</td>
-                    <td>
-                    <div class="btns_formulario">
-                        <a href="{% url "pg_editar_produto" produto.id %}">
-                            <span>Editar Produto</span>
-                        </a>
-                        <a href="{% url "pg_excluir_produto" produto.id %}" onclick="return confirm('Deseja realmente excluir?')" >
-                            <span>Excluir Produto</span>
-                        </a>
-                    </div>
+                <th scope="col">ID</th>
+                <th scope="col">NOME</th>
+                <th scope="col">VALOR</th>
+                <th scope="col">DESCRIÇÂO</th>
+                <th scope="col">Opções</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+
+                {% for produto in produtos %}
+                    <tr>
+                        <th scope="row">{{produto.id}}</th>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{ produto.valor }}</td>
+                        <td>{{ produto.descricao }}</td>
+                        <td>
+                        <div class="btns_formulario">
+                            <a href="{% url "pg_editar_produto" produto.id %}">
+                                <span>Editar Produto</span>
+                            </a>
+                            <a href="{% url "pg_excluir_produto" produto.id %}" onclick="return confirm('Deseja realmente excluir?')" >
+                                <span>Excluir Produto</span>
+                            </a>
+                        </div>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <script src="{% static 'js/validacoes_produtos.js'%}"></script>
 {% endblock %}   
    

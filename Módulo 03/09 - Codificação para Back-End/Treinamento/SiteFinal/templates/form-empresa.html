@@ -2,31 +2,34 @@
 {% load static %}
 
 {% block titulo %} 
+<div class="container">
     <a href="{% url "pg_inicial" %}">
         <button>Voltar</button>
     </a>
     
     <h2>Formulário Empresa</h2>
+</div>
 {% endblock %}  
 
 {% block conteudo %}    
-        
+<div class="container">       
     <form method="post" id="form_empresa">
         {% csrf_token %}
-        <p>
-            <label for="id_empresa">Razão Social:</label>
-            <input type="text" name="razao_social" maxlength="100"  id="razao_social" value="{{ empresa.razao_social }}">  
-        </p>
-        <p>
-            <label for="id_empresa">CNPJ:</label>
-            <input type="text" name="cnpj" maxlength="100"  id="cnpj" value="{{ empresa.cnpj }}">  
-        </p>
+        
+        <label for="id_empresa">Razão Social:</label>
+        <input type="text" name="razao_social" maxlength="100"  id="razao_social" value="{{ empresa.razao_social }}">  
+    
+    
+        <label for="id_empresa">CNPJ:</label>
+        <input type="text" name="cnpj" maxlength="100"  id="cnpj" value="{{ empresa.cnpj }}">  
+    
         <button type="submit" class='btn btn-primary'>Salvar</button>
         <a href="{% url "pg_criar_empresa" %}">
             <button type="button" class='btn btn-danger'>Cancelar</button>
         </a>
     </form>
-
+</div>
+<div class="container">
     <h2>Lista de Empresas</h2>
 
     <table class="table">
@@ -59,6 +62,7 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
     <script src="{% static 'js/validacoes_empresa.js'%}"></script>
 {% endblock %} 
    

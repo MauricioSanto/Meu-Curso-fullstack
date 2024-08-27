@@ -32,49 +32,56 @@
 {%endblock%}
 
 {%block conteudo%}
+
+    
     <h2>Lista de Ordens de Serviços</h2>
     <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">ID</th>
-            <th scope="col">CLIENTE</th>
-            <th scope="col">EMPRESA</th>
-            <th scope="col">SERVIÇO</th>
-            <th scope="col">DATA INICIAL</th>
-            <th scope="col">DATA FINALIZAÇÂO</th>
-            <th scope="col">Opções</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for os in ordemservicos %}
-
+        <div class="container">
+            <thead>
                 <tr>
-                    <th scope="row">{{os.id}}</th>
-                    <td>{{ os.cliente.nome }}</td>
-                    <td>{{ os.empresa.razao_social }}</td>
-                    <td>{{ os.servico.tipo }}</td>
-                    <td>{{ os.data }}</td>
-                    <td>{{ os.data_finalizacao}}</td>
-                    <td>
+                <th scope="col">ID</th>
+                <th scope="col">CLIENTE</th>
+                <th scope="col">EMPRESA</th>
+                <th scope="col">SERVIÇO</th>
+                <th scope="col">DATA INICIAL</th>
+                <th scope="col">DATA FINALIZAÇÂO</th>
+                <th scope="col">Opções</th>
+                </tr>
+            </thead>
+        </div>
+
+        <tbody>
+            <div class="container">
+                {% for os in ordemservicos %}
+
+                    <tr>
+                        <th scope="row">{{os.id}}</th>
+                        <td>{{ os.cliente.nome }}</td>
+                        <td>{{ os.empresa.razao_social }}</td>
+                        <td>{{ os.servico.tipo }}</td>
+                        <td>{{ os.data }}</td>
+                        <td>{{ os.data_finalizacao}}</td>
+                        <td>
+                            
+                        <!-- {% for servico in os.servico.all %}
+                                <th>{{ servico.tipo_servico }} - R$ {{ servico.valor_servico }} - {{ servico.empresa.razao_social }}</th>
+                            {% endfor %}-->
+                        </td>
+                        <td>  
                         
-                       <!-- {% for servico in os.servico.all %}
-                            <th>{{ servico.tipo_servico }} - R$ {{ servico.valor_servico }} - {{ servico.empresa.razao_social }}</th>
-                        {% endfor %}-->
-                    </td>
-                    <td>  
-                    
-                        <div class="btns_formulario">
-                            <a href="{% url "pg_editar_ordemservico" os.id %}" >
-                                <span>Editar Ordem de Serviços:</span>
-                            </a> 
-                            <a href="{% url "pg_excluir_ordemservico" os.id %}"onclick=" return confirm('Deseja realmente excluir?')">
-                                <span>Excluir Ordem de Serviços:</span>
-                            </a>
-                        </div>
-                    
-                    </td>
-                </tr>    
-            {% endfor %}
+                            <div class="btns_formulario">
+                                <a href="{% url "pg_editar_ordemservico" os.id %}" >
+                                    <span>Editar Ordem de Serviços:</span>
+                                </a> 
+                                <a href="{% url "pg_excluir_ordemservico" os.id %}"onclick=" return confirm('Deseja realmente excluir?')">
+                                    <span>Excluir Ordem de Serviços:</span>
+                                </a>
+                            </div>
+                        
+                        </td>
+                    </tr>    
+                {% endfor %}
+            </div>
         </tbody>
     </table>
     
