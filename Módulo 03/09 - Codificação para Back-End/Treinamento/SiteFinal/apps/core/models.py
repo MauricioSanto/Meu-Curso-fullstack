@@ -36,6 +36,7 @@ class OrdemServico(models.Model):
     servico = models.ForeignKey(Servico, on_delete=models.CASCADE)
     data = models.DateTimeField(auto_now_add=True)
     data_finalizacao = models.DateTimeField(blank=True, null=False)
+    status = models.BooleanField(blank=True, null=True)
     def __str__(self):
         return "OS: " + self.id + " | " + self.cliente.nome
     

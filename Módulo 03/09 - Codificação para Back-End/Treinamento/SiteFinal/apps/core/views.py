@@ -1079,6 +1079,7 @@ def CriarOrdemServico(request):
             'servico_id': request.POST['servico_id'],
             'data':request.POST['data'],
             'data_finalizacao':request.POST['data_finalizacao'],
+            'status':request.POST['status'],
         }
                
         # Fazendo a solicitação POST
@@ -1150,6 +1151,7 @@ def EditarOrdemServico(request, id_os):
             'empresa_id': request.POST['empresa_id'],
             'data': request.POST['data'],
             'data_finalizacao': request.POST['data_finalizacao'],
+            'status':request.POST['status'],
             
         }
                

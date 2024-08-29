@@ -50,8 +50,6 @@
                     {% endfor %}
                 </select>
                 
-
-                
                     <label for="id_empresa">Empresa:</label>
                     <select name="empresa_id" required="" id="empresa_id">
                         <option value="{{ordemservico.empresa_id}}" selected="{{ordemservico.empresa_id}}">{{ordemservico.empresa.razao_social}}</option>
@@ -59,8 +57,6 @@
                             <option value="{{ empresa.id }}">{{ empresa.razao_social }}</option>
                         {% endfor %}
                     </select>
-                
-                        
                 
                 <label for="id_servico">Serviço:</label>
                 <select name="servico_id" required="" id="servico_id">
@@ -70,15 +66,30 @@
                     {% endfor %}
                 </select>
                 
-                
-                
-                    <label for="data">Data Inicio do servico:</label>
-                    <input type="date" name="data" maxlength="100"  id="data" value="{{ ordemservico.data}}">
-                
-                
-                
-                    <label for="data">Data Término do Serviço:</label>
-                    <input type="date" name="data_finalizacao" maxlength="100"  id="data_finalizacao" value="{{ ordemservico.data_finalizacao}}">
+                <label for="data">Data Inicio do servico:</label>
+                <input type="date" name="data" maxlength="100"  id="data" value="{{ ordemservico.data}}">
+            
+                <label for="data">Data Término do Serviço:</label>
+                <input type="date" name="data_finalizacao" maxlength="100"  id="data_finalizacao" value="{{ ordemservico.data_finalizacao}}">
+
+                <label for="status">STATUS:</label>
+                <select name="status"  id="status" >
+                    {% if ordemservico %}
+                        <option value="{{ ordemservico.status }}" selected="{{ ordemservico.status }}">
+                            {% if ordemservico.status == 0 %}
+                                Em andamento
+                            {% else %}
+                                Concluido
+                            {% endif%}
+                        </option>
+                    {% else%}
+                    <option value=""></option>
+                    {% endif%}
+                    <option value="0">Em andamento</option>
+                    <option value="1">Concluído</option>
+                    
+        
+                </select>
                 
                 <button type="submit"class='btn btn-primary'>Salvar</button>
                 <a href="{% url "pg_inicial" %}">
@@ -100,11 +111,12 @@
             <th scope="col">Tipo Serviço</th>
             <th scope="col">Data Inicial</th>
             <th scope="col">Data Final</th>
+            <th scope="col">Status</th>
             <th scope="col">Opções</th>
             </tr>
         </thead>
-        <tbody>
 
+        <tbody>
             {% for os in ordemservicos %}
                 <tr>
                     <th scope="row">{{os.id}}</th>
@@ -113,13 +125,22 @@
                     <td>{{ os.servico.tipo }}</td>
                     <td>{{ os.data }}</td>
                     <td>{{ os.data_finalizacao}}</td>
+                    {% if os.status == 0 %}
+                        <td>Em andamento</td>
+                    {% else %}
+                        <td>Concluido</td>
+                    {% endif%}
                     <td>
                         <div class="btns_formulario">
                             <a href="{% url "pg_editar_ordemservico" os.id %}">
-                                <span>Editar Ordem de Serviços:</span>
+                                <div>
+                                    <img src='https://img.icons8.com/?size=100&id=8rqSU6umQzpk&format=png&color=000000' width='35' height='35'>Editar</img>
+                                </div>
                             </a> 
                             <a href="{% url "pg_excluir_ordemservico" os.id %}"onclick=" return confirm('Deseja realmente excluir?')">
-                                <span>Excluir Ordem de Serviços:</span>
+                                <div> 
+                                    <img src='https://img.icons8.com/?size=100&id=57061&format=png&color=000000' width='35' height='35'>Excluir</img>
+                                </div>
                             </a>
                         </div>
                     </td>

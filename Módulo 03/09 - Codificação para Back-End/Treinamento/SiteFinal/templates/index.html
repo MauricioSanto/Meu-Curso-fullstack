@@ -2,7 +2,7 @@
 {% load static %}
 
 {%block titulo%}
-   
+<div class="container">  
     <h2>PÀGINA PRINCIPAL</h2>
     <nav class="nav">
         
@@ -15,7 +15,8 @@
         <a class="nav-link" href="{% url "pg_criar_categoria" %}">CATEGORIA</a>
         
     </nav>
-   
+</div>
+
        
         
        <!-- <div class="dropdown">
@@ -33,56 +34,65 @@
 
 {%block conteudo%}
 
-    
+<div class="container"> 
     <h2>Lista de Ordens de Serviços</h2>
     <table class="table">
-        <div class="container">
-            <thead>
-                <tr>
+    
+        <thead>
+            <tr>
                 <th scope="col">ID</th>
                 <th scope="col">CLIENTE</th>
                 <th scope="col">EMPRESA</th>
                 <th scope="col">SERVIÇO</th>
                 <th scope="col">DATA INICIAL</th>
                 <th scope="col">DATA FINALIZAÇÂO</th>
+                <th scope="col">STATUS</th>
                 <th scope="col">Opções</th>
-                </tr>
-            </thead>
-        </div>
-
+            </tr>
+        </thead>
+    
         <tbody>
-            <div class="container">
-                {% for os in ordemservicos %}
+           
+            {% for os in ordemservicos %}
 
-                    <tr>
-                        <th scope="row">{{os.id}}</th>
-                        <td>{{ os.cliente.nome }}</td>
-                        <td>{{ os.empresa.razao_social }}</td>
-                        <td>{{ os.servico.tipo }}</td>
-                        <td>{{ os.data }}</td>
-                        <td>{{ os.data_finalizacao}}</td>
-                        <td>
-                            
-                        <!-- {% for servico in os.servico.all %}
-                                <th>{{ servico.tipo_servico }} - R$ {{ servico.valor_servico }} - {{ servico.empresa.razao_social }}</th>
-                            {% endfor %}-->
-                        </td>
-                        <td>  
+                <tr>
+                    <th scope="row">{{os.id}}</th>
+                    <td>{{ os.cliente.nome }}</td>
+                    <td>{{ os.empresa.razao_social }}</td>
+                    <td>{{ os.servico.tipo }}</td>
+                    <td>{{ os.data }}</td>
+                    <td>{{ os.data_finalizacao}}</td>
+                    {% if os.status == 0 %}
+                        <td>Em andamento</td>
+                    {% else %}
+                        <td>Concluido</td>
+                    {% endif%}
+                    <td>
                         
-                            <div class="btns_formulario">
-                                <a href="{% url "pg_editar_ordemservico" os.id %}" >
-                                    <span>Editar Ordem de Serviços:</span>
-                                </a> 
-                                <a href="{% url "pg_excluir_ordemservico" os.id %}"onclick=" return confirm('Deseja realmente excluir?')">
-                                    <span>Excluir Ordem de Serviços:</span>
-                                </a>
-                            </div>
-                        
-                        </td>
-                    </tr>    
-                {% endfor %}
-            </div>
+                    <!-- {% for servico in os.servico.all %}
+                            <th>{{ servico.tipo_servico }} - R$ {{ servico.valor_servico }} - {{ servico.empresa.razao_social }}</th>
+                        {% endfor %}-->
+                    </td>
+                    <td>  
+                    
+                        <div class="btns_formulario">
+                            <a href="{% url "pg_editar_ordemservico" os.id %}" >
+                                <div>
+                                    <img src='https://img.icons8.com/?size=100&id=8rqSU6umQzpk&format=png&color=000000' width='35' height='35'>Editar</img>
+                                </div>
+                            </a> 
+                            <a href="{% url "pg_excluir_ordemservico" os.id %}"onclick=" return confirm('Deseja realmente excluir?')">
+                                <div> 
+                                    <img src='https://img.icons8.com/?size=100&id=57061&format=png&color=000000' width='35' height='35'>Excluir</img>
+                                </div>
+                            </a>
+                        </div>
+                    
+                    </td>
+                </tr>    
+            {% endfor %}
+            
         </tbody>
     </table>
-    
+</div>   
 {%endblock%}
