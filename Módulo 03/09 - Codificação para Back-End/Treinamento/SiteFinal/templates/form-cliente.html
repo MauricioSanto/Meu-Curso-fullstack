@@ -14,34 +14,53 @@
 {%block conteudo%}
 <div class="container">
 
-    <form method="post" id='form_cliente'>
+    <form method="post" id='form_cliente' enctype="multipart/form-data">
         {% csrf_token %}
-    
-        <label for="id_cliente">Nome:</label>
-        <input type="text" name="nome" maxlength="100"  id="nome" value="{{ cliente.nome}}">  
-
-        <label for="id_cliente">Data de Nascimento:</label>
-        <input type="date" name="data_nascimento" maxlength="100"  id="data_nascimento" value="{{ cliente.data_nascimento}}">  
-
-        <label for="id_cliente">Foto:</label>
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form.as_p}}
-            
-            <button type='submit'>Enviar</button>
-            <input type="file" name="foto"  value="{{cliente.id}}" >{{cliente.foto}}</input>
-            <!--<option value="{{cliente.id}}" selected="{{cliente.id}}">{{cliente.foto}}</option>-->
-            <!--<button type="submit">Enviar</button>-->
-            <div>
-                <button type="submit"class='btn btn-primary'>Salvar</button>
-                <a href="{% url "pg_criar_cliente" %}">
-                    <button type="button"class='btn btn-danger'>Cancelar</button>
-                </a>
-            </div>
-        </form>
-        
-        
-        
+        <div>
+            <label for="id_cliente">Nome:</label>
+            <input type="text" name="nome" maxlength="100"  id="nome" value="{{ cliente.nome}}">  
+        </div>
+        <div>
+            <label for="id_cliente">Data de Nascimento:</label>
+            <input type="date" name="data_nascimento" maxlength="100"  id="data_nascimento" value="{{ cliente.data_nascimento}}">  
+        </div>
+        <div>
+            <label for="id_cliente">Foto:</label>
+            <input type="file" name="foto">
+        </div>
+        <div>
+            <img src="{{foto}}">
+        </div>
+        <div>
+            <label for="status">STATUS:</label>
+                <select name="status"  id="status" >
+                    {% if cliente %}
+                        <option value="{{ cliente.status }}" selected="{{ cliente.status }}">
+                            {% if cliente.status == 0 %}
+                                Ativo
+                            {% else %}
+                                Inativo
+                            {% endif%}
+                        </option>
+                    {% else%}
+                    <option value=""></option>
+                    {% endif%}
+                    <option value="0">Inativo</option>
+                    <option value="1">Ativo</option>
+                </select>
+            </label>
+        </div>
+        <!--<button type='submit'>Enviar</button>-->
+        <!--<input type="file" name="foto"  value="{{cliente.id}}" >{{cliente.foto}}</input>-->
+        <!--<option value="{{cliente.id}}" selected="{{cliente.id}}">{{cliente.foto}}</option>-->
+        <!--<button type="submit">Enviar</button>-->
+        <div>
+            <button type="submit"class='btn btn-primary'>Salvar</button>
+            <a href="{% url "pg_criar_cliente" %}">
+                <button type="button"class='btn btn-danger'>Cancelar</button>
+            </a>
+        </div>
+         
     </form>
  
     <h2>Lista de Clientes</h2>
@@ -53,6 +72,7 @@
             <th scope="col">NOME</th>
             <th scope="col">DATA NASCIMENTO</th>
             <th scope="col">FOTO</th>
+            <th scope="col">STATUS</th>
             <th scope="col">Opções</th>
             </tr>
         </thead>
@@ -63,6 +83,11 @@
                     <td>{{ cliente.nome }}</td>
                     <td>{{ cliente.data_nascimento }}</td>
                     <td>"{{ cliente.foto }}" </td>
+                    {% if cliente.status == 0 %}
+                        <td>inativo</td>
+                    {% else %}
+                        <td>Ativo</td>
+                    {% endif%}
                     <td>
                         <div class="btns_formulario">
                             <a href="{% url "pg_editar_cliente" cliente.id %}">

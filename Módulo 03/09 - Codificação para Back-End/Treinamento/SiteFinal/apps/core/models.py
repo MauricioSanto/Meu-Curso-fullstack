@@ -4,6 +4,7 @@ class Cliente(models.Model):
     nome = models.CharField(max_length=100)
     data_nascimento = models.DateField()
     foto = models.ImageField(upload_to="foto_perfil")
+    status = models.BooleanField(blank=True, null=True)
 
     def __str__(self):
         return self.nome
@@ -34,7 +35,7 @@ class OrdemServico(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     empresa =  models.ForeignKey(Empresa, on_delete=models.CASCADE)
     servico = models.ForeignKey(Servico, on_delete=models.CASCADE)
-    data = models.DateTimeField(auto_now_add=True)
+    data = models.DateTimeField(blank=True, null=True)
     data_finalizacao = models.DateTimeField(blank=True, null=False)
     status = models.BooleanField(blank=True, null=True)
     def __str__(self):
