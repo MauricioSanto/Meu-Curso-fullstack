@@ -542,7 +542,7 @@ def CriarCliente(request):
             return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
     
         # Extraia a string desejada do JSON
-        clientes = dados['clientes']
+        clientes = dados['cliente']
         return render(request, "form-cliente.html", { "clientes": clientes })
     else:
         # Dados que você deseja enviar no corpo da solicitação POST
@@ -596,7 +596,7 @@ def EditarCliente(request, id_cliente):
     resposta_cliente = requests.get(url_listar_cliente, headers=headers)
     resposta_cliente.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
     dados_clientes = resposta_cliente.json() # Obtém os dados JSON da resposta
-    clientes = dados_clientes['clientes']
+    clientes = dados_clientes['cliente']
 
     if request.method == "GET":
         return render(request, "form-cliente.html", {"cliente":cliente, "clientes" : clientes}) 
@@ -605,15 +605,18 @@ def EditarCliente(request, id_cliente):
         foto = request.FILES.get('foto')
         nome = request.POST['nome']
         data_nascimento = request.POST['data_nascimento']
-        url = 'http://127.0.0.1:9000/api/clientes'+ str(id_cliente)
+        status = request.POST['status']
+
         files = {
-             'foto': (foto.nome,foto, foto.content_type),
+             'foto': (foto.name,foto, foto.content_type),
         }
         data = {
             'nome':nome,
-            'data_nascimento': data_nascimento
+            'data_nascimento': data_nascimento,
+            'status': status,
         }
-        response = request.post(url, data=data,files=files, headers= headers)    
+        response = requests.post(url_editar_cliente, data=data,files=files, headers= headers)    
+
         # Fazendo a solicitação POST
        # response = requests.put(url_editar_cliente, json=json, headers=headers)
 
@@ -678,8 +681,8 @@ def CriarProduto(request):
             return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
     
         # Extraia a string desejada do JSON
-        produtos = dados['produtos']
-        return render(request, "form-produtos.html", {"form_produto": novo_produto, "produtos":produtos})
+        produto = dados['produtos']
+        return render(request, "form-produtos.html", {"form_produto": novo_produto, "produto":produto})
     else:
         # Dados que você deseja enviar no corpo da solicitação POST
         json = {
@@ -729,7 +732,7 @@ def EditarProduto(request, id_produto):
     produtos = dados_produtos['produtos']
 
     if request.method == "GET":
-        return render(request, "form-produtos.html", {"produto":produto, 'produtos' : produtos}) 
+        return render(request, "form-produtos.html", {'produto' : produto, 'produtos' : produtos}) 
     else:
         # Dados que você deseja enviar no corpo da solicitação POST
         json = {
