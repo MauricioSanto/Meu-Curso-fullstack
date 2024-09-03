@@ -430,6 +430,7 @@ def CriarEmpresa(request):
         json = {
             'razao_social': request.POST['razao_social'],
             'cnpj': request.POST['cnpj'],
+            'endereco': request.POST['endereco'],
             
         }
                 
@@ -477,7 +478,8 @@ def EditarEmpresa(request, id_empresa):
         # Dados que você deseja enviar no corpo da solicitação POST
         json = {
             'razao_social': request.POST['razao_social'],
-            'cnpj': request.POST['cnpj']
+            'cnpj': request.POST['cnpj'],
+            'endereco': request.POST['endereco'],
         }
                
         # Fazendo a solicitação POST
@@ -607,9 +609,13 @@ def EditarCliente(request, id_cliente):
         data_nascimento = request.POST['data_nascimento']
         status = request.POST['status']
 
-        files = {
-             'foto': (foto.name,foto, foto.content_type),
-        }
+        files = {}
+        if foto:
+            files['foto'] = (foto.name, foto, foto.content_type)
+
+        #files = {
+         #    'foto': (foto.name,foto, foto.content_type),
+        #}
         data = {
             'nome':nome,
             'data_nascimento': data_nascimento,
@@ -681,8 +687,8 @@ def CriarProduto(request):
             return HttpResponse(f'Erro ao consumir a API: {str(e)}', status=500)
     
         # Extraia a string desejada do JSON
-        produto = dados['produtos']
-        return render(request, "form-produtos.html", {"form_produto": novo_produto, "produto":produto})
+        produtos = dados['produtos']
+        return render(request, "form-produtos.html", {"form_produto": novo_produto, "produtos":produtos})
     else:
         # Dados que você deseja enviar no corpo da solicitação POST
         json = {
@@ -744,6 +750,7 @@ def EditarProduto(request, id_produto):
                
         # Fazendo a solicitação POST
         response = requests.put(url_editar_produto, json=json, headers=headers)
+
         
 
         # Obtendo o conteúdo da resposta
@@ -1055,7 +1062,7 @@ def CriarOrdemServico(request):
     resposta_clientes = requests.get(url_clientes, headers=headers)
     resposta_clientes.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
     dados_clientes = resposta_clientes.json() # Obtém os dados JSON da resposta
-    clientes = dados_clientes['clientes']
+    clientes = dados_clientes['cliente']
 
     resposta_servico = requests.get(url_servicos, headers=headers)
     resposta_servico.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
@@ -1138,7 +1145,7 @@ def EditarOrdemServico(request, id_os):
     resposta_clientes = requests.get(url_clientes, headers=headers)
     resposta_clientes.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
     dados_clientes = resposta_clientes.json() # Obtém os dados JSON da resposta
-    clientes = dados_clientes['clientes']
+    clientes = dados_clientes['cliente']
 
     resposta_servico = requests.get(url_servicos, headers=headers)
     resposta_servico.raise_for_status()  # Levanta um erro para códigos de status HTTP 4xx/5xx
