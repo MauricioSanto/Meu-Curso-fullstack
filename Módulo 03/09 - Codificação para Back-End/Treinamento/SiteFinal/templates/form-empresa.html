@@ -25,6 +25,9 @@
         
         <label for="id_empresa">ENDEREÇO:</label>
         <input type="text" name="endereco" maxlength="100"  id="endereco" value="{{ empresa.endereco }}"> 
+
+        <label for="id_empresa">TELEFONE:</label>
+        <input type="text" name="telefone" maxlength="100"  id="telefone" value="{{ empresa.telefone }}"> 
     
         <button type="submit" class='btn btn-primary'>Salvar</button>
         <a href="{% url "pg_criar_empresa" %}">
@@ -42,6 +45,7 @@
                 <th scope="col">Razão Social</th>
                 <th scope="col">CNPJ</th>
                 <th scope="col">ENDEREÇO</th>
+                <th scope="col">TELEFONE</th>
                 <th scope="col">Opções</th>
             </tr>
         </thead>
@@ -52,6 +56,7 @@
                     <td>{{ empresa.razao_social }}</td>
                     <td>{{ empresa.cnpj }}</td>
                     <td>{{ empresa.endereco }}</td>
+                    <td>{{ empresa.telefone }}</td>
 
                     <td>
                         <div class="btns_formulario">
