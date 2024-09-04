@@ -15,16 +15,23 @@
 <div class="container">       
     <form method="post" id="form_empresa">
         {% csrf_token %}
+        <div>
+            <label for="id_empresa">Razão Social:</label>
+            <input type="text" name="razao_social" maxlength="100"  id="razao_social" value="{{ empresa.razao_social }}">  
         
-        <label for="id_empresa">Razão Social:</label>
-        <input type="text" name="razao_social" maxlength="100"  id="razao_social" value="{{ empresa.razao_social }}">  
-    
-    
-        <label for="id_empresa">CNPJ:</label>
-        <input type="text" name="cnpj" maxlength="100"  id="cnpj" value="{{ empresa.cnpj }}">
         
-        <label for="id_empresa">ENDEREÇO:</label>
-        <input type="text" name="endereco" maxlength="100"  id="endereco" value="{{ empresa.endereco }}"> 
+            <label for="id_empresa">CNPJ:</label>
+            <input type="text" name="cnpj" maxlength="20"  id="cnpj" value="{{ empresa.cnpj }}">
+            
+            <label for="id_empresa">ENDEREÇO:</label>
+            <input type="text" name="endereco" maxlength="100"  id="endereco" value="{{ empresa.endereco }}"> 
+
+            <label for="id_empresa">NÚMERO:</label>
+            <input type="number" name="numero" maxlength="06"  id="numero" value="{{ empresa.numero }}"> 
+        </div>
+        <label for="id_empresa">CEP:</label>
+        <input type="text" name="cep" maxlength="10"  id="cep" value="{{ empresa.cep }}"> 
+       
 
         <label for="id_empresa">TELEFONE:</label>
         <input type="text" name="telefone" maxlength="100"  id="telefone" value="{{ empresa.telefone }}"> 
@@ -45,6 +52,8 @@
                 <th scope="col">Razão Social</th>
                 <th scope="col">CNPJ</th>
                 <th scope="col">ENDEREÇO</th>
+                <th scope="col">NÚMERO</th>
+                <th scope="col">CEP</th>
                 <th scope="col">TELEFONE</th>
                 <th scope="col">Opções</th>
             </tr>
@@ -56,7 +65,10 @@
                     <td>{{ empresa.razao_social }}</td>
                     <td>{{ empresa.cnpj }}</td>
                     <td>{{ empresa.endereco }}</td>
+                    <td>{{ empresa.numero }}</td>
+                    <td>{{ empresa.cep }}</td>
                     <td>{{ empresa.telefone }}</td>
+                   
 
                     <td>
                         <div class="btns_formulario">

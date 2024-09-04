@@ -36,7 +36,7 @@
             <select name="status"  id="status" >
                 {% if cliente %}
                     <option value="{{ cliente.status }}" selected="{{ cliente.status }}">
-                        {% if cliente.status == 0 %}
+                        {% if cliente.status == 1 %}
                             Ativo
                         {% else %}
                             Inativo
@@ -84,10 +84,10 @@
                     <td>{{ cliente.nome }}</td>
                     <td>{{ cliente.data_nascimento }}</td>
                     <td>"{{ cliente.foto }}" </td>
-                    {% if cliente.status == 0 %}
-                        <td>inativo</td>
-                    {% else %}
+                    {% if cliente.status == 1 %}
                         <td>Ativo</td>
+                    {% else %}
+                        <td>Inativo</td>
                     {% endif%}
                     <td>
                         <div class="btns_formulario">

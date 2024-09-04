@@ -431,6 +431,9 @@ def CriarEmpresa(request):
             'razao_social': request.POST['razao_social'],
             'cnpj': request.POST['cnpj'],
             'endereco': request.POST['endereco'],
+            'telefone': request.POST['telefone'],
+            'numero': request.POST['numero'],
+            'cep': request.POST['cep'],
             
         }
                 
@@ -480,6 +483,10 @@ def EditarEmpresa(request, id_empresa):
             'razao_social': request.POST['razao_social'],
             'cnpj': request.POST['cnpj'],
             'endereco': request.POST['endereco'],
+            'telefone': request.POST['telefone'],
+            'numero': request.POST['numero'],
+            'cep': request.POST['cep'],
+
         }
                
         # Fazendo a solicitação POST
