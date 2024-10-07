@@ -79,6 +79,18 @@ def CriarFuncionario(request):
         novo_funcionario = FormularioFuncionario()
     return render(request, "cadastroFuncionario.html", {"formulario": novo_funcionario, "funcionario": busca_funcionario})
 
+def EditarFuncionario(request, id_funcionario):
+    busca_funcionario = cadastro_funcionarios.objects.get(id=id_funcionario)
+    if request.method == "POST":
+        funcionario_editado = FormularioFuncionario(request.POST, instance=busca_funcionario)
+        if funcionario_editado.is_valid():
+            funcionario_editado.save()
+            return redirect('pg_editar_funcionario')
+    else:
+        funcionario_editado = FormularioFuncionario(instance=busca_funcionario)
+    return render(request, "editarFuncionario.html", {"formulario": funcionario_editado})
+
+
 def ExcluirFuncionario(request, id_funcionario):
     busca_funcionario = cadastro_funcionarios.objects.get(id=id_funcionario)
     if request.method == "POST":

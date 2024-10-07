@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <body>
+        <h3>Editar Funcionario</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+            <button type="submit">Salvar</button>
+            <a href="{% url 'pg_editar_funcionario' %}"><button type="button">Cancelar</button></a>
+        </form>
+
+    </body>
+</html>

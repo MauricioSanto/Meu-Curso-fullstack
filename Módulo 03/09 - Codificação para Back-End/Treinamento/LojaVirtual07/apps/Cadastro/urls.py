@@ -16,6 +16,7 @@ urlpatterns = [
     path("editar-carro/<int:id_carro>/", EditarCarro, name="pg_editar_carro"),
     path("cadastroFuncionario",CriarFuncionario,name="pagina_cadastro_funcionario"),
     path("deleteFuncionario",VerFuncionario, name='delete_funcionario'),
+    path("editar-funcionario/<int:id_funcionario>/", EditarFuncionario, name="pg_editar_funcionario"),
     path("excluir-funcionario/<int:id_funcionario>",ExcluirFuncionario,name="pagina_delete_funcionario"),
 ]
 

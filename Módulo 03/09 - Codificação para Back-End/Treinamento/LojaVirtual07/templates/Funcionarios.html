@@ -16,6 +16,7 @@
                     <p>{{ cadastro.nome }}</p> 
                     <p>{{ cadastro.email }}</p>
                     <p>{{cadastro.celular}}</p>
+                    <a href="{% url 'pg_editar_funcionario' cadastro.id %}">Editar Funcionario</a> 
                     <a href="{% url 'pagina_delete_funcionario' cadastro.id %}">Excluir Funcionario</a> 
                 </div>
             {% endfor %}
