@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comentarios extends Model
 {
     use HasFactory;
-    protected $fillable = ['conteudo', 'data_comentario'];
+    protected $fillable = ['conteudo', 'data_comentario','user_id','postagem_id'];
     public function users()
     {
         return $this->belongsTo (User::class);
