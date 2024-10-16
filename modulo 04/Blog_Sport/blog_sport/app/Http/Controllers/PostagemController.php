@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Postagens;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostagemController extends Controller
@@ -12,9 +13,10 @@ class PostagemController extends Controller
      */
     public function index()
     {
-        $postagens = Postagens::all();
+        $postagens = Postagens::with('User')->get();
+        $users = User::all();
         
-        return view('postagem.index', compact('postagens'));
+        return view('postagem.index', compact('postagens','users'));
     }
 
     /**
@@ -22,7 +24,7 @@ class PostagemController extends Controller
      */
     public function create()
     {
-        return view('postagem.create');
+        return view('postagens.create');
     }
 
     /**
@@ -32,11 +34,14 @@ class PostagemController extends Controller
     {
         $request->validate([
             'titulo' => 'required',
+            'data_postagem'=>'date',
+            'conteudo'=>'text',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             
         ]);
 
         Postagens::create($request->all());
-        return redirect()->route('categorias.index')->with('success', 'Categoria criada com sucesso.');
+        return redirect()->route('postagem.index')->with('success', 'Postagem criada com sucesso.');
     
     }
 
@@ -51,24 +56,45 @@ class PostagemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Postagens $postagens)
+    public function edit($id)
     {
-        //
+        $postagem = Postagens::find($id);
+        return view('postagens.editar',compact('postagens'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Postagens $postagens)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'titulo' => 'required',
+            'data_postagem'=>'date',
+            'conteudo'=>'text',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+           
+        ]);
+        $postagem = Postagens::find($id);
+        $foto_camimho = $request->file('foto')->store('fotos', 'public');
+        
+        $postagem->titulo =  $request->titulo;
+        $postagem->data_postagem = $request->data_postagem;
+        $postagem->foto = $foto_camimho;
+        $postagem->conteudo= $request->conteudo;
+        $postagem->save();
+
+        return redirect()->route('postagem.index')->with('success', 'Postagem atualizada com sucesso.');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Postagens $postagens)
+    public function destroy($id)
     {
-        //
+        $postagem = Postagens::find($id);
+        $postagem->delete();
+        return redirect()->route('postagem.index')->with('success', 'Postagem removida com sucesso.');
+    
     }
 }

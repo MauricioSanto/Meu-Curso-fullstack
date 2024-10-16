@@ -9,7 +9,8 @@ class Postagens extends Model
 {
     use HasFactory;
     protected $fillable = ['user_id','titulo', 'conteudo' , 'data_postagem','foto'];
-    public function users()
+
+    public function user()
     {
         return $this->belongsTo (User::class);
 
