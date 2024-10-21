@@ -47,4 +47,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
