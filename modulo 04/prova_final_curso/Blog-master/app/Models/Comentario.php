@@ -5,10 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Empresa extends Model
+class Comentario extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome','logo','publicacao_id'];
+    protected $fillable = ['conteudo','user_id','publicacao_id'];
+    public function users()
+    {
+        return $this->hasMany (User::class);
+
+    }
     public function publicacaos()
     {
         return $this->hasMany (Publicacao::class);
