@@ -3,36 +3,41 @@
     <head>
         <title>Publicação</title>
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <style>
+            .col-sm {
+            padding: 10px;
+        }
+        </style>
     </head>
     <body>
      
         <div class="container">
             <div class="row align-items-start">
                 <div class="col-sm">
-                @guest
-                <img class="img-fluid" src="{{ asset('storage/logo/logo_sabor_do_brasil.png')}}" style="width: 150px; height: 150px;">
-                <div class="row align-items-start">
-                    <div class="col-sm">
-                            <p>{{$quantidade_like}}</p>
-                            <p>Quantidade likes</p>
+                    @guest
+                    <img class="img-fluid" src="{{ asset('storage/logo/logo_sabor_do_brasil.png')}}" style="width: 150px; height: 150px;">
+                    <div class="row align-items-center">
+                        <div class="col-sm">
+                                <p>{{$quantidade_like}}</p>
+                                <p>likes</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>{{  $quantidade_deslike }} </p>
+                            <p>deslikes</p>
+                        </div>
                     </div>
-                    <div class="col-sm">
-                        <p>{{  $quantidade_deslike }} </p>
-                        <p>Quantidade deslikes</p>
-                    </div>
-                </div>
-                @endguest
-                @auth
-                    <img class="img-fluid" src="{{ asset('storage/' .Auth::user()->foto)}}" style="width: 150px; height: 150px;">
-                @endauth
+                    @endguest
+                    @auth
+                    <img  class="rounded-circle" src="{{ asset('storage/' .Auth::user()->foto)}}"  style="width: 150px; height: 150px;">
+                    @endauth
                 </div>
                 <div class="col-sm">
                     
                     @foreach ($publicacoes as $publicacao)
                         <div class="col-sm"> 
-
+                           
                             <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="{{ asset('storage/' . $publicacao->foto) }}" alt="Imagem de capa do card">
+                                <img class="card-img-top" src="{{ asset('storage/' .$publicacao->foto) }}" alt="Imagem de capa do card">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $publicacao->titulo }}</h5>
                                     <div class="row align-items-start">
@@ -131,6 +136,26 @@
                 
            
         </div>
+        <footer class="col-sm">
+            <div class="container text-center">
+                <p class="mb-1">Sabor do Brasil &copy; {{ date('Y') }}</p>
+                <p class="mb-1">Corporing</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" class="text-white me-3">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="text-white me-3">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="text-white me-3">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
            
     </body>
     <script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
