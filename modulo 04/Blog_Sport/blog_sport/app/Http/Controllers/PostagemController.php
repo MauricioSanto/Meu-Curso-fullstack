@@ -13,7 +13,7 @@ class PostagemController extends Controller
      */
     public function index()
     {
-        $postagens = Postagens::with('User')->get();
+        $postagens = Postagens::with('User','Avalicao','Comnetario')->get();
         $users = User::all();
         
         return view('postagem.index', compact('postagens','users'));

@@ -9,7 +9,8 @@ class Empresa extends Model
 {
     use HasFactory;
     protected $fillable = ['nome','logo','publicacao_id'];
-    public function publicacaos()
+    
+    public function publicacao()
     {
         return $this->hasMany (Publicacao::class);
 

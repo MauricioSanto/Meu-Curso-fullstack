@@ -9,17 +9,18 @@ class Publicacao extends Model
 {
     use HasFactory;
     protected $fillable = ['foto','titulo_prato','local','cidade','empresa_id','comentario_id','avaliacao_id'];
-    public function empresas()
+    
+    public function empresa()
     {
-        return $this->hasMany (Empresa::class);
+        return $this->belongsTo (Empresa::class);
 
     }
-    public function comentarios()
+    public function comentario()
     {
        return $this->hasMany (Comentario::class);
    
     }
-    public function avaliacaos()
+    public function avaliacao()
     {
        return $this->hasMany (Avaliacao::class);
    
